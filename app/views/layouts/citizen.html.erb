@@ -31,9 +31,9 @@
 	        <h1><%=t :main_header %></h1>
         <%end %>
         <hr>
-		<%=t :choice %>: <a href="/cases"><%=t :cases %></a> | 
+		<%=t :choice %>: <%= link_to "#{t :cases}", :controller=>"cases"%> | 
 		<!-- <a href="/documents"><%=t :documents %></a> |  -->
-		<a href="/vote_proxies/manage"><%=t :vote_proxies %></a> | 
+		<%= link_to "#{t :cases}", :controller=>"vote_proxies", :action=>"manage"%> | 
 		<!-- <a href="/categories"><%=t :categories %></a> |  -->
 		<!-- <a href="/issues"><%=t :issues %></a> -->
 		<!-- <a href="/document_states"><%=t :document_states %></a> |  -->
