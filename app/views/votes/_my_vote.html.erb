@@ -1,47 +1,64 @@
-  <h2> <%= t :your_vote %> </h2>
-  <% if document.vote_by_user(session[:user_id]) %>
-      <% if document.vote_by_user(session[:user_id])[0]=="in_support" %>
-        <%= t :you_have_voted_in_support_of_this_law %><br>
-      <% elsif document.vote_by_user(session[:user_id])[0]=="in_support_proxy" %>
-        <%= t :you_have_voted_in_support_of_this_through_a_proxy %>. <%= t :proxy_name%> <%=document.vote_by_user(session[:user_id])[1] %><br>
-      <% elsif document.vote_by_user(session[:user_id])[0]=="against" %>
-        <%= t :you_have_voted_against_this_law %><br>
-      <% elsif document.vote_by_user(session[:user_id])[0]=="against_proxy" %>
-        <%= t :you_have_voted_against_this_through_a_proxy %>. <%= t :proxy_name%> <%=document.vote_by_user(session[:user_id])[1] %><br>
-      <% end %>
-  <% else %>
-    <%= t :you_have_not_voted_for_this_law %><br>
-  <% end %>
-  <br>
-<% if document.voting_close_time > Time.now %>
-    <%= t :this_vote_is_still_open %><br>
-    <% @vote = Vote.new %>
-	<% form_for(@vote) do |f| %>
-		<table>
-		<tr>
-		<td colspan=2 align="center"><b><%=t :your_vote %></b></td>
-		</tr>
-		<tr>
-		<td><%=t :in_support%></td>
-		<td><%=t :against%></td>
-		</tr>
-		<tr>
-		<td><%= f.radio_button :agreed, 1 %></td>
-		<td><%= f.radio_button :agreed, 0 %></td>
-		</tr>
-		<tr>
-		<td colspan=2>
-		<%= f.hidden_field :document_id, {:value=>document.id}%>
-		<p> <%= f.submit t(:post_vote) %> </p>
-		</td>
-		</tr>
-		</table>
-	<% end %>    
-
-  <% if document.vote_id_by_user(session[:user_id]) %>
-        <%= button_to t(:remove_my_vote), {:controller=>"votes", :action=>"destroy", :id=>document.vote_id_by_user(session[:user_id])}, :confirm => t(:are_you_sure?), :method => :delete %>
-  <% end %>
-   
+<h2><%= t :your_vote %></h2>
+<% if document.vote_by_user(session[:user_id]) %>
+	<% if document.vote_by_user(session[:user_id])[0]=="in_support" %>
+		<%= t :you_have_voted_in_support_of_this_law %>
+		<br>
+	<% elsif document.vote_by_user(session[:user_id])[0]=="in_support_proxy" %>
+		<%= t :you_have_voted_in_support_of_this_through_a_proxy %>. <%= t :proxy_name %><%=document.vote_by_user(session[:user_id])[1] %>
+		<br>
+	<% elsif document.vote_by_user(session[:user_id])[0]=="against" %>
+		<%= t :you_have_voted_against_this_law %>
+		<br>
+	<% elsif document.vote_by_user(session[:user_id])[0]=="against_proxy" %>
+		<%= t :you_have_voted_against_this_through_a_proxy %>. <%= t :proxy_name %><%=document.vote_by_user(session[:user_id])[1] %>
+		<br>
+	<% end %>
 <% else %>
-    <%= t :this_vote_is_closed %><br>
+	<%= t :you_have_not_voted_for_this_law %>
+	<br>
+<% end %>
+<br>
+<% if document.voting_close_time > Time.now %>
+	<%= t :this_vote_is_still_open %>
+	<br>
+	<% @vote = Vote.new %>
+	<% form_for(@vote) do |f| %>
+	<table>
+	    <tr>
+	        <td colspan=2 align="center">
+	            <b><%=t :your_vote %></b>
+	        </td>
+	    </tr>
+	    <tr>
+	        <td>
+	            <%=t :in_support %>
+	        </td>
+	        <td>
+	            <%=t :against %>
+	        </td>
+	    </tr>
+	    <tr>
+	        <td>
+	            <%= f.radio_button :agreed, 1 %>
+	        </td>
+	        <td>
+	            <%= f.radio_button :agreed, 0 %>
+	        </td>
+	    </tr>
+	    <tr>
+	        <td colspan=2>
+	            <%= f.hidden_field :document_id, {:value=>document.id} %>
+	            <p>
+	                <%= f.submit t(:post_vote) %>
+	            </p>
+	        </td>
+	    </tr>
+	</table>
+	<% end %>
+	<% if document.vote_id_by_user(session[:user_id]) %>
+		<%= button_to t(:remove_my_vote), {:controller=>"votes", :action=>"destroy", :id=>document.vote_id_by_user(session[:user_id])}, :confirm => t(:are_you_sure?), :method => :delete %>
+	<% end %>
+<% else %>
+	<%= t :this_vote_is_closed %>
+<br>
 <% end %>

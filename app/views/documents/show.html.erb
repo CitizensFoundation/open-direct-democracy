@@ -1,21 +1,22 @@
 <p>
     <b><%=t :external_name %>:</b>
-    <%=h @document.case_document.case.info_1 %>- <%=h @document.case_document.case.info_2 %> - <%=h @document.case_document.case.info_3 %>
+    <%=h @document.case_document.case.info_1 %>- <%=h @document.case_document.case.info_2 %>- <%=h @document.case_document.case.info_3 %>
 </p>
 <p>
     <b><%=t :voting_close_time %>:</b>
     <%=h @document.voting_close_time %>
 </p>
 <% if @i_am_admin %>
-<hr><%= link_to t(:edit), edit_document_path(@document) %> |<%= link_to t(:back), documents_path %>
+	<hr>
+	<%= link_to t(:edit), edit_document_path(@document) %> |<%= link_to t(:back), documents_path %>
 <% end %>
 <hr>
-<table valign="top">
+<table valign="top" width="100%">
     <tr valign="top">
-        <td valign="top">
+        <td valign="top" width="30%">
             <%= render :partial => "votes/my_vote", :locals => { :document => @document } %>
         </td>
-        <td valign="top">
+        <td valign="top" width="70%">
             <%= render :partial => "votes/vote_status" %>
         </td>
     </tr>
@@ -30,9 +31,9 @@
 <p>
     <b><%=t :document_elements %>:</b>
     <% for element in @document_elements %>
-    <div id="document_element_number_<%=element.sequence_number%>">
-        <%= render :partial => "document_elements/element", :locals => {:document=> @document, :element => element, :open_panel => false } %>
-    </div>
+	    <div id="document_element_number_<%=element.sequence_number%>">
+	        <%= render :partial => "document_elements/element", :locals => {:document=> @document, :element => element, :open_panel => false } %>
+	    </div>
     <% end %>
 </p>
 <p>
