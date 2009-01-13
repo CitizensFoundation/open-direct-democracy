@@ -1,0 +1,55 @@
+<h1>New case_discussions</h1>
+
+<% form_for(@case_discussions) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :sequence_number %><br />
+    <%= f.text_field :sequence_number %>
+  </p>
+  <p>
+    <%= f.label :stage_sequence_number %><br />
+    <%= f.text_field :stage_sequence_number %>
+  </p>
+  <p>
+    <%= f.label :meeting_date %><br />
+    <%= f.text_field :meeting_date %>
+  </p>
+  <p>
+    <%= f.label :external_id %><br />
+    <%= f.text_field :external_id %>
+  </p>
+  <p>
+    <%= f.label :external_url %><br />
+    <%= f.text_field :external_url %>
+  </p>
+  <p>
+    <%= f.label :to_time %><br />
+    <%= f.text_field :to_time %>
+  </p>
+  <p>
+    <%= f.label :from_time %><br />
+    <%= f.text_field :from_time %>
+  </p>
+  <p>
+    <%= f.label :transcript_url %><br />
+    <%= f.text_field :transcript_url %>
+  </p>
+  <p>
+    <%= f.label :listen_url %><br />
+    <%= f.text_field :listen_url %>
+  </p>
+  <p>
+    <%= f.label :meeting_info %><br />
+    <%= f.text_field :meeting_info %>
+  </p>
+  <p>
+    <%= f.label :meeting_url %><br />
+    <%= f.text_field :meeting_url %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', case_discussionss_path %>

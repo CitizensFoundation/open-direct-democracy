@@ -1,0 +1,12 @@
+<% form_remote_tag :url => '/document_elements/create_change_proposal',
+				   :before => fckeditor_before_js("source_element", :content) do -%>
+  <%= fckeditor_textarea("source_element", :content, :toolbarSet => 'Simple', :ajax => true, :width => '100%', :height => '300px') %>   
+  <br><br>
+  <%= hidden_field_tag :source_id, element.id %>
+  
+  <%= submit_tag t(:submit_change_proposal) %> 
+  <%= button_to_remote( t(:cancel_change_proposal),   
+                           { :url => { :controller => "document_elements", :action => "cancel_new_change_proposal",   
+                             :source_id => element.id, :sequence_number => element.sequence_number } },  
+                           { :class => "", :name => "", :title => t(:cancel_change_proposal) } ) %>
+ <% end -%>

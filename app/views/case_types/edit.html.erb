@@ -1,0 +1,16 @@
+<h1>Editing case_type</h1>
+
+<% form_for(@case_type) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :case_type %><br />
+    <%= f.text_field :case_type %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @case_type %> |
+<%= link_to 'Back', case_types_path %>

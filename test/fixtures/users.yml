@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  email: MyString
+  password: MyString
+  first_name: MyString
+  last_name: MyString
+  citizen_id: MyString
+  reputation: 1.5
+
+two:
+  email: MyString
+  password: MyString
+  first_name: MyString
+  last_name: MyString
+  citizen_id: MyString
+  reputation: 1.5

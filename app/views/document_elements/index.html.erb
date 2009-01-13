@@ -1,0 +1,32 @@
+<h1>Listing document_elements</h1>
+
+<table>
+  <tr>
+    <th>Content type</th>
+    <th>Content</th>
+    <th>Content text only</th>
+    <th>Content number</th>
+    <th>Sequence number</th>
+    <th>Document</th>
+    <th>Parent</th>
+  </tr>
+
+<% for document_element in @document_elements %>
+  <tr>
+    <td><%=h document_element.content_type %></td>
+    <td><%=h document_element.content %></td>
+    <td><%=h document_element.content_text_only %></td>
+    <td><%=h document_element.content_number %></td>
+    <td><%=h document_element.sequence_number %></td>
+    <td><%=h document_element.document_id %></td>
+    <td><%=h document_element.parent_id %></td>
+    <td><%= link_to 'Show', document_element %></td>
+    <td><%= link_to 'Edit', edit_document_element_path(document_element) %></td>
+    <td><%= link_to 'Destroy', document_element, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New document_element', new_document_element_path %>

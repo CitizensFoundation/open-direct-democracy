@@ -1,0 +1,226 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+is:
+#  main_header: "Opið virkt lýðræði / Alþingi Almennings"
+  main_header: "Opið virkt lýðræði"
+  for_user: "fyrir"
+  user: "Notandi"
+  users: "Notendur"
+  password: "Lykilorð"
+  categories: "Efnisflokkar"
+  issues: "Málaflokkar"
+  name: "Nafn"
+  show: "Sýna"
+  edit: "Breyta"
+  destroy: "Eyða"
+  update: "Uppfæra"
+  back: "Til baka"
+  are_you_sure?: "Ertu viss?"
+  documents: "Skjöl"
+  document_states: "Skjala stöður"
+  document_types: "Skjala tegundir"
+  listing_categories: "Listi yfir efnisflokka"
+  new_category: "Nýr efnisflokkur"
+  editing_category: "Breyta efnisflokk"
+  listing_users: "Listi yfir notendur"
+  email: "Tölvupóstfang"
+  first_name: "Fyrri nöfn"
+  last_name: "Seinna nafn"
+  citizen_id: "Kennitala"
+  reputation: "Ferill"
+  new_user: "Nýr notandi"
+  new_document: "Nýtt skjal"
+  listing_ocuments: "Listi yfir skjöl"
+  original_external_name: "Upphaflegt nafn"
+  document_state: "Staða skjals"
+  document_type: "Tegund skjals"
+  voting_close_time: "Kosningu líkur"
+  your_vote: "Þitt atkvæði"
+  external_state: "Upphafleg staða"
+  you_have_voted_for_this_law: "Þú hefur greitt atkvæði um þessi lög" 
+  you_have_voted_against_this_law: "Þú hefur greitt atkvæði á móti þessum lögum"
+  you_have_voted_in_support_of_this_law: "Þú hefur greitt atkvæði með þessum lögum"
+  this_vote_is_still_open: "Atkvæðagreiðsla er enn opinn"
+  you_have_not_voted_for_this_law: "Þú hefur ekki greitt atkvæði"
+  no_votes_have_been_cast_for_this_law: "Engin atkvæði hafa verið greidd"
+  against: "Á móti"
+  in_support: "Með"
+  not_sure: "Ekki viss"
+  post_vote: "Kjósa um þessi lög"
+  remove_my_vote: "Eyða mínu atkvæði um þessi lög"
+  vote_status: "Staða á kosningu"
+  vote_count_in_support: "Atkvæðafjöldi með lögum"
+  vote_count_against: "Atkvæðafjöldi á móti lögum"
+  people_in_support: "Fólk með"
+  people_against: "Fólk á móti"
+  comments: "Athugasemdir"
+  rate_this_comment: "Gæði athugasemdar"
+  your_opinion: "Þín athugasemd"
+  bias: "Með eða á móti"
+  post_comment: "Bæta við athugasemd"
+  no_proxy_user_selected: "Ekki framselja atkvæði"
+  vote_proxies: "Framsal atkvæðis"
+  manage_your_vote_proxies: "Stjórn atkvæðisframsals"
+  category: "Efnisflokkur"
+  vote_proxy: "Atkvæði framselt til"
+  submit_your_vote_proxies: "Uppfæra atkvæðisframsal"
+  proxy_vote: "Framselt atkvæði"
+  you_have_voted_in_support_of_this_law_through_a_proxy: "Þú hefur greitt atkvæði með þessum lögum í gegnum framsal á atkvæði"
+  you_have_voted_against_this_law_through_a_proxy: "Þú hefur greitt atkvæði á móti þessum lögum í gegnum framsal á atkvæði"
+  proxy_name: "Nafn á þeim sem atkvæði er framselt til"
+  author: "Höfundur"
+  external_author: "Upphaflegur höfundur"
+  external_creation_date: "Upphaflega búið til"
+  external_link: "Slóð á upphaflegt skjal"
+  creation_date: "Dagsettning"
+  logout: "Aftengjast"
+  email_address: "Tölvupóstfang"
+  login: "Tengjast"
+  confirm_email_address: "Staðfestu tölvupóstfang"
+  confirm_password: "Staðfestu lykilorð"
+  register_now: "Skráðu þig inn í fyrsta skipti"
+  login_register: "Innskráning og Nýskráning"
+  login_instructions: "Leiðbeiningar"
+  login_welcome: "Skráðu þig inn eða búðu til nýjan aðgang"
+  returning_users_login_here: "Skráðu þig inn hér ef þú hefur skráð þig áður"
+  new_users_register_here: "Nýir notendur skrái sig hér"
+  legal_text: "Laga texti"
+  confirm_citizen_id: "Staðfestu kennitölu"
+  rate_this_article: "Hversu góður finnst þér þessi hluti?"
+  rate_this_a: "Gefðu þessu "
+  out_of_5: " af 5 mögulegum"
+  votes: "atkvæði"
+  document_elements: "Skjal í hlutum"
+  toggle_comments: "Athugsemdir opna/loka"
+  toggle_change_proposals: "Breytingartillögur opna/loka"
+  system_import: "Búið til af kerfi"
+  original_version: "Upphafleg útgáfa"
+  selected: "Valið"
+  rating: "Gæði"
+  change_proposals: "Breytingartillögur"
+  new_change_proposal: "Ný breytingartillaga"
+  cancel_change_proposal: "Hætt við"
+  submit_change_proposal: "Vista breytingartillögu"
+  view_change_proposal: "Skoða breytingartillögu"
+  view_original: "Skoða upphaflegu útgáfu"
+  listing_cases: "Listi yfir Lagafrumvörp á yfirstandandi þingi"
+  cases: "Mál"
+  external_name: "Upphaflegt nafn"
+  stage_sequence_discussion: "umræða"
+  althingi_documents: "Þingskjöl"
+  althingi_release_date: "Útbýtingard."
+  althingi_law_document: "Þingskjal"
+  althingi_document_type: "Tegund skjals"
+  althingi_presenter: "Flutningsm."
+  althingi_time_of_discussion: "Tími umr."
+  althingi_discussion: "Umræða"
+  althingi_date_of_discussion: "Dags. umr."
+  althingi_type_of_discussion: "Tegund umræðu"
+  althingi_meeting: "Þingfundur"
+  listen: "Hlusta"
+  althingi_case_id: "Málsnr."
+  althingi_case_name: "Heiti máls"
+  althingi_case_presenter: "Flutningsmaður"
+  public_versions: "Útgáfur almennings"
+  rate_the_importance_of_this_law_proposal: "Hversu mikilvægt finnst þér þetta lagafrumvarp?"
+  importance: "Mikilvægi"
+  alpha_version: "Prufu útgáfa - tilrauna útgafa - ekki tilbúið fyrir almenning - varúð, villur geta verið í gögnum"
+  choice: "Veldu"
+  public_vote_status: "Staða á kosningu almennings"
+  manage_your_vote_proxies_info: "Hér getur þú framselt þitt atkvæði í ákveðnum málaflokkum til einstaklinga sem þú treystir til að fara með hvern málaflokk. Ef þú nýtir þér þitt atkvæði sjálfur í ákveðnum málum þá hefur það alltaf forgang yfir atkvæðaframsal."
+  support:
+      array:
+        sentence_connector: "og"
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%e. %b"
+      long: "%e. %B %Y"
+    day_names: [sunnudagur, mánudagur, þriðjudagur, miðvikudagur, fimmtudagur, föstudagur, laugardagur]
+    abbr_day_names: [sun, mán, þri, mið, fim, fös, lau]
+    month_names: [~, janúar, febrúar, mars, apríl, maí, júní, júlí, ágúst, september, október, nóvember, desember]
+    abbr_month_names: [~, jan, feb, mar, apr, maí, jún, júl, áug, sep, okt, nóv, des]
+    order: [:day, :month, :year]
+  time:
+    formats:
+      default: "%A, %e. %B %Y, %H:%M"
+      time: "%H:%M"
+      short: "%e. %B, %H:%M"
+      long: "%A, %e. %B %Y, %H:%M"
+  datetime:
+    distance_in_words:
+      half_a_minute: "hálf mínúta"
+      less_than_x_seconds:
+        one: "minna en 1 sekúnda"
+        other: "minna en {{count}} sekúndur"
+      x_seconds:
+        one: "1 sekúnda"
+        other: "{{count}} sekúndur"
+      less_than_x_minutes:
+        one: "minna en 1 mínúta"
+        other: "minna en {{count}} mínúta"
+      x_minutes:
+        one: "1 mínúta"
+        other: "{{count}} mínútur"
+      about_x_hours:
+        one: "um 1 klukkutími"
+        other: "um {{count}} klukkutímar"
+      x_days:
+        one: "1 dagur"
+        other: "{{count}} dagar"
+      about_x_months:
+        one: "um 1 mánuður"
+        other: "um {{count}} mánuðir"
+      x_months:
+        one: "1 mánuður"
+        other: "{{count}} mánuðir"
+      about_x_years:
+        one: "um 1 ár"
+        other: "um {{count}} ár"
+      over_x_years:
+        one: "yfir 1 ár"
+        other: "yfir {{count}} ár"
+  number:
+    format:
+      precision: 2
+      separator: "."
+      delimiter: ","
+    currency:
+      format:
+        unit: "kr"
+        format: "%n %u"
+    precision:
+      format:
+        delimiter: ""
+        precision: 4
+  activerecord:
+    errors:
+      template:
+        header: "Gat ekki geymt {{model}} vegna {{count}} vandamála."
+        body: "Þessi vandamál komu upp:"
+      messages:
+        inclusion: "er ekki í listanum"
+        exclusion: "er frátekið"
+        invalid: "er ógilt"
+        confirmation: "staðfesting passar ekki"
+        accepted: "er samþykkt"
+        empty: "má ekki vera tómt"
+        blank: "má ekki vera tómt"
+        too_long: "er of langt (mest {{count}} stafir)"
+        too_short: "er of stutt (minnst {{count}} stafir)"
+        wrong_length: "er ekki af réttri lengt (mest {{count}} stafir)"
+        taken: "er þegar notað"
+        not_a_number: "þetta eru ekki tölustafir"
+        greater_than: "má vera stærra en {{count}}"
+        greater_than_or_equal_to: "má vera samansem eða stærra {{count}}"
+        equal_to: "má vera samansem {{count}}"
+        less_than: "má vera minna en {{count}}"
+        less_than_or_equal_to: "má vera samansem minna en {{count}}"
+        odd: "má vera oddatala"
+        even: "má vera jöfn tala"
+      # models:
+      # attributes:
+ 
+
+

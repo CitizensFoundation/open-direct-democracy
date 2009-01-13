@@ -1,0 +1,34 @@
+<h1><%= t :listing_documents%></h1>
+
+<table>
+  <tr>
+    <th><%=t :external_name%></th>
+    <th><%=t :category%></th>
+    <th><%=t :document_state%></th>
+    <th><%=t :document_type%></th>
+    <th><%=t :voting_close_time%></th>
+    <th><%=t :external_state%></th>
+  </tr>
+
+<% for document in @documents %>
+  <tr>
+    <td><%= link_to document.external_name, document %></td>
+    <td><%=h Category.find(document.category_id).name %></td>
+    <td><%=h DocumentState.find(document.document_state_id).state %></td>
+    <td><%=h DocumentType.find(document.document_type_id).document_type %></td>
+    <td><%=h document.voting_close_time.strftime("%d. %b %Y - %H:%M") %></td>
+    <td><%=h document.external_state %></td>
+	<% if @i_am_admin %>
+     <td><%= link_to t(:show), document %></td>
+     <td><%= link_to t(:edit), edit_document_path(document) %></td>
+     <td><%= link_to t(:destroy), document, :confirm => 'Are you sure?', :method => :delete %></td>
+	<% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% if @i_am_admin %>
+ <%= link_to t(:new_document), new_document_path %>
+<% end %>

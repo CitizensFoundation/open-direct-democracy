@@ -1,0 +1,28 @@
+<p>
+  <b>From user:</b>
+  <%=h @vote_proxy.from_user_id %>
+</p>
+
+<p>
+  <b>To user:</b>
+  <%=h @vote_proxy.to_user_id %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%=h @vote_proxy.category_id %>
+</p>
+
+<p>
+  <b>Issue:</b>
+  <%=h @vote_proxy.issue_id %>
+</p>
+
+<p>
+  <b>document:</b>
+  <%=h @vote_proxy.document_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_vote_proxy_path(@vote_proxy) %> |
+<%= link_to 'Back', vote_proxies_path %>

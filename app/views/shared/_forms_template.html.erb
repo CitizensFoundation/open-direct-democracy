@@ -1,0 +1,57 @@
+<div id="forms">
+    <table class="main-header">
+        <tr>
+            <td>
+                <span class="main-header-left-txt"><%= title %></span>
+            </td>
+        </tr>
+    </table>
+    <table class="sub-header">
+        <tr>
+            <td>
+                <%= image_tag("navArrow01.gif", :border => 0, :class => "sub-header-arrow", :size => "8x9", :alt => "") %><span class="sub-header-txt">
+                <%= info_title %>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <table class="sub-box">
+        <tr>
+            <td>
+                <%= render(:partial => info_partial) %>
+            </td>
+        </tr>
+    </table>
+    <% unless main_title == nil %>
+      <table class="sub-header">
+        <tr>
+            <td>
+                <%= image_tag("navArrow01.gif", :border => 0, :class => "sub-header-arrow",:size => "8x9", :alt => "") %><span class="sub-header-txt"><%= main_title %></span>
+            </td>
+        </tr>
+      </table>
+      <table class="sub-box">
+        <tr>
+            <td>
+                <%= render(:partial => main_partial) %>
+            </td>
+        </tr>
+      </table>
+    <% end %>
+    <% unless buttons_title == nil %>
+      <table class="sub-header">
+        <tr>
+            <td>
+                <%= image_tag("navArrow01.gif", :border => 0,:class => "sub-header-arrow", :size => "8x9", :alt => "") %><span class="sub-header-txt"><%= buttons_title %></span>
+            </td>
+        </tr>
+      </table>
+      <table class="sub-box">
+        <tr>
+            <td>
+                <%= render(:partial => buttons_partial) %>
+            </td>
+        </tr>
+      </table>
+    <% end %>
+</div>

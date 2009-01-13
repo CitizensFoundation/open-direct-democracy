@@ -1,0 +1,109 @@
+<i><a onclick="toggleDiv('comment_panel_for_<%=comment_target.class.name%>_<%=comment_target.id%>');" title="<%=t :toggle_comments%>"><%=t :toggle_comments %></a></i>
+<br>
+<div id="comment_panel_for_<%=comment_target.class.name%>_<%=comment_target.id%>" style="<%=open_panel ? "": "display:none;"%>">
+    <h2><%= t :comments %></h2>
+    <table width="100%">
+        <th>
+            <%=t :in_support %>
+        </th>
+        <th>
+            <%=t :not_sure %>
+        </th>
+        <th>
+            <%=t :against %>
+        </th>
+        <tr>
+            <td width="33%">
+                <% for comment in comment_target.comments_in_support %>
+                <%= t :author %>: <%= comment.user.full_name %>
+                <br>
+                <%= t :creation_date %>: <%= comment.created_at.strftime("%d. %b %Y %H:%M") %>
+                <br>
+                <br>
+                <%= comment.comment %>
+                <br>
+                <br>
+                <%=t :rate_this_comment %>:<%= render :partial => "ratings/rate", :locals => { :asset => comment } %>
+                <p>
+                <% end %>
+            </td>
+            <td width="34%">
+                <% for comment in comment_target.comments_not_sure %>
+                <%= t :author %>: <%= comment.user.full_name %>
+                <br>
+                <%= t :creation_date %>: <%= comment.created_at.strftime("%d. %b %Y %H:%M") %>
+                <br>
+                <br>
+                <%= comment.comment %>
+                <br>
+                <br>
+                <%=t :rate_this_comment %>:<%= render :partial => "ratings/rate", :locals => { :asset => comment } %>
+                <p>
+                <% end %>
+            </td>
+            <td width="33%">
+                <% for comment in comment_target.comments_against %>
+                <%= t :author %>: <%= comment.user.full_name %>
+                <br>
+                <%= t :creation_date %>: <%= comment.created_at.strftime("%d. %b %Y %H:%M") %>
+                <br>
+                <br>
+                <br>
+                <%= comment.comment %>
+                <br>
+                <br>
+                <%=t :rate_this_comment %>:<%= render :partial => "ratings/rate", :locals => { :asset => comment } %>
+                <p>
+                <% end %>
+            </td>
+        </tr>
+    </table>
+    <p>
+    <% @document_comment = DocumentComment.new %>
+    <% remote_form_for(@document_comment) do |f| %>
+    <h2><%= t :your_opinion %></h2>
+    <table>
+        <tr>
+            <td colspan=3 align="center">
+                <b><%=t :bias %></b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%=t :in_support %>
+            </td>
+            <td>
+                <%=t :not_sure %>
+            </td>
+            <td>
+                <%=t :against %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= f.radio_button :bias, 0.5 %><%= f.radio_button :bias, 1.0 %><%= f.radio_button :bias, 1.5 %>
+            </td>
+            <td>
+                <%= f.radio_button :bias, 0.0, :select=>true %>
+            </td>
+            <td>
+                <%= f.radio_button :bias, -1.5 %><%= f.radio_button :bias, -1.0 %><%= f.radio_button :bias, -0.5 %>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=3>
+                <p>
+                    <%= f.text_area :comment, :rows => 10 %>
+                </p>
+                <%= f.hidden_field :document_id, {:value=>document.id} %>
+                <% if comment_target.class.name=="DocumentElement" %>
+                <%= f.hidden_field :document_element_id, {:value=>comment_target.id} %>
+                <% end %>
+                <p>
+                    <%= f.submit t(:post_comment) %>
+                </p>
+            </td>
+        </tr>
+    </table>
+    <% end %>
+</div>

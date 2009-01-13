@@ -1,0 +1,32 @@
+<h1>Editing vote_proxy</h1>
+
+<% form_for(@vote_proxy) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :from_user_id %><br />
+    <%= f.text_field :from_user_id %>
+  </p>
+  <p>
+    <%= f.label :to_user_id %><br />
+    <%= f.text_field :to_user_id %>
+  </p>
+  <p>
+    <%= f.label :category_id %><br />
+    <%= f.text_field :category_id %>
+  </p>
+  <p>
+    <%= f.label :issue_id %><br />
+    <%= f.text_field :issue_id %>
+  </p>
+  <p>
+    <%= f.label :document_id %><br />
+    <%= f.text_field :document_id %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @vote_proxy %> |
+<%= link_to 'Back', vote_proxies_path %>

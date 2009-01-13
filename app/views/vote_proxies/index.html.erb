@@ -1,0 +1,28 @@
+<h1>Listing vote_proxies</h1>
+
+<table>
+  <tr>
+    <th>From user</th>
+    <th>To user</th>
+    <th>Category</th>
+    <th>Issue</th>
+    <th>document</th>
+  </tr>
+
+<% for vote_proxy in @vote_proxies %>
+  <tr>
+    <td><%=h vote_proxy.from_user_id %></td>
+    <td><%=h vote_proxy.to_user_id %></td>
+    <td><%=h vote_proxy.category_id %></td>
+    <td><%=h vote_proxy.issue_id %></td>
+    <td><%=h vote_proxy.document_id %></td>
+    <td><%= link_to 'Show', vote_proxy %></td>
+    <td><%= link_to 'Edit', edit_vote_proxy_path(vote_proxy) %></td>
+    <td><%= link_to 'Destroy', vote_proxy, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New vote_proxy', new_vote_proxy_path %>

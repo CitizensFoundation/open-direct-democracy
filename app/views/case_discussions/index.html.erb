@@ -1,0 +1,40 @@
+<h1>Listing case_discussionss</h1>
+
+<table>
+  <tr>
+    <th>Sequence number</th>
+    <th>Stage sequence number</th>
+    <th>Meeting date</th>
+    <th>External</th>
+    <th>External url</th>
+    <th>To time</th>
+    <th>From time</th>
+    <th>Transcript url</th>
+    <th>Listen url</th>
+    <th>Meeting info</th>
+    <th>Meeting url</th>
+  </tr>
+
+<% for case_discussions in @case_discussionss %>
+  <tr>
+    <td><%=h case_discussions.sequence_number %></td>
+    <td><%=h case_discussions.stage_sequence_number %></td>
+    <td><%=h case_discussions.meeting_date %></td>
+    <td><%=h case_discussions.external_id %></td>
+    <td><%=h case_discussions.external_url %></td>
+    <td><%=h case_discussions.to_time %></td>
+    <td><%=h case_discussions.from_time %></td>
+    <td><%=h case_discussions.transcript_url %></td>
+    <td><%=h case_discussions.listen_url %></td>
+    <td><%=h case_discussions.meeting_info %></td>
+    <td><%=h case_discussions.meeting_url %></td>
+    <td><%= link_to 'Show', case_discussions %></td>
+    <td><%= link_to 'Edit', edit_case_discussions_path(case_discussions) %></td>
+    <td><%= link_to 'Destroy', case_discussions, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New case_discussions', new_case_discussions_path %>

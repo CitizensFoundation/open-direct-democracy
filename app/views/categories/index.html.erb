@@ -1,0 +1,19 @@
+<h2><%=t :listing_categories%></h2>
+
+<table>
+  <tr>
+    <th><%=t :name%></th>
+  </tr>
+
+<% for category in @categories %>
+  <tr>
+    <td><%=h category.name %></td>
+    <td><%= link_to t(:edit), edit_category_path(category) %></td>
+    <td><%= link_to t(:destroy), category, :confirm => t(:are_you_sure?), :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to t(:new_category), new_category_path %>

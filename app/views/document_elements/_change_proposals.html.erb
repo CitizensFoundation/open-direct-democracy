@@ -1,0 +1,72 @@
+<i><a onclick="toggleDiv('change_proposals_panel_for_<%=change_target.sequence_number%>');" title="<%=t :toggle_change_proposals%>"><%=t :toggle_change_proposals %></a></i>
+<br>
+<div id="change_proposals_panel_for_<%=change_target.sequence_number%>" style="<%=open_panel ? "": "display:none;"%>">
+    <h2><%= t :change_proposals %></h2>
+    <table width="100%">
+        <th>
+            <%=t :rating %>
+        </th>
+        <th>
+            <%=t :creation_date %>
+        </th>
+        <th>
+            <%=t :author %>
+        </th>
+        <% for change_proposal in document.get_all_change_proposals_for_sequence_number(change_target.sequence_number) %>
+        <tr>
+            <td>
+                <%=get_short_star_rating(change_proposal) %>
+            </td>
+            <td>
+                <%=change_proposal.updated_at.strftime("%d. %b %Y %H:%M") %>
+            </td>
+            <% if change_proposal.id == change_target.id %>
+	            <% if change_proposal.user %>
+	            <td>
+	                <%=change_proposal.user.first_name %><%= change_proposal.user.last_name %>
+	            </td>
+	            <% else %>
+	            <td>
+	                <%=t :system_import %>
+	            </td>
+	            <% end %>
+            <% else %>
+	            <% if change_proposal.user %>
+		            <% change_proposal_author = change_proposal.user.full_name %>
+		            <% change_proposal_title = t(:view_change_proposal) %>
+	            <% else %>
+		            <% change_proposal_author = t(:system_import) %>
+		            <% change_proposal_title = t(:view_original) %>
+	            <% end %>
+	            <td>
+	                <%= link_to_remote( change_proposal_author,
+	                { :url => { :controller => "document_elements", :action => "view_element",
+	                :source_id => change_proposal.id, :sequence_number => change_target.sequence_number } },
+	                { :class => "", :name => "",
+	                :title => change_proposal_title } ) %>
+	            </td>
+            <% end %>
+            <% if change_proposal.original_version %>
+	            <td>
+	                <%=t :original_version %>
+	            </td>
+            <% else %>
+	            <td>
+	            </td>
+            <% end %>
+            <% if change_proposal.id == change_target.id %>
+	            <td>
+	                <%=t :selected %>
+	            </td>
+            <% else %>
+	            <td>
+	            </td>
+            <% end %>
+        </tr>
+        <% end %>
+    </table>
+    <%= link_to_remote( t(:new_change_proposal),
+                        { :url => { :controller => "document_elements", :action => "new_change_proposal",
+                          :source_id => change_target.id, :sequence_number => change_target.sequence_number } },
+                        { :class => "", :name => "", :title => t(:new_change_proposal) } ) %>
+</div>

@@ -1,0 +1,38 @@
+<p>
+  <b>Sequence number:</b>
+  <%=h @case_document_element.sequence_number %>
+</p>
+
+<p>
+  <b>Stage sequence number:</b>
+  <%=h @case_document_element.stage_sequence_number %>
+</p>
+
+<p>
+  <b>External date:</b>
+  <%=h @case_document_element.external_date %>
+</p>
+
+<p>
+  <b>External:</b>
+  <%=h @case_document_element.external_id %>
+</p>
+
+<p>
+  <b>External url:</b>
+  <%=h @case_document_element.external_url %>
+</p>
+
+<p>
+  <b>External type:</b>
+  <%=h @case_document_element.external_type %>
+</p>
+
+<p>
+  <b>External author:</b>
+  <%=h @case_document_element.external_author %>
+</p>
+
+
+<%= link_to 'Edit', edit_case_document_element_path(@case_document_element) %> |
+<%= link_to 'Back', case_documents_path %>

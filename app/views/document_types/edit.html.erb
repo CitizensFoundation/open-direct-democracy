@@ -1,0 +1,16 @@
+<h1>Editing document_type</h1>
+
+<% form_for(@document_type) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :document_type %><br />
+    <%= f.text_field :document_type %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @document_type %> |
+<%= link_to 'Back', document_types_path %>

@@ -1,0 +1,39 @@
+<h1>New case_document_element</h1>
+
+<% form_for(@case_document_element) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :sequence_number %><br />
+    <%= f.text_field :sequence_number %>
+  </p>
+  <p>
+    <%= f.label :stage_sequence_number %><br />
+    <%= f.text_field :stage_sequence_number %>
+  </p>
+  <p>
+    <%= f.label :external_date %><br />
+    <%= f.text_field :external_date %>
+  </p>
+  <p>
+    <%= f.label :external_id %><br />
+    <%= f.text_field :external_id %>
+  </p>
+  <p>
+    <%= f.label :external_url %><br />
+    <%= f.text_field :external_url %>
+  </p>
+  <p>
+    <%= f.label :external_type %><br />
+    <%= f.text_field :external_type %>
+  </p>
+  <p>
+    <%= f.label :external_author %><br />
+    <%= f.text_field :external_author %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', case_documents_path %>

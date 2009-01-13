@@ -1,0 +1,32 @@
+<h1>Listing case_documents</h1>
+
+<table>
+  <tr>
+    <th>Sequence number</th>
+    <th>Stage sequence number</th>
+    <th>External date</th>
+    <th>External</th>
+    <th>External url</th>
+    <th>External type</th>
+    <th>External author</th>
+  </tr>
+
+<% for case_document_element in @case_documents %>
+  <tr>
+    <td><%=h case_document_element.sequence_number %></td>
+    <td><%=h case_document_element.stage_sequence_number %></td>
+    <td><%=h case_document_element.external_date %></td>
+    <td><%=h case_document_element.external_id %></td>
+    <td><%=h case_document_element.external_url %></td>
+    <td><%=h case_document_element.external_type %></td>
+    <td><%=h case_document_element.external_author %></td>
+    <td><%= link_to 'Show', case_document_element %></td>
+    <td><%= link_to 'Edit', edit_case_document_element_path(case_document_element) %></td>
+    <td><%= link_to 'Destroy', case_document_element, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New case_document_element', new_case_document_element_path %>
