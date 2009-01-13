@@ -2,8 +2,8 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 is:
-  main_header: "Opið beint lýðræði"
-  for_user: "fyrir"
+  main_header: "Opið beint lýðræði "
+  for_user: "fyrir "
   user: "Notandi"
   users: "Notendur"
   password: "Lykilorð"
