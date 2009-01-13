@@ -1,0 +1,15 @@
+<h1>New document_state</h1>
+
+<% form_for(@document_state) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', document_states_path %>

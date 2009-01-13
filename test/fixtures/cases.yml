@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  external_link: MyString
+  external_name: MyString
+  case_type_id: 1
+
+two:
+  external_link: MyString
+  external_name: MyString
+  case_type_id: 1

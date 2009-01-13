@@ -1,0 +1,24 @@
+<h1>Editing document_comment</h1>
+
+<% form_for(@document_comment) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :document_id %><br />
+    <%= f.text_field :document_id %>
+  </p>
+  <p>
+    <%= f.label :comment %><br />
+    <%= f.text_area :comment %>
+  </p>
+  <p>
+    <%= f.label :rating %><br />
+    <%= f.text_field :rating %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @document_comment %> |
+<%= link_to 'Back', document_comments_path %>

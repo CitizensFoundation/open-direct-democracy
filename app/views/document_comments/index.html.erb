@@ -1,0 +1,28 @@
+<h1>Listing document_comments</h1>
+
+<table>
+  <tr>
+    <th>Law document id</th>
+    <th>User id</th>
+    <th>Comment</th>
+    <th>Rating</th>
+    <th>Bias</th>
+  </tr>
+
+<% for document_comment in @document_comments %>
+  <tr>
+    <td><%=h document_comment.document_id %></td>
+    <td><%=h document_comment.user_id %></td>
+    <td><%=h document_comment.comment %></td>
+    <td><%=h document_comment.rating %></td>
+    <td><%=h document_comment.bias %></td>
+    <td><%= link_to 'Show', document_comment %></td>
+    <td><%= link_to 'Edit', edit_document_comment_path(document_comment) %></td>
+    <td><%= link_to 'Destroy', document_comment, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New document_comment', new_document_comment_path %>

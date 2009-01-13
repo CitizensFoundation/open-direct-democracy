@@ -1,0 +1,40 @@
+<h1>Editing document_element</h1>
+
+<% form_for(@document_element) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :content_type %><br />
+    <%= f.text_field :content_type %>
+  </p>
+  <p>
+    <%= f.label :content %><br />
+    <%= f.text_field :content %>
+  </p>
+  <p>
+    <%= f.label :content_text_only %><br />
+    <%= f.text_field :content_text_only %>
+  </p>
+  <p>
+    <%= f.label :content_number %><br />
+    <%= f.text_field :content_number %>
+  </p>
+  <p>
+    <%= f.label :sequence_number %><br />
+    <%= f.text_field :sequence_number %>
+  </p>
+  <p>
+    <%= f.label :document_id %><br />
+    <%= f.text_field :document_id %>
+  </p>
+  <p>
+    <%= f.label :parent_id %><br />
+    <%= f.text_field :parent_id %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @document_element %> |
+<%= link_to 'Back', document_elements_path %>

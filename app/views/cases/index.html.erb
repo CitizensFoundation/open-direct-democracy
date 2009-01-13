@@ -1,0 +1,48 @@
+<h1><%=t :listing_cases %></h1>
+<table width="100%">
+    <tr>
+        <th>
+            <%=t :importance %>
+        </th>
+        <th>
+            <%=t :althingi_case_id %>
+        </th>
+        <th>
+            <%=t :althingi_case_name %>
+        </th>
+        <th>
+            <%=t :althingi_case_presenter %>
+        </th>
+    </tr>
+    <% for current_case in @most_important_cases %>
+    <tr>
+        <td width="100px" align="center">
+            <%=get_short_star_rating(current_case,true) %>
+        </td>
+        <td>
+            <%= current_case.external_id %>.
+        </td>
+        <td>
+            <%= link_to "#{current_case.info_1} / #{current_case.info_2}", current_case %>
+        </td>
+        <td>
+            <%= current_case.presenter %>.
+        </td>
+        <% if @i_am_admin %>
+	        <td>
+	            - <%= link_to t(:show), current_case %>
+	        </td>
+	        <td>
+	            <%= link_to t(:edit), edit_case_path(current_case) %>
+	        </td>
+	        <td>
+	            <%= link_to t(:destroy), current_case, :confirm => t(:are_you_sure?), :method => :delete %>
+	        </td>
+        <% end %>
+    </tr>
+    <% end %>
+</table>
+<br/>
+<% if @i_am_admin %>
+	<%= link_to 'New case', new_case_path %>
+<% end %>

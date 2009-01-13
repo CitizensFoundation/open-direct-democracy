@@ -1,0 +1,123 @@
+<h1><%=h @case.info_1 %></h1>
+<%=h @case.info_2 %>
+<br>
+<%=h @case.info_3 %>
+<br>
+<br>
+<i><%=t :rate_the_importance_of_this_law_proposal %></i>
+    <br>
+    <%= render :partial => "ratings/rate", :locals => { :asset => @case } %>
+    <% stage_sequence_number = 0 %>
+    <% documents = @case.get_all_documents_by_stage(stage_sequence_number) %>
+    <% discussions = @case.get_all_discussions_by_stage(stage_sequence_number) %>
+    <% if documents==[] and discussions==[] %>
+	    <% stage_sequence_number = 1 %>
+	    <% documents = @case.get_all_documents_by_stage(stage_sequence_number) %>
+	    <% discussions = @case.get_all_discussions_by_stage(stage_sequence_number) %>
+    <% end %>
+    <% while documents!=[] or discussions!=[] %>
+	    <% if stage_sequence_number!= 0 %>
+		    <h2><%="#{stage_sequence_number}. "+t(:stage_sequence_discussion) %></h2>
+	    <% end %>
+	    <% if documents.length!=0 %>
+	      <table>
+	        <tr>
+	            <td colspan=4>
+	                <h3><%=t :althingi_documents %></h3>
+	            </td>
+	        </tr>
+	        <th>
+	            <%=t :althingi_release_date %>
+	        </th>
+	        <th>
+	            <%=t :althingi_law_document %>
+	        </th>
+	        <th>
+	            <%=t :althingi_document_type %>
+	        </th>
+	        <th>
+	            <%=t :althingi_presenter %>
+	        </th>
+	        <th>
+	            <span style="color: #348017;"><b><%=t :public_versions %></b></span>
+	        </th>
+	        <th>
+	            <span style="color: #348017;"><b><%=t :public_vote_status %></b></span>
+	        </th>
+	        <% documents.each do |document| %>
+	        <tr>
+	            <td>
+	                <%=document.external_date.strftime("%d.%m.%Y") %>
+	            </td>
+	            <td>
+	                <a href="<%=document.external_link%>" target="_blank"><%=document.external_id %></a>
+	            </td>
+	            <td>
+	                <%=document.external_type %>
+	            </td>
+	            <td>
+	                <%=document.external_author %>
+	            </td>
+	            <td>
+	                <%=get_internal_documents_links(document) %>
+	            </td>
+	            <td>
+	                <%=get_vote_status_for_document(document) %>
+	            </td>
+	        </tr>
+	        <% end %>
+		  </table>
+	    <% end %>
+	    <br>
+	    <% if discussions.length!=0 %>
+	      <table>
+	        <tr>
+	            <td colspan=4>
+	                <h3><%=t :althingi_discussion %></h3>
+	            </td>
+	        </tr>
+	        <th>
+	            <%=t :althingi_time_of_discussion %>
+	        </th>
+	        <th>
+	            <%=t :althingi_date_of_discussion %>
+	        </th>
+	        <th>
+	            <%=t :althingi_type_of_discussion %>
+	        </th>
+	        <th>
+	            <%=t :althingi_meeting %>
+	        </th>
+	        <% discussions.each do |discussion| %>
+	        <tr>
+	            <td>
+	                <a href="<%=discussion.transcript_url%>" target="_blank"><%="#{discussion.from_time.strftime('%H:%M')}-#{discussion.to_time.strftime('%H:%M')}" %></a>
+	                <br>
+	                <a href="<%=discussion.listen_url%>" target="_blank"><%=t(:listen) %></a>
+	            </td>
+	            <td>
+	                <%=discussion.meeting_date.strftime("%d.%m.%Y") %>
+	            </td>
+	            <td>
+	                <%=discussion.meeting_type %>
+	            </td>
+	            <td>
+	                <a href="<%=discussion.meeting_url%>" target="_blank"><%=discussion.meeting_info %></a>
+	            </td>
+	        </tr>
+	        <% end %>
+		  </table>
+	    <% end %>
+	    <% stage_sequence_number+=1 %>
+	    <% documents = @case.get_all_documents_by_stage(stage_sequence_number) %>
+	    <% discussions = @case.get_all_discussions_by_stage(stage_sequence_number) %>
+	    <br>
+	    <br>
+    <% end %>
+    <b><%=t :external_link %></b>
+    <a href="<%=@case.external_link %>" target="_blank"><%=h @case.external_link %></a>
+    <br>
+    <br>
+    <% if @i_am_admin %>
+	    <%= link_to t(:edit), edit_case_path(@case) %> |<%= link_to t(:back), cases_path %>
+    <% end %>

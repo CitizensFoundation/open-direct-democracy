@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  sequence_number: 
+  stage_sequence_number: 
+  meeting_date: 
+  external_id: 
+  external_url: 
+  to_time: 
+  from_time: 
+  transcript_url: 
+  listen_url: 
+  meeting_info: 
+  meeting_url: 
+
+two:
+  sequence_number: 
+  stage_sequence_number: 
+  meeting_date: 
+  external_id: 
+  external_url: 
+  to_time: 
+  from_time: 
+  transcript_url: 
+  listen_url: 
+  meeting_info: 
+  meeting_url: 

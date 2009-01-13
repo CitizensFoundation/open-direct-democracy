@@ -1,0 +1,28 @@
+<h2><%= t :select_vote_proxy_user_to_manage %></h2>
+<% form_tag :action => "manage" do |f| %>
+	<table>
+	    <tr>
+	        <td>
+	            <%=t :email %>
+	        </td>
+	        <td>
+	            <%=t :citizen_id %>
+	        </td>
+	    </tr>
+	    <tr>
+	        <td>
+	            <%= text_field_tag :proxy_user_email %>
+	        </td>
+	        <td>
+	            <%= text_field_tag :proxy_user_citizen_id %>
+	        </td>
+	    </tr>
+	    <tr>
+	        <td colspan=2>
+	            <p>
+	                <%= submit_tag t(:select_vote_proxy_user_to_manage) %>
+	            </p>
+	        </td>
+	    </tr>
+	</table>
+<% end %>

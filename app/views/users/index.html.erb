@@ -1,0 +1,31 @@
+<h1><%=t :listing_users%></h1>
+
+<table>
+  <tr>
+    <th><%=t :email%></th>
+    <th><%=t :first_name%></th>
+    <th><%=t :last_name%></th>
+    <th><%=t :citizen_id%></th>
+    <th><%=t :reputation%></th>
+  </tr>
+
+<% for user in @users %>
+  <tr>
+    <td><%=h user.email %></td>
+    <td><%=h user.first_name %></td>
+    <td><%=h user.last_name %></td>
+    <td><%=h user.citizen_id %></td>
+    <td><%=h user.reputation %></td>
+    <% if @i_am_admin %>
+     <td><%= link_to t(:edit), edit_user_path(user) %></td>
+     <td><%= link_to t(:destroy), user, :confirm => t(:are_you_sure?), :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% if @i_am_admin %>
+ <%= link_to t(:new_user), new_user_path %>
+<% end %>

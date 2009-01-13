@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <title><%=t :main_header %></title>
+        <%= stylesheet_link_tag 'scaffold' %>
+        <%= javascript_include_tag :defaults %>
+        <%= javascript_include_tag :fckeditor %>
+        <script type="text/javascript">
+            <!--
+            function toggleDiv(obj){
+                var el = document.getElementById(obj);
+                if (el.style.display != "none") {
+                    el.style.display = 'none';
+                }
+                else {
+                    el.style.display = '';
+                }
+            }      
+            //-->
+        </script>
+    </head>
+    <body>
+        <small>
+            <%=t :alpha_version %>
+        </small>
+        <br>
+        <% if session[:user_id] %>
+	        <h1><%=t :main_header %><%=t :for_user %><%=User.find(session[:user_id]).full_name %></h1>
+        <%else %>
+	        <h1><%=t :main_header %></h1>
+        <%end %>
+        <hr>
+		<%=t :choice %>: <a href="/cases"><%=t :cases %></a> | 
+		<!-- <a href="/documents"><%=t :documents %></a> |  -->
+		<a href="/vote_proxies/manage"><%=t :vote_proxies %></a> | 
+		<!-- <a href="/categories"><%=t :categories %></a> |  -->
+		<!-- <a href="/issues"><%=t :issues %></a> -->
+		<!-- <a href="/document_states"><%=t :document_states %></a> |  -->
+		<!-- <a href="/document_types"><%=t :document_types %></a> |  -->
+		<!-- <a href="/users"><%=t :users %></a> |  -->
+		<a href="/users/logout"><%=t :logout %></a>
+        <hr>
+        <p style="color: green">
+            <%= flash[:notice] %>
+        </p>
+        <%= yield %>
+    </body>
+</html>

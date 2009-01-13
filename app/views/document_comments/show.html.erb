@@ -1,0 +1,18 @@
+<p>
+  <b>Law document:</b>
+  <%=h @document_comment.document_id %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%=h @document_comment.comment %>
+</p>
+
+<p>
+  <b>Rating:</b>
+  <%=h @document_comment.rating %>
+</p>
+
+
+<%= link_to 'Edit', edit_document_comment_path(@document_comment) %> |
+<%= link_to 'Back', document_comments_path %>

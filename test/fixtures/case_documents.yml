@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  sequence_number: 
+  stage_sequence_number: 
+  external_date: 
+  external_id: 
+  external_url: 
+  external_type: 
+  external_author: MyString
+
+two:
+  sequence_number: 
+  stage_sequence_number: 
+  external_date: 
+  external_id: 
+  external_url: 
+  external_type: 
+  external_author: MyString

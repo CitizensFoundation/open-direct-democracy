@@ -1,0 +1,38 @@
+<h2><%= t :manage_your_vote_proxies %></h2>
+<%= t :manage_your_vote_proxies_info %>
+<br>
+<br>
+<% form_tag :action => "manage" do |f| %>
+  <table>
+    <tr>
+        <th>
+            <%=t :category %>
+        </th>
+        <th>
+            <%=t :vote_proxy %>
+        </th>
+    </tr>
+    <% for category in @categories %>
+    <tr>
+        <td>
+            <%=label_tag category.name %>
+        </td>
+        <td>
+            <% vp = VoteProxy.find_by_category_id(category.id, :conditions=> ["from_user_id = ?", session[:user_id]] ) %>
+            <select id="<%=category.id%>" name="categories[<%=category.id%>]">
+                <% for proxy_option in @all_proxy_user_options %>
+	                <option value="<%=proxy_option.id%>"<%=vp and vp.name_with_initial_and_citizen_id==proxy_option.name_with_initial_and_citizen_id ? "selected" : "" %>><%=proxy_option.name_with_initial_and_citizen_id %></option>
+                <% end %>
+            </select>
+        </td>
+    </tr>
+    <% end %>
+    <tr>
+        <td colspan=2>
+            <p>
+                <%= submit_tag t(:submit_your_vote_proxies) %>
+            </p>
+        </td>
+    </tr>
+  </table>
+<% end %>

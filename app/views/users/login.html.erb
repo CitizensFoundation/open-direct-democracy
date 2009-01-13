@@ -1,0 +1,9 @@
+<%= render(:partial => 'shared/forms_template',
+           :locals => { 
+           :title => t(:login_register),
+           :info_title => t(:login_instructions),
+           :info_partial => "login_info",
+           :main_title => t(:returning_users_login_here),
+           :main_partial => "login_main",
+           :buttons_title => t(:new_users_register_here),
+           :buttons_partial => "login_buttons" }) %>

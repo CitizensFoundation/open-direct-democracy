@@ -1,0 +1,41 @@
+<p>
+    <b><%=t :external_name %>:</b>
+    <%=h @document.case_document.case.info_1 %>- <%=h @document.case_document.case.info_2 %> - <%=h @document.case_document.case.info_3 %>
+</p>
+<p>
+    <b><%=t :voting_close_time %>:</b>
+    <%=h @document.voting_close_time %>
+</p>
+<% if @i_am_admin %>
+<hr><%= link_to t(:edit), edit_document_path(@document) %> |<%= link_to t(:back), documents_path %>
+<% end %>
+<hr>
+<table valign="top">
+    <tr valign="top">
+        <td valign="top">
+            <%= render :partial => "votes/my_vote", :locals => { :document => @document } %>
+        </td>
+        <td valign="top">
+            <%= render :partial => "votes/vote_status" %>
+        </td>
+    </tr>
+</table>
+<hr>
+<center>
+    <div id="comment_panel_master_for_Document_<%=@document.id%>">
+        <%= render :partial => "document_comments/comment_on", :locals => {:document=> @document, :comment_target => @document, :open_panel => false } %>
+    </div>
+</center>
+<hr>
+<p>
+    <b><%=t :document_elements %>:</b>
+    <% for element in @document_elements %>
+    <div id="document_element_number_<%=element.sequence_number%>">
+        <%= render :partial => "document_elements/element", :locals => {:document=> @document, :element => element, :open_panel => false } %>
+    </div>
+    <% end %>
+</p>
+<p>
+    <b><%=t :external_link %>:</b>
+    <a target="_blank" href="<%=@document.external_link%>"><%=h @document.external_link %></a>
+</p>

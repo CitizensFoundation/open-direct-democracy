@@ -1,0 +1,32 @@
+<%= number_with_precision(document_comment.rating, 1) %>/5 Stars</p>
+<ul class='star-rating'>
+<li class='current-rating' style='width:<%= (document_comment.rating * 30).to_i -%>px;’>
+          Currently <%= number_with_precision(document_comment.rating, 1) %>/5 Stars.
+        </li>
+<li>
+        <%= link_to_remote( "1", {:url => { :controller => "rating",<br />
+            :action => "rate", :id => document_comment.id, :rating => 1}},
+            :class => ‘one-star’, :name => ‘1 star out of 5') %>
+    </li>
+<li>
+        <%= link_to_remote( "2", {:url => { :controller => "rating",<br />
+            :action => "rate", :id => document_comment.id, :rating => 2}},
+            :class => ‘two-stars’, :name => ‘2 stars out of 5') %>
+    </li>
+<li>
+        <%= link_to_remote( "3", {:url => { :controller => "rating",<br />
+            :action => "rate", :id => document_comment.id, :rating => 3}},
+            :class => ‘three-stars’, :name => "3 stars out of 5') %>
+    </li>
+<li>
+        <%= link_to_remote( "4", {:url => { :controller => "rating",<br />
+            :action => "rate", :id => document_comment.id, :rating => 4}},
+            :class => "four-stars’, :name => "4 stars out of 5") %>
+    </li>
+<li>
+        <%= link_to_remote( "5", {:url => { :controller => "rating",<br />
+            :action => "rate", :id => document_comment.id, :rating => 5}},
+            :class => "five-stars’, :name => "5 stars out of 5") %>
+    </li>
+</ul>
+<p>

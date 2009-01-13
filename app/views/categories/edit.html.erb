@@ -1,0 +1,15 @@
+<h1><%=t :editing_category%></h1>
+
+<% form_for(@category) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label t(:name) %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit t(:update) %>
+  </p>
+<% end %>
+
+<%= link_to t(:back), categories_path %>

@@ -1,0 +1,57 @@
+<%= javascript_include_tag :fckeditor %>
+
+<h1><%=t :new_document%></h1>
+
+<% form_for(@document) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :category_id %><br />
+    <%= collection_select "document", :category_id, Category.find(:all), :id, :name %>
+  </p>
+  <p>
+    <%= f.label :document_state_id %><br />
+    <%= collection_select "document", :document_state_id, DocumentState.find(:all), :id, :state %>
+  </p>
+  <p>
+    <%= f.label :document_type_id %><br />
+    <%= collection_select "document", :document_type_id, DocumentType.find(:all), :id, :document_type %>
+  </p>
+  <p>
+    <%= f.label :voting_close_time %><br />
+    <%= f.datetime_select :voting_close_time %>
+  </p>
+  <p>
+    <%= f.label :published %><br />
+    <%= f.check_box :published %>
+  </p>
+  <p>
+    <%= f.label :document_frozen %><br />
+    <%= f.check_box :document_frozen %>
+  </p>
+  <p>
+    <%= f.label :external_name %><br />
+    <%= f.text_field :external_name %>
+  </p>
+  <p>
+    <%= f.label :external_author %><br />
+    <%= f.text_field :external_author %>
+  </p>
+  <p>
+    <%= f.label :external_state %><br />
+    <%= f.text_field :external_state %>
+  </p>
+  <p>
+    <%= f.label :external_creation_date %><br />
+    <%= f.datetime_select :external_creation_date %>
+  </p>
+  <p>
+    <%= f.label :external_link %><br />
+    <%= f.text_field :external_link %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', documents_path %>

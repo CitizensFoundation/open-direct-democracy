@@ -1,0 +1,20 @@
+<h1>Listing document_states</h1>
+
+<table>
+  <tr>
+    <th>State</th>
+  </tr>
+
+<% for document_state in @document_states %>
+  <tr>
+    <td><%=h document_state.state %></td>
+    <td><%= link_to 'Show', document_state %></td>
+    <td><%= link_to 'Edit', edit_document_state_path(document_state) %></td>
+    <td><%= link_to 'Destroy', document_state, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New document_state', new_document_state_path %>

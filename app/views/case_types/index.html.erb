@@ -1,0 +1,20 @@
+<h1>Listing case_types</h1>
+
+<table>
+  <tr>
+    <th>Case type</th>
+  </tr>
+
+<% for case_type in @case_types %>
+  <tr>
+    <td><%=h case_type.case_type %></td>
+    <td><%= link_to 'Show', case_type %></td>
+    <td><%= link_to 'Edit', edit_case_type_path(case_type) %></td>
+    <td><%= link_to 'Destroy', case_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New case_type', new_case_type_path %>

@@ -1,0 +1,18 @@
+<p>
+  <b>document:</b>
+  <%=h @vote.document_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @vote.user_id %>
+</p>
+
+<p>
+  <b>Agreed:</b>
+  <%=h @vote.agreed %>
+</p>
+
+
+<%= link_to 'Edit', edit_vote_path(@vote) %> |
+<%= link_to 'Back', votes_path %>
