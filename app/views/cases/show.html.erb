@@ -50,7 +50,7 @@
 	                <%=document.external_date.strftime("%d.%m.%Y") %>
 	            </td>
 	            <td>
-	                <a href="<%=document.external_link%>" target="_blank"><%=document.external_id %></a>
+            		<%= link_to document.external_id, document.external_link,{:target=>"_blank"}%>
 	            </td>
 	            <td>
 	                <%=document.external_type %>
@@ -91,9 +91,9 @@
 	        <% discussions.each do |discussion| %>
 	        <tr>
 	            <td>
-	                <a href="<%=discussion.transcript_url%>" target="_blank"><%="#{discussion.from_time.strftime('%H:%M')}-#{discussion.to_time.strftime('%H:%M')}" %></a>
+	            	<%=link_to "#{discussion.from_time.strftime('%H:%M')}-#{discussion.to_time.strftime('%H:%M')}", discussion.transcript_url,{:target => "_blank"}%>
 	                <br>
-	                <a href="<%=discussion.listen_url%>" target="_blank"><%=t(:listen) %></a>
+	            	<%=link_to t(:listen), discussion.listen_url, {:target => "_blank"} %>
 	            </td>
 	            <td>
 	                <%=discussion.meeting_date.strftime("%d.%m.%Y") %>
@@ -102,7 +102,7 @@
 	                <%=discussion.meeting_type %>
 	            </td>
 	            <td>
-	                <a href="<%=discussion.meeting_url%>" target="_blank"><%=discussion.meeting_info %></a>
+	            	<%=link_to discussion.meeting_info, discussion.meeting_url,{:target => "_blank"}%>
 	            </td>
 	        </tr>
 	        <% end %>
@@ -115,7 +115,7 @@
 	    <br>
     <% end %>
     <b><%=t :external_link %></b>
-    <a href="<%=@case.external_link %>" target="_blank"><%=h @case.external_link %></a>
+    <%=link_to h(@case.external_link), @case.external_link, {:target => "_blank"}%>
     <br>
     <br>
     <% if @i_am_admin %>

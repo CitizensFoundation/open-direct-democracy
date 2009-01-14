@@ -20,6 +20,7 @@ module CasesHelper
       out = ""
       case_document.documents.each do |document|
         #TODO: Don't duplicate this code, needs to be in only one place
+        #TODO: Implement the recursive vote count
         @votes_in_support = Vote.find(:all, :conditions=>["document_id = ? and agreed = 1", document.id])
         @votes_against = Vote.find(:all, :conditions=>["document_id = ? and agreed = 0", document.id])
     
@@ -52,7 +53,7 @@ module CasesHelper
         if @votes_in_support_total==0 and @votes_against_total==0 and false
           t(:no_votes_have_been_cast_for_this_law)
         else
-          out+="#{t(:vote_count_in_support)}: #{@votes_in_support_total}, #{t(:vote_count_against)}: #{@votes_against_total}"
+          out+="#{t(:vote_count_in_support)}: #{@votes_in_support_total}<br>#{t(:vote_count_against)}: #{@votes_against_total}"
         end
       end
       out
@@ -66,12 +67,13 @@ module CasesHelper
       out = ""
       case_document.documents.each do |document|
         if document.original_version
-          out+="<a href='/documents/#{document.id}'>#{t(:original_version)}</a> <br>"
+          author = t(:original_version)
         elsif document.user
-          out+="<a href='/documents/#{document.id}'>#{t(:author)}: #{document.user.full_name}</a> <br>"
+          author = "#{t(:author)}: #{document.user.full_name}"
         else
-          out+="<a href='/documents/#{document.id}'>#{t(:author)}: unknown</a> <br>"
+          author = "#{t(:author)}: unknown"
         end
+        out+="#{link_to author, {:controller=>"documents", :action=>"show", :id=>document.id}, {:class=>"participateLink"}} <br>"
       end
       out
     else

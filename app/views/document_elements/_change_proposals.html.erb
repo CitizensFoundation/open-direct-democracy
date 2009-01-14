@@ -1,4 +1,4 @@
-<i><a onclick="toggleDiv('change_proposals_panel_for_<%=change_target.sequence_number%>');" title="<%=t :toggle_change_proposals%>"><%=t :toggle_change_proposals %></a></i>
+<a onclick="toggleDiv('change_proposals_panel_for_<%=change_target.sequence_number%>');" title="<%=t :toggle_change_proposals%>", class="participateLink"><%=t :toggle_change_proposals %></a>
 <br>
 <div id="change_proposals_panel_for_<%=change_target.sequence_number%>" style="<%=open_panel ? "": "display:none;"%>">
     <h2><%= t :change_proposals %></h2>
@@ -65,8 +65,10 @@
         </tr>
         <% end %>
     </table>
-    <%= link_to_remote( t(:new_change_proposal),
+	<center>
+      <%= link_to_remote( t(:new_change_proposal),
                         { :url => { :controller => "document_elements", :action => "new_change_proposal",
                           :source_id => change_target.id, :sequence_number => change_target.sequence_number } },
-                        { :class => "", :name => "", :title => t(:new_change_proposal) } ) %>
+                        { :class => "participateLink", :name => "", :title => t(:new_change_proposal) } ) %>
+	</center>
 </div>

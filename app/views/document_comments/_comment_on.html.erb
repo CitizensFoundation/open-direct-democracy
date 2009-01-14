@@ -1,63 +1,70 @@
-<i><a onclick="toggleDiv('comment_panel_for_<%=comment_target.class.name%>_<%=comment_target.id%>');" title="<%=t :toggle_comments%>"><%=t :toggle_comments %></a></i>
+<a onclick="toggleDiv('comment_panel_for_<%=comment_target.class.name%>_<%=comment_target.id%>');" title="<%=t :toggle_comments%>", class="participateLink"><%=t :toggle_comments %></a>
 <br>
 <div id="comment_panel_for_<%=comment_target.class.name%>_<%=comment_target.id%>" style="<%=open_panel ? "": "display:none;"%>">
-    <h2><%= t :comments %></h2>
-    <table width="100%">
-        <th>
-            <%=t :in_support %>
-        </th>
-        <th>
-            <%=t :not_sure %>
-        </th>
-        <th>
-            <%=t :against %>
-        </th>
-        <tr>
-            <td width="33%">
-                <% for comment in comment_target.comments_in_support %>
-                <%= t :author %>: <%= comment.user.full_name %>
-                <br>
-                <%= t :creation_date %>: <%= comment.created_at.strftime("%d. %b %Y %H:%M") %>
-                <br>
-                <br>
-                <%= comment.comment %>
-                <br>
-                <br>
-                <%=t :rate_this_comment %>:<%= render :partial => "ratings/rate", :locals => { :asset => comment } %>
-                <p>
-                <% end %>
-            </td>
-            <td width="34%">
-                <% for comment in comment_target.comments_not_sure %>
-                <%= t :author %>: <%= comment.user.full_name %>
-                <br>
-                <%= t :creation_date %>: <%= comment.created_at.strftime("%d. %b %Y %H:%M") %>
-                <br>
-                <br>
-                <%= comment.comment %>
-                <br>
-                <br>
-                <%=t :rate_this_comment %>:<%= render :partial => "ratings/rate", :locals => { :asset => comment } %>
-                <p>
-                <% end %>
-            </td>
-            <td width="33%">
-                <% for comment in comment_target.comments_against %>
-                <%= t :author %>: <%= comment.user.full_name %>
-                <br>
-                <%= t :creation_date %>: <%= comment.created_at.strftime("%d. %b %Y %H:%M") %>
-                <br>
-                <br>
-                <br>
-                <%= comment.comment %>
-                <br>
-                <br>
-                <%=t :rate_this_comment %>:<%= render :partial => "ratings/rate", :locals => { :asset => comment } %>
-                <p>
-                <% end %>
-            </td>
-        </tr>
-    </table>
+	<% if comment_target.comments_in_support.length>0 or
+          comment_target.comments_not_sure.length>0 or 
+          comment_target.comments_against.length>0 %>
+	    <h2><%= t :comments %></h2>
+	    <table width="100%">
+	        <th>
+	            <%=t :in_support %>
+	        </th>
+	        <th>
+	            <%=t :not_sure %>
+	        </th>
+	        <th>
+	            <%=t :against %>
+	        </th>
+	        <tr>
+	            <td width="33%">
+	                <% for comment in comment_target.comments_in_support %>
+	                <%= t :author %>: <%= comment.user.full_name %>
+	                <br>
+	                <%= t :creation_date %>: <%= comment.created_at.strftime("%d. %b %Y %H:%M") %>
+	                <br>
+	                <br>
+	                <%= comment.comment %>
+	                <br>
+	                <br>
+	                <%=t :rate_this_comment %>:<%= render :partial => "ratings/rate", :locals => { :asset => comment } %>
+	                <p>
+	                <% end %>
+	            </td>
+	            <td width="34%">
+	                <% for comment in comment_target.comments_not_sure %>
+	                <%= t :author %>: <%= comment.user.full_name %>
+	                <br>
+	                <%= t :creation_date %>: <%= comment.created_at.strftime("%d. %b %Y %H:%M") %>
+	                <br>
+	                <br>
+	                <%= comment.comment %>
+	                <br>
+	                <br>
+	                <%=t :rate_this_comment %>:<%= render :partial => "ratings/rate", :locals => { :asset => comment } %>
+	                <p>
+	                <% end %>
+	            </td>
+	            <td width="33%">
+	                <% for comment in comment_target.comments_against %>
+	                <%= t :author %>: <%= comment.user.full_name %>
+	                <br>
+	                <%= t :creation_date %>: <%= comment.created_at.strftime("%d. %b %Y %H:%M") %>
+	                <br>
+	                <br>
+	                <br>
+	                <%= comment.comment %>
+	                <br>
+	                <br>
+	                <%=t :rate_this_comment %>:<%= render :partial => "ratings/rate", :locals => { :asset => comment } %>
+	                <p>
+	                <% end %>
+	            </td>
+	        </tr>
+	    </table>
+	<% else %>
+	   <br>
+	   <%= t :no_comments_have_been_written_yet %>
+	<% end %>
     <p>
     <% @document_comment = DocumentComment.new %>
     <% remote_form_for(@document_comment) do |f| %>
