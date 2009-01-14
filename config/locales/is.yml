@@ -81,7 +81,7 @@ is:
   register_now: "Skráðu þig inn í fyrsta skipti"
   login_register: "Innskráning og Nýskráning"
   login_instructions: "Leiðbeiningar"
-  login_welcome: "Velkominn í opið beint lýðræði.  Hér fer fram prufukeyrsla á tölvukerfi sem sækir sjálfvirkt lagafrumvörp á yfirstandandi þingi á gefur þér kost á að tengjast lagaferlinu með því að kjósa, gera athugasemdir og breyta.  Athugið að þetta kerfi er í prufukeyrslu og ekki tilbúið fyrir almenna notkun.  Þetta tölvukerfi er unnið af einstaklingum og er Opinn Hugbúnaður sem hægt er að sækja hér neðst á síðunni.  Hjálpaður okkur að prófa þetta með að skrá þig inn hér að neðan."
+  login_welcome: "Velkominn í opið beint lýðræði.  Hér fer fram prufukeyrsla á tölvukerfi sem sækir sjálfvirkt lagafrumvörp á yfirstandandi þingi á gefur þér kost á að tengjast lagaferlinu með því að kjósa, gera athugasemdir og breyta.  Athugið að þetta kerfi er í prufukeyrslu og ekki tilbúið fyrir almenna notkun.  Þetta tölvukerfi er unnið af einstaklingum og er Opinn Hugbúnaður sem hægt er að sækja hér neðst á síðunni. Hjálpaður okkur með því að skrá þig inn hér að neðan og síðan prófa að tengjast lagaferlinu."
   returning_users_login_here: "Skráðu þig inn hér ef þú hefur skráð þig áður:"
   new_users_register_here: "Nýir notendur skrái sig hér:"
   legal_text: "Laga texti"
