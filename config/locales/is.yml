@@ -130,7 +130,7 @@ is:
   manage_your_vote_proxies_info: "Hér getur þú framselt þitt atkvæði í ákveðnum málaflokkum til einstaklinga sem þú treystir til að fara með hvern málaflokk. Ef þú nýtir þér þitt atkvæði sjálfur í ákveðnum málum þá hefur það alltaf forgang yfir atkvæðaframsal."
   no_comments_have_been_written_yet: "Engar athugasemdir hafa verið skrifaðar."
   git_info: "Sækið source kóða af þessu tölvukerfi hér:"
-  bugs_info: "Komið athugasemdum og villutilkynningum til skila hér:"
+  bugs_info: "Komið villutilkynningum til skila hér:"
   at_time: "klukkan"
   support:
       array:
