@@ -27,7 +27,7 @@ en:
   althingi_case_presenter: "Althingi case presenter"
   manage_your_vote_proxies: "Manage your vote proxies"
   manage_your_vote_proxies_info: "Here you can assign a proxies for your votes in particular subjects, your own vote will always override vote proxies."
-  login_welcome: "Welcome to Open Direct Democracy. This early development project that automatically fetches legal document from Althingi, the Icelandic Parliament and gives citizens features to interact with the legal process, like voting, commenting and changing. All content is in Icelandic."
+  login_welcome: "Welcome to Open Direct Democracy. This early development project that automatically fetches legal document from Althingi, the Icelandic Parliament and gives citizens features to interact with the legal process, like voting, commenting and changing. All content is in Icelandic. Feel free to fork the source code and build one for your own direct democracy."
   alpha_version: "Test version - not ready for public use - data errors can appear - final layout has not been designed"
   category: "Category"
   vote_proxy: "Vote proxy"
