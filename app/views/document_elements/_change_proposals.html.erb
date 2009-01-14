@@ -42,7 +42,7 @@
 	                <%= link_to_remote( change_proposal_author,
 	                { :url => { :controller => "document_elements", :action => "view_element",
 	                :source_id => change_proposal.id, :sequence_number => change_target.sequence_number } },
-	                { :class => "", :name => "",
+	                { :class => "participateLink", :name => "",
 	                :title => change_proposal_title } ) %>
 	            </td>
             <% end %>
@@ -65,10 +65,17 @@
         </tr>
         <% end %>
     </table>
-	<center>
-      <%= link_to_remote( t(:new_change_proposal),
+	<table width="100%">
+		<tr>
+			<td align="left">
+		      <%= link_to_remote( t(:new_change_proposal),
                         { :url => { :controller => "document_elements", :action => "new_change_proposal",
                           :source_id => change_target.id, :sequence_number => change_target.sequence_number } },
-                        { :class => "participateLink", :name => "", :title => t(:new_change_proposal) } ) %>
-	</center>
+                        { :class => "participateLink", :name => "", :title => t(:new_change_proposal) } ) %>				
+			</td>
+		</tr>
+	</table>
+
+
+	<br>
 </div>
