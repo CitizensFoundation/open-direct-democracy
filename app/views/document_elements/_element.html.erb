@@ -3,18 +3,26 @@
 <i><%=t :rate_this_article %>:</i>
 <table width="100%">
     <tr valign="top">
-        <td valign="top">
+        <td valign="top" width="30%">
             <%= render :partial => "ratings/rate", :locals => { :asset => element } %>
         </td>
-        <td valign="top">
-            <div id="comment_panel_master_for_DocumentElement_<%=element.id%>">
-                <%= render :partial => "document_comments/comment_on", :locals => {:document=> document, :comment_target => element, :open_panel => open_panel } %>
-            </div>
-        </td>
-        <td valign="top">
-            <div id="change_proposals_master_panel_for_<%=element.sequence_number%>">
-                <%= render :partial => "document_elements/change_proposals", :locals => {:document=> document, :change_target => element, :open_panel => open_panel } %>
-            </div>
+        <td width="70%">
+            <table width="100%">
+                <tr valign="top">
+                    <td valign="top">
+                        <div id="change_proposals_master_panel_for_<%=element.sequence_number%>">
+                            <%= render :partial => "document_elements/change_proposals", :locals => {:document=> document, :change_target => element, :open_panel => open_panel } %>
+                        </div>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td valign="top">
+                        <div id="comment_panel_master_for_DocumentElement_<%=element.id%>">
+                            <%= render :partial => "document_comments/comment_on", :locals => {:document=> document, :comment_target => element, :open_panel => open_panel } %>
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </td>
     </tr>
 </table>
