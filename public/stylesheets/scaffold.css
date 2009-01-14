@@ -72,7 +72,7 @@ padding:0;
 width: 150px;
 height: 30px;
 position: relative;
-background: url(/images/star_rating.gif) top left repeat-x;
+background: url(/images/star_rating_2.gif) top left repeat-x;
 }
 .star-rating li{
 padding:0;
@@ -90,7 +90,7 @@ position: absolute;
 padding: 0px;
 }
 .star-rating li a:hover{
-background: url(/images/star_rating.gif) left center;
+background: url(/images/star_rating_2.gif) left center;
 z-index: 2;
 left: 0px;
 border:none;
@@ -126,7 +126,7 @@ left: 120px;
 width: 150px;
 }
 .star-rating li.current-rating{
-background: url(/images/star_rating.gif) left bottom;
+background: url(/images/star_rating_2.gif) left bottom;
 position: absolute;
 height: 30px;
 display: block;
