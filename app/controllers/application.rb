@@ -16,7 +16,8 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   before_filter :check_authentication,
-                :check_authorization
+                :check_authorization,
+                :set_locale
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => '216851400334e64c3cf4dcd55b6527cf'
@@ -27,6 +28,14 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
 
   private
+  
+  def set_locale
+    unless request.host.downcase=="direct.democracy.is"
+      I18n.locale = :is
+    else
+      I18n.locale = :en
+    end
+  end
   
   def notify_administrators(subject, body)
     admin_email = AdminMailer.create_critical_error(subject, body)
