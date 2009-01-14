@@ -120,7 +120,7 @@ is:
   listen: "Hlusta"
   althingi_case_id: "Málsnr."
   althingi_case_name: "Heiti máls"
-  althingi_case_presenter: "Flutningsmaður"
+  althingi_case_presenter: "Flytjandi"
   public_versions: "Útgáfur almennings"
   rate_the_importance_of_this_law_proposal: "Hversu mikilvægt finnst þér þetta lagafrumvarp?"
   importance: "Mikilvægi"
