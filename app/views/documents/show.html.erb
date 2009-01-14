@@ -4,7 +4,7 @@
 </p>
 <p>
     <b><%=t :voting_close_time %>:</b>
-    <%=h @document.voting_close_time %>
+    <%=h @document.voting_close_time.strftime("%m. %b %Y #{t(:at_time)} %H:%M") %>
 </p>
 <% if @i_am_admin %>
 	<hr>

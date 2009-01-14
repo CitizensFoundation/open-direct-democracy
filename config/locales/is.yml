@@ -131,6 +131,7 @@ is:
   no_comments_have_been_written_yet: "Engar athugasemdir hafa verið skrifaðar."
   git_info: "Sækið source kóða af þessu tölvukerfi hér:"
   bugs_info: "Komið athugasemdum og villutilkynningum til skila hér:"
+  at_time: "klukkan"
   support:
       array:
         sentence_connector: "og"
