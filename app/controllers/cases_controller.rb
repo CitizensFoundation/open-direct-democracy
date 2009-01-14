@@ -20,7 +20,7 @@ class CasesController < ApplicationController
   # GET /cases.xml
   def index
     @cases = Case.find(:all, :order=>"external_id DESC")
-    @most_important_cases = @cases.sort { |a,b| b.rating <=> a.rating }
+    @most_important_cases = @cases.sort { |a,b| b.ratings.size <=> a.ratings.size }.sort { |a,b| b.rating <=> a.rating }
 
     respond_to do |format|
       format.html # index.html.erb
