@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   
   def set_locale
     unless request.host.downcase=="direct.democracy.is"
-      I18n.locale = :en
+      I18n.locale = :is
     else
       I18n.locale = :en
     end
