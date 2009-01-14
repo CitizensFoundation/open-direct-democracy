@@ -35,8 +35,6 @@ class User < ActiveRecord::Base
   attr_accessor :password_confirmation
   attr_accessor :citizen_id_confirmation
   validates_confirmation_of :password
-  validates_confirmation_of :email
-  validates_confirmation_of :citizen_id
   
   before_save :add_admin_role
   
