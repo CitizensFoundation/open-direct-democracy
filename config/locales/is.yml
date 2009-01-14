@@ -81,9 +81,9 @@ is:
   register_now: "Skráðu þig inn í fyrsta skipti"
   login_register: "Innskráning og Nýskráning"
   login_instructions: "Leiðbeiningar"
-  login_welcome: "Skráðu þig inn eða búðu til nýjan aðgang"
-  returning_users_login_here: "Skráðu þig inn hér ef þú hefur skráð þig áður"
-  new_users_register_here: "Nýir notendur skrái sig hér"
+  login_welcome: "Velkominn í opið beint lýðræði.  Hér fer fram prufukeyrsla á tölvukerfi sem sækir sjálfvirkt lagafrumvörp á yfirstandandi þingi á gefur þér kost á að tengjast lagaferlinu með því að kjósa, gera athugasemdir og breyta.  Athugið að þetta kerfi er í prufukeyrslu og ekki tilbúið fyrir almenna notkun.  Þetta tölvukerfi er unnið af einstaklingum og er Opinn Hugbúnaður sem hægt er að sækja hér neðst á síðunni.  Hjálpaður okkur að prófa þetta með að skrá þig inn hér að neðan."
+  returning_users_login_here: "Skráðu þig inn hér ef þú hefur skráð þig áður:"
+  new_users_register_here: "Nýir notendur skrái sig hér:"
   legal_text: "Laga texti"
   confirm_citizen_id: "Staðfestu kennitölu"
   rate_this_article: "Hversu góður finnst þér þessi hluti?"
@@ -128,7 +128,9 @@ is:
   choice: "Veldu"
   public_vote_status: "Staða á kosningu almennings"
   manage_your_vote_proxies_info: "Hér getur þú framselt þitt atkvæði í ákveðnum málaflokkum til einstaklinga sem þú treystir til að fara með hvern málaflokk. Ef þú nýtir þér þitt atkvæði sjálfur í ákveðnum málum þá hefur það alltaf forgang yfir atkvæðaframsal."
-  :no_comments_have_been_written_yet: "Engar athugasemdir hafa verið skrifaðar."
+  no_comments_have_been_written_yet: "Engar athugasemdir hafa verið skrifaðar."
+  git_info: "Sækið source kóða af þessu tölvukerfi hér:"
+  bugs_info: "Komið athugasemdum og villutilkynningum til skila hér:"
   support:
       array:
         sentence_connector: "og"

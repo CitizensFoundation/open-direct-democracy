@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   def login
     session[:user_id] = nil
     session[:user_email] = nil
-    if request.post? and params["login.x"]
+    if request.post? and params[:odd_action]=="login"
       user = User.authenticate(params[:login_user][:login_email], params[:login_user][:login_password])
       if user
         info("user_id: #{user.id} authenticated")
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
         flash[:notice] = "Invalid e-mail/password combination. Please make sure you have already registered."
         xml_error("LoginError", flash[:notice], "") if xml_request?
       end
-    elsif request.post? and params["create.x"]
+    elsif request.post? and params[:odd_action]=="create"
       @user = User.new(params[:user])
       if @user.save
         info("user_id: #{@user.id} created")

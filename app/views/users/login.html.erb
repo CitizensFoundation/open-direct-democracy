@@ -1,9 +1,121 @@
-<%= render(:partial => 'shared/forms_template',
-           :locals => { 
-           :title => t(:login_register),
-           :info_title => t(:login_instructions),
-           :info_partial => "login_info",
-           :main_title => t(:returning_users_login_here),
-           :main_partial => "login_main",
-           :buttons_title => t(:new_users_register_here),
-           :buttons_partial => "login_buttons" }) %>
+<%= t :login_welcome %><br><br>
+
+
+<b><%= t :returning_users_login_here%></b>
+<br><br>
+<span class="sub-box-txt"><% form_for :login_user do |login_form| %>
+    <table width="450px">
+        <tr>
+            <td width="50%">
+                <label for="name">
+                    <%=t :email_address %>:
+                </label>
+            </td>
+            <td width="50%" align="right">
+                <%= login_form.text_field :login_email %>
+            </td>
+        </tr>
+        <tr>
+            <td width="50%">
+                <label for="password">
+                    <%=t :password %>:
+                </label>
+            </td>
+            <td width="50%" align="right">
+                <%= login_form.password_field :login_password %>
+            </td>
+        </tr>
+        <tr>
+            <td width="50%">
+            </td>
+            <td width="50%" align="right">
+            	<%= hidden_field_tag 'odd_action', 'login' %>
+                <%= submit_tag t(:login) %>
+            </td>
+        </tr>
+    </table>
+    <% end %>
+</span>
+
+<br>
+<b><%= t :new_users_register_here%></b>
+<br><br>
+
+<% form_for :user do |form| %>
+  <table width="450px">
+    <tr>
+        <td colspan="2">
+            <%= error_messages_for 'user' %>
+        </td>
+    </tr>
+    <tr>
+        <td width="50%">
+            <label for="first_name">
+                <%=t :first_name %>:
+            </label>
+        </td>
+        <td width="50%" align="right">
+            <%= form.text_field :first_name %>
+        </td>
+    </tr>
+    <tr>
+        <td width="50%">
+            <label for="last_name">
+                <%=t :last_name %>:
+            </label>
+        </td>
+        <td width="50%" align="right">
+            <%= form.text_field :last_name %>
+        </td>
+    </tr>
+    <tr>
+        <td width="50%">
+            <label for="last_name">
+                <%=t :email_address %>:
+            </label>
+        </td>
+        <td width="50%" align="right">
+            <%= form.text_field :email %>
+        </td>
+    </tr>
+    <tr>
+        <td width="50%">
+            <label for="citizen_id">
+                <%=t :citizen_id %>:
+            </label>
+        </td>
+        <td width="50%" align="right">
+            <%= form.text_field :citizen_id %>
+        </td>
+    </tr>
+    <tr>
+        <td width="50%">
+            <label for="password">
+                <%=t :password %>:
+            </label>
+        </td>
+        <td width="50%" align="right">
+            <%= form.password_field :password %>
+        </td>
+    </tr>
+    <tr>
+        <td width="50%">
+            <label for="password_confirmation">
+                <%=t :confirm_password %>:
+            </label>
+        </td>
+        <td width="50%" align="right">
+            <%= form.password_field :password_confirmation %>
+        </td>
+    </tr>
+    <tr>
+        <td width="50%">
+        </td>
+        <td width="50%" align="right">
+          	<%= hidden_field_tag 'odd_action', 'create' %>
+            <%= submit_tag t(:register_now) %>
+	    </td>
+    </tr>
+  </table>
+<% end %>
+
