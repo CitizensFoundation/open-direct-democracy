@@ -67,7 +67,8 @@ module CasesHelper
       out = ""
       case_document.documents.each do |document|
         if document.original_version
-          author = t(:original_version)
+          author = t(:see_and_vote_for_this_document_here) #TODO: Remove hack
+#          author = t(:original_version)
         elsif document.user
           author = "#{t(:author)}: #{document.user.full_name}"
         else
