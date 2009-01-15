@@ -132,7 +132,7 @@ is:
   git_info: "Sækið source kóða af þessu tölvukerfi hér:"
   bugs_info: "Komið villutilkynningum til skila hér:"
   at_time: "klukkan"
-  see_and_vote_for_this_document_here: "Skoða skjal og Kjósa hér"
+  see_and_vote_for_this_document_here: "Skoða, ræða, breyta og kjósa hér"
   support:
       array:
         sentence_connector: "og"
