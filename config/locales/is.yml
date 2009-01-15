@@ -67,7 +67,7 @@ is:
   proxy_vote: "Framselt atkvæði"
   you_have_voted_in_support_of_this_law_through_a_proxy: "Þú hefur greitt atkvæði með þessum lögum í gegnum framsal á atkvæði"
   you_have_voted_against_this_law_through_a_proxy: "Þú hefur greitt atkvæði á móti þessum lögum í gegnum framsal á atkvæði"
-  proxy_name: "Nafn á þeim sem atkvæði er framselt til"
+  proxy_name: "Nafn og kennitala hjá þeim sem atkvæði er framselt til er "
   author: "Höfundur"
   external_author: "Upphaflegur höfundur"
   external_creation_date: "Upphaflega búið til"
@@ -133,6 +133,8 @@ is:
   bugs_info: "Komið villutilkynningum til skila hér:"
   at_time: "klukkan"
   see_and_vote_for_this_document_here: "Skoða, ræða, breyta og kjósa hér"
+  you_have_voted_in_support_of_this_through_a_proxy: "Þú hefur kosið með þessu í gegnum framsal atkvæðis "
+  you_have_voted_against_this_through_a_proxy: "Þú hefur kosið gegn þessu í gegnum framsal atkvæðis "
   support:
       array:
         sentence_connector: "og"
