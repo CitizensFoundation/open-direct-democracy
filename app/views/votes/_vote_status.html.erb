@@ -17,6 +17,7 @@
     </th>
     <tr>
         <td width="50%" align="left">
+          <center>
             <% for vote in @votes_in_support %>
 	            <%= vote.user.full_name %>
     	        <br>
@@ -28,9 +29,11 @@
 		            <% end %>
 	            <% end %>
             <% end %>
-        </td>
+          </center>
+		</td>
         <td width="50%" align="left">
-            <% for vote in @votes_against %>
+		  <center>          
+		    <% for vote in @votes_against %>
 	            <%= vote.user.full_name %>
 	            <br>
 	            <% vote_proxy_votes = VoteProxy.find(:all, :conditions=> ["category_id = ? and to_user_id = ?", vote.document.category_id, vote.user.id]) %>
@@ -41,6 +44,7 @@
 		            <% end %>
 	            <% end %>
             <% end %>
+		    </center>
         </td>
     </tr>
 </table>
