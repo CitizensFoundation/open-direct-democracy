@@ -20,28 +20,28 @@
 <br>
 <% if document.voting_close_time > Time.now %>
 	<%= t :this_vote_is_still_open %>
-	<br>
+	<br><br>
 	<% @vote = Vote.new %>
 	<% form_for(@vote) do |f| %>
-	<table>
+	<table class="participateLink">
 	    <tr>
 	        <td colspan=2 align="center">
 	            <b><%=t :your_vote %></b>
 	        </td>
 	    </tr>
 	    <tr>
-	        <td>
-	            <%=t :in_support %>
+	        <td align="center">
+	            <b><%=t :in_support %></b>
 	        </td>
-	        <td>
-	            <%=t :against %>
+	        <td align="center">
+	            <b><%=t :against %></b>
 	        </td>
 	    </tr>
 	    <tr>
-	        <td>
+	        <td align="center">
 	            <%= f.radio_button :agreed, 1 %>
 	        </td>
-	        <td>
+	        <td align="center">
 	            <%= f.radio_button :agreed, 0 %>
 	        </td>
 	    </tr>
@@ -56,7 +56,7 @@
 	</table>
 	<% end %>
 	<% if document.vote_id_by_user(session[:user_id]) %>
-		<%= button_to t(:remove_my_vote), {:controller=>"votes", :action=>"destroy", :id=>document.vote_id_by_user(session[:user_id])}, :confirm => t(:are_you_sure?), :method => :delete %>
+		<%= button_to t(:remove_my_vote), {:controller=>"votes", :action=>"destroy", :id=>document.vote_id_by_user(session[:user_id])}, :confirm => t(:are_you_sure?), :method => :delete  %>
 	<% end %>
 <% else %>
 	<%= t :this_vote_is_closed %>
