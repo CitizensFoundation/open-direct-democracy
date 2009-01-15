@@ -21,6 +21,10 @@ a.participateLink:hover { color: #348017; }
 	color: #348017;
 }
 
+.participateLink table {
+	padding: 50px;
+}
+
 a { color: #000; }
 a:visited { color: #000; }
 a:hover { color: #fff; background-color:#000; }
