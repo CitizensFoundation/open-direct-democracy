@@ -53,7 +53,7 @@ module CasesHelper
         if @votes_in_support_total==0 and @votes_against_total==0 and false
           t(:no_votes_have_been_cast_for_this_law)
         else
-          out+="#{t(:vote_count_in_support)}: #{@votes_in_support_total}<br>#{t(:vote_count_against)}: #{@votes_against_total}"
+          out+="<b>#{t(:vote_count_in_support)}: #{@votes_in_support_total}<br>#{t(:vote_count_against)}: #{@votes_against_total}</b>"
         end
       end
       out
