@@ -8,6 +8,7 @@
 <%=t :vote_count_against %>: <%= @votes_against_total %>
 <br>
 <br>
+<% found_proxy_vote = false %>
 <table width="100%">
     <th>
         <%=t :people_in_support %>
@@ -24,11 +25,12 @@
 	            <% vote_proxy_votes = VoteProxy.find(:all, :conditions=> ["category_id = ? and to_user_id = ?", vote.document.category_id, vote.user.id]) %>
 	            <% for proxy_vote in vote_proxy_votes %>
 		            <% unless vote.document.vote_id_by_user(proxy_vote.from_user_id) %>
-			            - <%= proxy_vote.full_name_of_from_user %>(<%=t :proxy_vote %>)
+						 <% found_proxy_vote = true %>
+				         <small><%= proxy_vote.full_name_of_from_user %> (*)</small>
 			            <br>
 		            <% end %>
 	            <% end %>
-            <% end %>
+             <% end %>
           </center>
 		</td>
         <td width="50%" align="left">
@@ -39,7 +41,8 @@
 	            <% vote_proxy_votes = VoteProxy.find(:all, :conditions=> ["category_id = ? and to_user_id = ?", vote.document.category_id, vote.user.id]) %>
 	            <% for proxy_vote in vote_proxy_votes %>
 		            <% unless vote.document.vote_id_by_user(proxy_vote.from_user_id) %>
-			            - <%= proxy_vote.full_name_of_from_user %>(<%=t :proxy_vote %>)
+						<% found_proxy_vote = true %>
+			            <small><%= proxy_vote.full_name_of_from_user %> (*)</small>
 			            <br>
 		            <% end %>
 	            <% end %>
@@ -48,4 +51,10 @@
         </td>
     </tr>
 </table>
+<% if found_proxy_vote %>
+  <center>
+	<br>
+	<small>(*) <%=t :proxy_vote %></small><br>
+  </center>
+<% end %>
 <% end %>
