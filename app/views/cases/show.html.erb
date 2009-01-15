@@ -39,10 +39,10 @@
 	            <%=t :althingi_presenter %>
 	        </th>
 	        <th>
-	            <span style="color: #348017;"><b><%=t :public_versions %></b></span>
+	            <span style="color: #348017;"><b><%=t :public_vote_status %></b></span>
 	        </th>
 	        <th>
-	            <span style="color: #348017;"><b><%=t :public_vote_status %></b></span>
+	            <span style="color: #348017;"><b><%=t :public_versions %></b></span>
 	        </th>
 	        <% documents.each do |document| %>
 	        <tr>
@@ -58,11 +58,11 @@
 	            <td>
 	                <%=document.external_author %>
 	            </td>
-	            <td>
-	                <%=get_internal_documents_links(document) %>
-	            </td>
-	            <td>
+	            <td width="250px" align="center">
 	                <%=get_vote_status_for_document(document) %>
+	            </td>
+	            <td width="250px" align="center">
+	                <%=get_internal_documents_links(document) %>
 	            </td>
 	        </tr>
 	        <% end %>
