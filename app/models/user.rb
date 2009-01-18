@@ -15,9 +15,6 @@
  
 class User < ActiveRecord::Base
   has_and_belongs_to_many :roles
-  has_many :line_items
-  has_many :orders
-  has_one :company
 
   validates_presence_of     :email, 
                             :password,
