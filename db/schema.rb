@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090109014750) do
+ActiveRecord::Schema.define(:version => 20090119171343) do
 
   create_table "case_discussions", :force => true do |t|
     t.datetime "meeting_date"
@@ -128,6 +128,45 @@ ActiveRecord::Schema.define(:version => 20090109014750) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "law_document_comments", :force => true do |t|
+    t.integer  "law_document_id"
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "bias"
+    t.integer  "user_id"
+  end
+
+  create_table "law_document_states", :force => true do |t|
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "law_document_types", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "law_document_type"
+  end
+
+  create_table "law_documents", :force => true do |t|
+    t.integer  "category_id"
+    t.integer  "issue_id"
+    t.integer  "law_document_state_id"
+    t.integer  "law_document_type_id"
+    t.datetime "voting_close_time"
+    t.boolean  "published"
+    t.string   "original_external_name"
+    t.string   "original_external_author"
+    t.string   "original_external_state"
+    t.datetime "original_external_creation_date"
+    t.string   "original_external_link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "law_document_frozen"
+    t.binary   "legal_text",                      :limit => 2147483647
   end
 
   create_table "ratings", :force => true do |t|
