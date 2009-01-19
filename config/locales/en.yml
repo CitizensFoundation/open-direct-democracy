@@ -51,7 +51,7 @@ en:
   against: "Against"
   very_against: "Very against"
   in_support: "In support"
-  veru_in_support: "Much in support"
+  very_in_support: "Much in support"
   sentiment: "Sentiment"
   post_vote: "Post vote"
   toggle_comments: "Toggle comments"
