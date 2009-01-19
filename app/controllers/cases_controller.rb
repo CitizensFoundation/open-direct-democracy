@@ -25,7 +25,7 @@ class CasesController < ApplicationController
     last_weeks_discussion = CaseDiscussion.find(:all, :conditions=>["created_at >= ?",Time.now-1.weeks])
     last_weeks_documents = CaseDocument.find(:all, :conditions=>["created_at >= ?",Time.now-1.weeks])
     
-    if last_weeks_discussion or last_weeks_documents
+    if not last_weeks_discussion.empty? or not last_weeks_documents.empty?
       @cases_changed_past_7_days = []
       last_weeks_discussion.each do |d|
         @cases_changed_past_7_days << d.case
