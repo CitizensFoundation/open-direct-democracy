@@ -41,7 +41,11 @@ a.participateLink:hover { color: #348017; }
 	padding: 50px;
 }
 
-
+.ratingsTinyText {
+	text-decoration: underline;
+	color: #348017;
+	font-size: 9px;
+}
 a { color: #000; }
 a:visited { color: #000; }
 a:hover { color: #fff; background-color:#000; }
@@ -150,6 +154,77 @@ width: 150px;
 background: url(/images/star_rating_2.gif) left bottom;
 position: absolute;
 height: 30px;
+display: block;
+text-indent: -9000px;
+z-index: 1;
+}
+
+
+/* styles for the star rater */
+.star-rating_smaller{
+list-style:none;
+margin: 0;
+padding:0;
+width: 75px;
+height: 15px;
+position: relative;
+background: url(/images/star_rating_2_smaller.gif) top left repeat-x;
+}
+.star-rating_smaller li{
+padding:0;
+margin:0;
+float: left;
+}
+.star-rating_smaller li a{
+display:block;
+width:15px;
+height: 15px;
+text-decoration: none;
+text-indent: -9000px;
+z-index: 20;
+position: absolute;
+padding: 0px;
+}
+.star-rating_smaller li a:hover{
+background: url(/images/star_rating_2_smaller.gif) left center;
+z-index: 2;
+left: 0px;
+border:none;
+}
+.star-rating_smaller a.one-star{
+left: 0px;
+}
+.star-rating_smaller a.one-star:hover{
+width:15px;
+}
+.star-rating_smaller a.two-stars{
+left:15px;
+}
+.star-rating_smaller a.two-stars:hover{
+width: 30px;
+}
+.star-rating_smaller a.three-stars{
+left: 30px;
+}
+.star-rating_smaller a.three-stars:hover{
+width: 45px;
+}
+.star-rating_smaller a.four-stars{
+left: 45px;
+}
+.star-rating_smaller a.four-stars:hover{
+width: 60px;
+}
+.star-rating_smaller a.five-stars{
+left: 60px;
+}
+.star-rating_smaller a.five-stars:hover{
+width: 75px;
+}
+.star-rating_smaller li.current-rating{
+background: url(/images/star_rating_2_smaller.gif) left bottom;
+position: absolute;
+height: 15px;
 display: block;
 text-indent: -9000px;
 z-index: 1;
