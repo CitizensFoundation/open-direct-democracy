@@ -12,6 +12,8 @@ pre {
   font-size: 11px;
 }
 
+td {vertical-align: top} 
+
 a.participateLink:link { color: #348017; }
 a.participateLink:visited { color: #348017; }
 a.participateLink:hover { color: #348017; }
