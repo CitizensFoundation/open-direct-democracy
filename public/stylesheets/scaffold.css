@@ -30,6 +30,11 @@ a.participateLink:hover { color: #348017; }
 	padding: 50px;
 }
 
+a.participateLinkLarger:link { color: #348017; }
+a.participateLinkLarger:visited { color: #348017; }
+a.participateLinkLarger:hover { color: #348017; }
+
+
 .participateLinkLarger {
 	text-decoration: underline;
 	color: #348017;

@@ -74,7 +74,7 @@ module CasesHelper
         else
           author = "#{t(:author)}: unknown"
         end
-        out+="#{link_to author, {:controller=>"documents", :action=>"show", :id=>document.id}, {:class=>"participateLink"}} <br>"
+        out+="#{link_to author, {:controller=>"documents", :action=>"show", :id=>document.id}, {:class=>"participateLinkLarger"}} <br>"
       end
       out
     else
