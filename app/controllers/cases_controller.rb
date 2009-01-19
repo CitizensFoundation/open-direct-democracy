@@ -21,7 +21,21 @@ class CasesController < ApplicationController
   def index
     @cases = Case.find(:all, :order=>"external_id DESC")
     @most_important_cases = @cases.sort_by { |x| [-x.rating, -x.ratings.size] }
-
+    
+    last_weeks_discussion = CaseDiscussion.find(:all, :conditions=>["created_at >= ?",Time.now-1.weeks])
+    last_weeks_documents = CaseDocument.find(:all, :conditions=>["created_at >= ?",Time.now-1.weeks])
+    
+    if last_weeks_discussion or last_weeks_documents
+      @cases_changed_past_7_days = []
+      last_weeks_discussion.each do |d|
+        @cases_changed_past_7_days << d.case
+      end
+      last_weeks_documents.each do |d|
+        @cases_changed_past_7_days << d.case
+      end
+      @cases_changed_past_7_days = @cases_changed_past_7_days.uniq.sort_by { |x| [-x.rating, -x.ratings.size] }
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @cases }

@@ -384,6 +384,7 @@ class AlthingiCrawler < CaseCrawler
    current_case.external_id = external_id
    current_case.external_name = external_name
 
+   puts "***************************************** New Case *****************************************"
    puts "Case info 1: "+(html_doc/"span.Fyrirsogn").text.strip
    puts "Case info 2: "+(html_doc/"span.FyrirsognSv").text.strip
    (html_doc/"span.FyrirsognSv").each do |info|
@@ -394,7 +395,7 @@ class AlthingiCrawler < CaseCrawler
    old_case = Case.find_by_external_link(url)
    if old_case
      current_case = old_case
-     puts "OLD CASE:"+current_case.inspect
+     puts "OLD CASE: "+current_case.inspect
    else
      current_case.save
      puts current_case.inspect
@@ -435,7 +436,7 @@ class AlthingiCrawler < CaseCrawler
          else
            puts "Document Author: unkown"
          end
-         unless CaseDocument.find_by_external_link(case_document.external_link)
+         unless oldcd = CaseDocument.find_by_external_link(case_document.external_link)
            case_document.save
            puts "EXTERNAL_TYPE: " + case_document.external_type
            puts "EXTERNAL_TYPE START3: " + case_document.external_type[0..3]
@@ -447,7 +448,7 @@ class AlthingiCrawler < CaseCrawler
            end
            puts case_document.inspect
          else
-           puts "Found case document: " + case_document.inspect
+           puts "Found old case document: " + oldcd.inspect
          end
          tr_count+=1
          puts ""
@@ -492,7 +493,7 @@ class AlthingiCrawler < CaseCrawler
                else
                  puts "Document Author: unkown"
                end
-               unless CaseDocument.find_by_external_link(case_document.external_link)
+               unless oldcd = CaseDocument.find_by_external_link(case_document.external_link)
                  case_document.save
                  puts "EXTERNAL_TYPE: " + case_document.external_type
                  puts "EXTERNAL_TYPE START3: " + case_document.external_type[0..3]
@@ -505,7 +506,7 @@ class AlthingiCrawler < CaseCrawler
                  end
                  puts case_document.inspect
                else
-                 puts "Found case document: " + case_document.inspect
+                 puts "Found old case document: " + oldcd.inspect
                end
                tr_count+=1
                puts ""
@@ -549,12 +550,12 @@ class AlthingiCrawler < CaseCrawler
                  puts "Meeting Number: unkown"
                end
                puts ""
-               unless CaseDiscussion.find(:first, :conditions => ["listen_url = ? AND transcript_url = ?", 
+               unless oldcd = CaseDiscussion.find(:first, :conditions => ["listen_url = ? AND transcript_url = ?", 
                                                                     case_discussion.listen_url, case_discussion.transcript_url])
                  case_discussion.save
                  puts case_discussion.inspect
                else
-                 puts "Found case discussion: " + case_discussion.inspect
+                 puts "Found old case discussion: " + oldcd.inspect
                end
                tr_count+=1
              end
@@ -575,7 +576,7 @@ class AlthingiCrawler < CaseCrawler
    puts "============"      
    
    tr_count = 2
-   while next_sibling.at("tr[#{tr_count}]/td[1]") and tr_count < 4
+   while next_sibling.at("tr[#{tr_count}]/td[1]")
      external_case_id = next_sibling.at("tr[#{tr_count}]/td[1]").text.strip
      puts "External Case Id:"+external_case_id
      case_name = ""
