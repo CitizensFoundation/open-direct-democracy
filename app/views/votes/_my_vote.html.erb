@@ -23,17 +23,17 @@
 	<br><br>
 	<% @vote = Vote.new %>
 	<% form_for(@vote) do |f| %>
-	<table class="participateLink">
+	<table class="participateLinkLarger">
 	    <tr>
-	        <td colspan=2 align="center">
-	            <b><%=t :your_vote %></b>
+	        <td colspan=2 align="center" class="participateLinkLarger">
+	            <b><%=t :your_vote %></b><br><br>
 	        </td>
 	    </tr>
 	    <tr>
-	        <td align="center">
+	        <td align="center" class="participateLinkLarger">
 	            <b><%=t :in_support %></b>
 	        </td>
-	        <td align="center">
+	        <td align="center" class="participateLinkLarger">
 	            <b><%=t :against %></b>
 	        </td>
 	    </tr>
