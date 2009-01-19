@@ -1,5 +1,7 @@
 <a onclick="toggleDiv('comment_panel_for_<%=comment_target.class.name%>_<%=comment_target.id%>');" title="<%=t :toggle_comments%>", class="participateLink"><%=t :toggle_comments %></a>
+
 <br>
+
 <div id="comment_panel_for_<%=comment_target.class.name%>_<%=comment_target.id%>" style="<%=open_panel ? "": "display:none;"%>">
 	<% if comment_target.comments_in_support.length>0 or
           comment_target.comments_not_sure.length>0 or 
@@ -69,39 +71,39 @@
     <% @document_comment = DocumentComment.new %>
     <% remote_form_for(@document_comment) do |f| %>
     <h2><%= t :your_opinion %></h2>
+
     <table>
         <tr>
-            <td colspan=3 align="center">
+           <td colspan=3 align="center">
                 <b><%=t :bias %></b>
-            </td>
+           </td>
         </tr>
         <tr>
-            <td>
-                <%=t :in_support %>
-            </td>
-            <td>
-                <%=t :not_sure %>
-            </td>
-            <td>
-                <%=t :against %>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <%= f.radio_button :bias, 0.5 %><%= f.radio_button :bias, 1.0 %><%= f.radio_button :bias, 1.5 %>
-            </td>
-            <td>
-                <%= f.radio_button :bias, 0.0, :select=>true %>
-            </td>
-            <td>
-                <%= f.radio_button :bias, -1.5 %><%= f.radio_button :bias, -1.0 %><%= f.radio_button :bias, -0.5 %>
-            </td>
+           <td colspan=3  align="center">
+            <table>
+                <tr>
+                    <td>
+                        <div id='sentiment_slider_value_1_<%=comment_target.class.name%>_<%=comment_target.id%>'>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="sentiment_track1_<%=comment_target.class.name%>_<%=comment_target.id%>" style="background-image:url(/images/bg-fader.gif); background-repeat:no-repeat; width:209px; height:28px;">
+                            <div id="sentiment_handle1_<%=comment_target.class.name%>_<%=comment_target.id%>" style="background-image:url(/images/thumb-n.gif); background-repeat:no-repeat; width:17px; height:21px; cursor:move;">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+           </td>
         </tr>
         <tr>
             <td colspan=3>
                 <p>
                     <%= f.text_area :comment, :rows => 10 %>
                 </p>
+				<input type="hidden" name="bias" id="sentiment_slider_form_value_1_<%=comment_target.class.name%>_<%=comment_target.id%>" value="3"/>
                 <%= f.hidden_field :document_id, {:value=>document.id} %>
                 <% if comment_target.class.name=="DocumentElement" %>
                 <%= f.hidden_field :document_element_id, {:value=>comment_target.id} %>
@@ -114,3 +116,24 @@
     </table>
     <% end %>
 </div>
+<script type="text/javascript" language="javascript">
+// <![CDATA[
+			 new Control.Slider('sentiment_handle1_<%=comment_target.class.name%>_<%=comment_target.id%>' , 'sentiment_track1_<%=comment_target.class.name%>_<%=comment_target.id%>',
+		      {
+		           range: $R(1,5),
+		           values: [1,2,3,4,5],
+		           sliderValue: 3,
+				   axis:'horizontal',
+		           onChange: function(v){
+		               $('sentiment_slider_value_1_<%=comment_target.class.name%>_<%=comment_target.id%>').innerHTML = "<small><%=t :sentiment%>: "+getSentimentWord(v)+"</small>";
+					   $('sentiment_slider_form_value_1_<%=comment_target.class.name%>_<%=comment_target.id%>').value = v;
+		           },
+		           onSlide: function(v) {
+		               $('sentiment_slider_value_1_<%=comment_target.class.name%>_<%=comment_target.id%>').innerHTML = "<small><%=t :sentiment%>: "+getSentimentWord(v)+"</small>";
+		          }
+		       } );
+			 $('sentiment_slider_value_1_<%=comment_target.class.name%>_<%=comment_target.id%>').innerHTML = "<small><%=t :sentiment%>: <%=t :not_sure%></small>";
+		     $('sentiment_slider_form_value_1_<%=comment_target.class.name%>_<%=comment_target.id%>').value = 3;        						 
+// ]]>
+</script>
+

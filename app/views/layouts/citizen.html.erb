@@ -5,6 +5,7 @@
         <title><%=t :main_header %></title>
         <%= stylesheet_link_tag 'scaffold' %>
         <%= javascript_include_tag :defaults %>
+        <%= javascript_include_tag "slider.js" %>		
         <%= javascript_include_tag :fckeditor %>
         <script type="text/javascript">
             <!--
@@ -16,7 +17,21 @@
                 else {
                     el.style.display = '';
                 }
-            }      
+            }
+			
+		    function getSentimentWord(sentiment) {
+				if (sentiment==1) {
+					return "<%=t :very_in_support%>";						
+				} else if (sentiment==2) {
+					return "<%=t :in_support%>";						
+				} else if (sentiment==3) {
+					return "<%=t :not_sure%>";						
+				} else if (sentiment==4) {
+					return "<%=t :against%>";				
+				} else if (sentiment==5) {
+					return "<%=t :very_against%>";
+				}					
+			};      
             //-->
         </script>
     </head>
