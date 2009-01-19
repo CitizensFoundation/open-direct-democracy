@@ -5,9 +5,6 @@
             <%=t :importance %>
         </th>
         <th>
-            <%=t :althingi_case_id %>
-        </th>
-        <th>
             <%=t :althingi_case_name %>
         </th>
         <th>
@@ -18,9 +15,6 @@
     <tr>
         <td width="100px" align="center">
         	<%= render :partial => "ratings/rate_smaller", :locals => { :asset => current_case } %>
-        </td>
-        <td>
-            <%= current_case.external_id %>.
         </td>
         <td>
             <%= link_to "#{current_case.info_1} / #{current_case.info_2}", current_case %>
