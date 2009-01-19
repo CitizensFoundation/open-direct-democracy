@@ -1,6 +1,5 @@
 <p>
-    <b><%=t :external_name %>:</b>
-    <%=h @document.case_document.case.info_1 %>- <%=h @document.case_document.case.info_2 %>- <%=h @document.case_document.case.info_3 %>
+    <h2><%=h @document.case_document.case.info_1 %>- <%=h @document.case_document.case.info_2 %>- <%=h @document.case_document.case.info_3 %></h2>
 </p>
 <p>
     <b><%=t :voting_close_time %>:</b>
@@ -10,7 +9,6 @@
 	<hr>
 	<%= link_to t(:edit), edit_document_path(@document) %> |<%= link_to t(:back), documents_path %>
 <% end %>
-<hr>
 <table valign="top" width="100%">
     <tr valign="top">
         <td valign="top" width="60%">
