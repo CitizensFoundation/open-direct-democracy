@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   attr_accessor :citizen_id_confirmation
   validates_confirmation_of :password
   
-  before_save :add_admin_role
+  before_save :add_citizen_role
   
   def self.authenticate(email, password)
     user = self.find_by_email(email)
@@ -93,16 +93,9 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(string_to_hash)
   end
 
-  def add_customer_role
-    unless self.has_role?("Customer")
-      role = Role.find_by_name("Customer")
-      self.roles << role
-    end
-  end
-
-  def add_admin_role
-    unless self.has_role?("Admin")
-      role = Role.find_by_name("Admin")
+  def add_citizen_role
+    unless self.has_role?("Citizen")
+      role = Role.find_by_name("Citizen")
       self.roles << role
     end
   end

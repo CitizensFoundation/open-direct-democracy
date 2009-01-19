@@ -32,7 +32,7 @@ class DocumentsController < ApplicationController
   def show
     @document = Document.find(params[:id])
     
-    @votes_against = Vote.find(:all, :conditions=>["document_id = ? and agreed = 0",@document.id])
+    @votes_against = Vote.find(:all, :conditions=>["document_id = ? and agreed = 0", @document.id])
     @votes_in_support = Vote.find(:all, :conditions=>["document_id = ? and agreed = 1",@document.id])
 
     @document_elements = DocumentElement.find(:all, :conditions => ["document_id = ? AND original_version = 1",@document.id], :order=>"sequence_number")
