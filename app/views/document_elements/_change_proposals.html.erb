@@ -1,4 +1,4 @@
-<a onclick="toggleDiv('change_proposals_panel_for_<%=change_target.sequence_number%>');" title="<%=t :toggle_change_proposals%>", class="participateLink"><%=t :toggle_change_proposals %></a>
+<a onclick="toggleDiv('change_proposals_panel_for_<%=change_target.sequence_number%>');" title="<%=t :toggle_change_proposals%>" id="participateLinkCursor" class="participateLinkLarger"><%=t :toggle_change_proposals %></a>
 <br>
 <div id="change_proposals_panel_for_<%=change_target.sequence_number%>" style="<%=open_panel ? "": "display:none;"%>">
     <h2><%= t :change_proposals %></h2>

@@ -16,6 +16,11 @@ a.participateLink:link { color: #348017; }
 a.participateLink:visited { color: #348017; }
 a.participateLink:hover { color: #348017; }
 
+#participateLinkCursor {
+	cursor: pointer; cursor: hand;
+}
+
+
 .participateLink {
 	text-decoration: underline;
 	color: #348017;
@@ -24,6 +29,18 @@ a.participateLink:hover { color: #348017; }
 .participateLink table {
 	padding: 50px;
 }
+
+.participateLinkLarger {
+	text-decoration: underline;
+	color: #348017;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.participateLinkLarger table {
+	padding: 50px;
+}
+
 
 a { color: #000; }
 a:visited { color: #000; }
