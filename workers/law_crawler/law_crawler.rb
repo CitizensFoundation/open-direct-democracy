@@ -19,6 +19,8 @@ require 'open-uri'
 require 'active_record'
 require 'timeout'
 
+RAILS_ENV='production'
+
 require File.dirname(__FILE__) + '/../../config/boot'
 require "#{RAILS_ROOT}/config/environment"
 
