@@ -19,7 +19,6 @@ require 'open-uri'
 require 'active_record'
 require 'timeout'
 
-
 require File.dirname(__FILE__) + '/../../config/boot'
 require "#{RAILS_ROOT}/config/environment"
 
@@ -265,12 +264,10 @@ class AlthingiCrawler < CaseCrawler
       end
     end
 
-#    html_doc = Nokogiri::HTML(File.open('0281.html'))
-#     html_doc = Nokogiri::HTML(File.open('0281.html'))
-    #html_doc = Nokogiri::HTML(File.open('0365.html'))
-    #html_doc = Nokogiri::HTML(open('http://www.althingi.is/altext/136/s/0365.html'))
-
-    return if Document.find_by_external_link(url)
+    if Document.find_by_external_link(url)
+      puts "Found document at: #{url}"
+      return 
+    end
     
     doc = Document.new
     doc.case_id = case_id
@@ -397,6 +394,7 @@ class AlthingiCrawler < CaseCrawler
    old_case = Case.find_by_external_link(url)
    if old_case
      current_case = old_case
+     puts "OLD CASE:"+current_case.inspect
    else
      current_case.save
      puts current_case.inspect
@@ -448,6 +446,8 @@ class AlthingiCrawler < CaseCrawler
              get_law_document(case_document.case_id, case_document.id, case_document.external_link)
            end
            puts case_document.inspect
+         else
+           puts "Found case document: " + case_document.inspect
          end
          tr_count+=1
          puts ""
@@ -504,6 +504,8 @@ class AlthingiCrawler < CaseCrawler
                    sleep 1
                  end
                  puts case_document.inspect
+               else
+                 puts "Found case document: " + case_document.inspect
                end
                tr_count+=1
                puts ""
@@ -551,6 +553,8 @@ class AlthingiCrawler < CaseCrawler
                                                                     case_discussion.listen_url, case_discussion.transcript_url])
                  case_discussion.save
                  puts case_discussion.inspect
+               else
+                 puts "Found case discussion: " + case_discussion.inspect
                end
                tr_count+=1
              end
@@ -566,7 +570,6 @@ class AlthingiCrawler < CaseCrawler
 
  def update_all_cases
    html_doc = Nokogiri::HTML(open('http://www.althingi.is/vefur/thingmalalisti.html?cmalteg=l'))
-   #html_doc = Nokogiri::HTML(File.open('thingmalalisti.html'))
 
    next_sibling = html_doc.xpath('/html/body/table/tr[2]/td/table/tr/td/table[2]/tr/td[2]/div/table')
    puts "============"      
@@ -599,17 +602,5 @@ class AlthingiCrawler < CaseCrawler
   end
 end
 
- Case.destroy_all
- CaseDocument.destroy_all
- CaseDiscussion.destroy_all   
- Document.destroy_all
- DocumentElement.destroy_all
- DocumentComment.destroy_all
-
-
 acrawler = AlthingiCrawler.new
-#acrawler.get_case
 acrawler.update_all_cases
-
-#acrawler.get_document(1,1,"http://www.althingi.is/altext/136/s/0476.html")
-

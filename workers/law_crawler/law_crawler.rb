@@ -575,7 +575,7 @@ class AlthingiCrawler < CaseCrawler
    puts "============"      
    
    tr_count = 2
-   while next_sibling.at("tr[#{tr_count}]/td[1]")
+   while next_sibling.at("tr[#{tr_count}]/td[1]") and tr_count < 4
      external_case_id = next_sibling.at("tr[#{tr_count}]/td[1]").text.strip
      puts "External Case Id:"+external_case_id
      case_name = ""
