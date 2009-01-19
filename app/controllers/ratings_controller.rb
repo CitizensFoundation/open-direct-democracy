@@ -24,7 +24,7 @@ class RatingsController < ApplicationController
     rateable.add_rating Rating.new(:rating => params[:rating], :user_id => session[:user_id])  
            
     render :update do |page|  
-      page.replace_html "star-ratings-block-#{rateable.id}_#{rateable.class.name}", :partial => "rate", :locals => { :asset => rateable }  
+      page.replace_html "star-ratings-block-#{rateable.id}_#{rateable.class.name}", :partial => params[:smaller]==nil ? "rate" : "rate_smaller", :locals => { :asset => rateable }  
       page.visual_effect :highlight, "star-ratings-block-#{rateable.id}_#{rateable.class.name}"  
     end
   end

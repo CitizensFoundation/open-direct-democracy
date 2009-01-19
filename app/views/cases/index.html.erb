@@ -17,7 +17,7 @@
     <% for current_case in @most_important_cases %>
     <tr>
         <td width="100px" align="center">
-            <%=get_short_star_rating(current_case,true) %>
+        	<%= render :partial => "ratings/rate_smaller", :locals => { :asset => current_case } %>
         </td>
         <td>
             <%= current_case.external_id %>.
