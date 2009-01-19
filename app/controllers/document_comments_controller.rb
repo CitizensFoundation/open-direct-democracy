@@ -58,7 +58,7 @@ class DocumentCommentsController < ApplicationController
   # POST /document_comments.xml
   def create
     params[:document_comment][:user_id]=session[:user_id]
-    params[:document_comment][:bias]=0.0 unless params[:document_comment][:bias]
+    params[:document_comment][:bias] = translate_comment_bias_from_form(params[:bias])
     @document_comment = DocumentComment.new(params[:document_comment])
     if request.xhr?
       if @document_comment.save
@@ -117,6 +117,19 @@ class DocumentCommentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(document_comments_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  private
+  
+  def translate_comment_bias_from_form(form_bias)
+    case form_bias.to_i
+      when nil then 0.0
+      when 5 then -1.0
+      when 4 then -0.5
+      when 3 then 0.0
+      when 2 then 0.5
+      when 1 then 1.0
     end
   end
 end
