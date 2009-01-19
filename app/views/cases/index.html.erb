@@ -1,3 +1,44 @@
+<% if @cases_changed_past_7_days %>
+<h1><%=t :listing_cases_changed_the_past_7_days %></h1>
+<table width="100%">
+    <tr>
+        <th>
+            <%=t :importance %>
+        </th>
+        <th>
+            <%=t :althingi_case_name %>
+        </th>
+        <th>
+            <%=t :althingi_case_presenter %>
+        </th>
+    </tr>
+    <% for current_case in @cases_changed_past_7_days %>
+    <tr>
+        <td width="100px" align="center">
+        	<%= render :partial => "ratings/rate_smaller", :locals => { :asset => current_case, :postfix=>"7_days" } %>
+        </td>
+        <td>
+            <%= link_to "#{current_case.info_1} / #{current_case.info_2}", current_case %>
+        </td>
+        <td>
+            <%= current_case.presenter %>.
+        </td>
+        <% if @i_am_admin %>
+	        <td>
+	            - <%= link_to t(:show), current_case %>
+	        </td>
+	        <td>
+	            <%= link_to t(:edit), edit_case_path(current_case) %>
+	        </td>
+	        <td>
+	            <%= link_to t(:destroy), current_case, :confirm => t(:are_you_sure?), :method => :delete %>
+	        </td>
+        <% end %>
+    </tr>
+    <% end %>
+</table>
+<br/>
+<% end %>
 <h1><%=t :listing_cases %></h1>
 <table width="100%">
     <tr>
@@ -14,7 +55,7 @@
     <% for current_case in @most_important_cases %>
     <tr>
         <td width="100px" align="center">
-        	<%= render :partial => "ratings/rate_smaller", :locals => { :asset => current_case } %>
+        	<%= render :partial => "ratings/rate_smaller", :locals => { :asset => current_case, :postfix=>"all" } %>
         </td>
         <td>
             <%= link_to "#{current_case.info_1} / #{current_case.info_2}", current_case %>
