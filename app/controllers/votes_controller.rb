@@ -64,7 +64,7 @@ class VotesController < ApplicationController
         flash[:notice] = t(:you_need_to_select_either_in_support_or_against_when_you_vote)
         format.html { redirect_to(:controller => "documents", :action=>"show", :id => @vote.document_id)}
       elsif @vote.save
-        flash[:notice] = 'Vote was successfully created.'
+        flash[:notice] = t(:vote_was_successfully_created)
         format.html { redirect_to(:controller => "documents", :action=>"show", :id => @vote.document_id)}
         format.xml  { render :xml => @vote, :status => :created, :location => @vote }
       else
@@ -97,7 +97,7 @@ class VotesController < ApplicationController
     @vote = Vote.find(params[:id])
     document_id = @vote.document_id
     if @vote.user_id = session[:user_id]
-      flash[:notice] = 'Vote was successfully removed.'
+      flash[:notice] = t (:vote_was_successfully_removed)
       @vote.destroy
     else
       flash[:notice] = 'You can only remove your own vote.'

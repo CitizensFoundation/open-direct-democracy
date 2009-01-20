@@ -139,6 +139,9 @@ is:
   you_have_voted_in_support_of_this_through_a_proxy: "Þú hefur kosið með þessu í gegnum framsal atkvæðis "
   you_have_voted_against_this_through_a_proxy: "Þú hefur kosið gegn þessu í gegnum framsal atkvæðis "
   listing_cases_changed_the_past_7_days: "Lagafrumvörp sem eru ný eða hafa breyst seinustu 7 daga"
+  you_need_to_select_either_in_support_or_against_when_you_vote: "Veldu á með eða á móti"
+  vote_was_successfully_created: "Þakka þér fyrir að kjósa"
+  vote_was_successfully_removed: "Atkvæði hefur verið eytt"
   support:
       array:
         sentence_connector: "og"
