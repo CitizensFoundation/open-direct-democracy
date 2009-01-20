@@ -1,7 +1,7 @@
 class AddCitizenRole < ActiveRecord::Migration
   def self.up
     customer_role = Role.find_by_name "Customer"
-    customer_role.destroy
+    customer_role.destroy if customer_role
 
     citizen_role = Role.create :name => "Citizen"
     citizen_role.save
