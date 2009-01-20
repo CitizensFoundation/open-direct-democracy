@@ -72,7 +72,7 @@ class DocumentCommentsController < ApplicationController
         end
         render :update do |page|  
           page.replace_html replace_div, :partial => "comment_on", :locals => { :document=> @document, :comment_target => comment_target, :open_panel => true }  
-          page.visual_effect :highlight, replace_div  
+          page.visual_effect :highlight, replace_div,  {:restorecolor=>"#ffffff", :startcolor=>"#bbffbc", :endcolor=>"#ffffff"}  
         end
       else
         error("Could not save comment")
