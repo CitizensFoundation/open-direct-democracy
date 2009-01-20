@@ -83,7 +83,7 @@ is:
   confirm_password: "Staðfestu lykilorð"
   register_now: "Skráðu þig inn í fyrsta skipti"
   login_register: "Innskráning og Nýskráning"
-  login_instructions: "Leiðbeiningar"   
+  login_instructions: "Leiðbeiningar"
   login_welcome: "Velkominn í opið beint lýðræði, sem er viðbót við fulltrúalýðræðið á Alþingi, eins konar Skuggaþing. Þessi vefur sækir sjálfvirkt ný lagafrumvörp og allar breytingar á klukkutíma fresti frá vef Alþingis og gefur þér kost á að tengjast lagaferlinu með því að skoða, ræða, breyta og kjósa. Athugið að þetta kerfi er í prufukeyrslu og villur geta komið upp. Þetta tölvukerfi er unnið af einstaklingum og er Opinn Hugbúnaður sem hægt er að sækja hér neðst á síðunni. Hjálpaðu okkur með því að skrá þig inn hér að neðan og síðan prófa að tengjast lagaferlinu."
   returning_users_login_here: "Skráðu þig inn hér ef þú hefur skráð þig áður:"
   new_users_register_here: "Nýir notendur skrái sig hér:"
