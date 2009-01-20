@@ -103,7 +103,6 @@ class DocumentElementsController < ApplicationController
     replace_div = "document_element_number_#{@source_element.sequence_number}"
     render :update do |page|
       page.replace_html replace_div, :partial => "document_elements/new_change_proposal", :locals => {:document=> @source_element.document, :element => @source_element, :open_panel => true }
-#      page.visual_effect :highlight, replace_div  
     end
   end
 
@@ -118,7 +117,7 @@ class DocumentElementsController < ApplicationController
     replace_div = "document_element_number_#{change_proposal.sequence_number}"
     render :update do |page|  
       page.replace_html replace_div, :partial => "document_elements/element", :locals => {:document=> change_proposal.document, :element => change_proposal, :open_panel => true }
-      page.visual_effect :highlight, replace_div
+      page.visual_effect :highlight, replace_div,  {:restorecolor=>"#ffffff", :startcolor=>"#bbffbc", :endcolor=>"#ffffff"}
     end
   end
 
@@ -127,7 +126,7 @@ class DocumentElementsController < ApplicationController
     replace_div = "document_element_number_#{source_element.sequence_number}"
     render :update do |page|  
       page.replace_html replace_div, :partial => "document_elements/element", :locals => {:document=> source_element.document, :element => source_element, :open_panel => true }
-      page.visual_effect :highlight, replace_div  
+      page.visual_effect :highlight, replace_div,  {:restorecolor=>"#ffffff", :startcolor=>"#bbffbc", :endcolor=>"#ffffff"} 
     end
   end
 
@@ -136,7 +135,7 @@ class DocumentElementsController < ApplicationController
     replace_div = "document_element_number_#{source_element.sequence_number}"
     render :update do |page|  
       page.replace_html replace_div, :partial => "document_elements/element", :locals => {:document=> source_element.document, :element => source_element, :open_panel => true }
-      page.visual_effect :highlight, replace_div  
+      page.visual_effect :highlight, replace_div,  {:restorecolor=>"#ffffff", :startcolor=>"#bbffbc", :endcolor=>"#ffffff"}  
     end
   end
 end
