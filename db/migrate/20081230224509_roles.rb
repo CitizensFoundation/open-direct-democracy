@@ -5,24 +5,18 @@ class Roles < ActiveRecord::Migration
     add_column :users, :hashed_password, :string
     add_column :users, :salt, :string
     
-    customer_role = Role.create :name => "Customer"
-    customer_role.save
-
     adminrole = Role.create :name => "Admin"
 
     adminuser = User.create :email => "admin",
-            			    :email_confirmation => "admin",
                             :password => "rvb12345",
                             :password_confirmation => "rvb12345",
                             :citizen_id => "0101691234",
-                            :citizen_id_confirmation => "0101691234",
-                            :password_confirmation => "rvb12345",
                             :first_name => "admin",
-			                :last_name => "admin"
+			                      :last_name => "admin"
     
     adminuser.roles << adminrole
  
-    if adminuser.save
+    if adminuser.save(false)
       puts "save user complete"
     else
       puts "save user FAILED"
@@ -68,10 +62,6 @@ class Roles < ActiveRecord::Migration
     adminrole.rights << document_states_all_rights
     adminrole.rights << document_types_all_rights
     adminrole.save
-
-    customer_role.rights << home_all_rights
-    
-    customer_role.save
   end
 
   def self.down

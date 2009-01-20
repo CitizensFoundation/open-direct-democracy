@@ -96,7 +96,7 @@ class User < ActiveRecord::Base
   def add_citizen_role
     unless self.has_role?("Citizen")
       role = Role.find_by_name("Citizen")
-      self.roles << role
+      self.roles << role if role
     end
   end
 end
