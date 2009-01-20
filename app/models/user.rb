@@ -19,14 +19,8 @@ class User < ActiveRecord::Base
   validates_presence_of     :email, 
                             :password,
                             :first_name,
-                            :last_name,
-                            :citizen_id
+                            :last_name
   validates_uniqueness_of   :email
-  validates_uniqueness_of   :citizen_id
-  validates_length_of       :citizen_id, 
-                            :minimum => 10
-  validates_length_of       :citizen_id, 
-                            :maximum => 10
   validates_length_of       :password, 
                             :minimum => 6
   attr_accessor :password_confirmation
