@@ -144,6 +144,9 @@ is:
   rate_the_importance_of_this_propsoal: "Hversu mikilvægt finnst þér er þetta mál?"
   release_date: "Útgáfudagur"
   document: "Skjal/Tillaga"
+  you_need_to_select_either_in_support_or_against_when_you_vote: "Veldu á með eða á móti"
+  vote_was_successfully_created: "Þakka þér fyrir að kjósa"
+  vote_was_successfully_removed: "Atkvæði hefur verið eytt"
   support:
       array:
         sentence_connector: "og"
