@@ -1,10 +1,8 @@
-<h1><%=h @case.info_1 %></h1>
-<%=h @case.info_2 %>
-<br>
-<%=h @case.info_3 %>
+<h1><%=h @case.external_name %></h1>
+<%=h @case.info_1 %>
 <br>
 <br>
-<i><%=t :rate_the_importance_of_this_law_proposal %></i>
+<i><%=t :rate_the_importance_of_this_propsoal %></i>
     <br>
     <%= render :partial => "ratings/rate", :locals => { :asset => @case } %>
     <% stage_sequence_number = 0 %>
@@ -23,20 +21,17 @@
 	      <table>
 	        <tr>
 	            <td colspan=4>
-	                <h3><%=t :althingi_documents %></h3>
+	                <h3><%=t :documents %></h3>
 	            </td>
 	        </tr>
 	        <th>
-	            <%=t :althingi_release_date %>
+	            <%=t :release_date %>
 	        </th>
 	        <th>
-	            <%=t :althingi_law_document %>
+	            <%=t :document %>
 	        </th>
 	        <th>
-	            <%=t :althingi_document_type %>
-	        </th>
-	        <th>
-	            <%=t :althingi_presenter %>
+	            <%=t :author %>
 	        </th>
 	        <th>
 	            <span style="color: #348017;"><b><%=t :public_vote_status %></b></span>
@@ -51,9 +46,6 @@
 	            </td>
 	            <td>
             		<%= link_to document.external_id, document.external_link,{:target=>"_blank"}%>
-	            </td>
-	            <td>
-	                <%=document.external_type %>
 	            </td>
 	            <td>
 	                <%=document.external_author %>

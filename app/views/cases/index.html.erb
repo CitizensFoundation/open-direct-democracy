@@ -6,10 +6,10 @@
             <%=t :importance %>
         </th>
         <th>
-            <%=t :althingi_case_name %>
+            <%=t :case_name %>
         </th>
         <th>
-            <%=t :althingi_case_presenter %>
+            <%=t :case_presenter %>
         </th>
     </tr>
     <% for current_case in @cases_changed_past_7_days %>
@@ -18,7 +18,7 @@
         	<%= render :partial => "ratings/rate_smaller", :locals => { :asset => current_case, :postfix=>"7_days" } %>
         </td>
         <td>
-            <%= link_to "#{current_case.info_1} / #{current_case.info_2}", current_case %>
+            <%= link_to "#{current_case.external_name}", current_case %>
         </td>
         <td>
             <%= current_case.presenter %>.
@@ -46,10 +46,10 @@
             <%=t :importance %>
         </th>
         <th>
-            <%=t :althingi_case_name %>
+            <%=t :case_name %>
         </th>
         <th>
-            <%=t :althingi_case_presenter %>
+            <%=t :case_presenter %>
         </th>
     </tr>
     <% for current_case in @most_important_cases %>
@@ -58,7 +58,7 @@
         	<%= render :partial => "ratings/rate_smaller", :locals => { :asset => current_case, :postfix=>"all" } %>
         </td>
         <td>
-            <%= link_to "#{current_case.info_1} / #{current_case.info_2}", current_case %>
+            <%= link_to "#{current_case.external_name}", current_case %>
         </td>
         <td>
             <%= current_case.presenter %>.
