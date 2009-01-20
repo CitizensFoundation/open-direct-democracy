@@ -97,7 +97,7 @@ class VotesController < ApplicationController
     @vote = Vote.find(params[:id])
     document_id = @vote.document_id
     if @vote.user_id = session[:user_id]
-      flash[:notice] = t (:vote_was_successfully_removed)
+      flash[:notice] = t(:vote_was_successfully_removed)
       @vote.destroy
     else
       flash[:notice] = 'You can only remove your own vote.'
