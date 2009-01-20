@@ -2,7 +2,7 @@
 <div id="star-ratings-block-<%= "#{asset.id}_#{asset.class.name}_#{postfix}"  %>" class="star-ratings-block">  
 <ul class='star-rating_smaller'>
     <li class='current-rating' style='width:<%= (asset.rating * 15).to_i -%>px;'>
-        <%=t(:currently) %><%= number_with_precision(asset.rating, 1) %>/5
+        <%=t(:currently) %><%= number_with_precision(asset.rating, :precision=>1) %>/5
     </li>
     <% 1.upto(5) do |x| -%>
       <li>
