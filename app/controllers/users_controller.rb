@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   layout "citizen"
   skip_before_filter :check_authentication, :only => [ :login, :logout ]
   skip_before_filter :check_authorization, :only => [ :login, :logout ]
-  filter_parameter_logging :login_password
+  filter_parameter_logging :login_password, :password, :password_confirmation
 
   def complete_login
     if xml_request?
