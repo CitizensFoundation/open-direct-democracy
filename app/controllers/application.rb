@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
                 :set_locale
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
-  protect_from_forgery # :secret => '216851400334e64c3cf4dcd55b6527cf'
+  #protect_from_forgery # :secret => '216851400334e64c3cf4dcd55b6527cf'
   
   # See ActionController::Base for details 
   # Uncomment this to filter the contents of submitted sensitive data parameters
@@ -69,6 +69,7 @@ class ApplicationController < ActionController::Base
   def check_authorization
     if session[:user_id]
       user = User.find(session[:user_id])
+      info("#{user.email}")
       unless user.roles.detect{|role|
         role.rights.detect{|right|
           (right.action == action_name || right.action == "*") && right.controller == self.class.controller_path
