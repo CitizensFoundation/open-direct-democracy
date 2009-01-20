@@ -1,6 +1,6 @@
 set :application, "open-direct-democracy"
 set :domain, "beint.lydraedi.is"
-set :selected_branch, "master"
+set :selected_branch, "forgunnar"
 set :repository, "git@github.com:rbjarnason/open-direct-democracy.git"
 set :use_sudo, false
 set :deploy_to, "/home/robert/sites/#{application}/#{selected_branch}"
