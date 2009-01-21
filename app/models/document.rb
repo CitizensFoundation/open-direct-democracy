@@ -53,6 +53,10 @@ class Document < ActiveRecord::Base
       return nil
     end
   end
+  
+  def has_comments?
+    DocumentComment.find(:first, :conditions => ["document_id = ? and document_element_id is null", self.id])
+  end
 
   def comments_against
     DocumentComment.find(:all, :conditions => ["document_id = ? and bias < 0 and document_element_id is null", self.id])
@@ -64,6 +68,10 @@ class Document < ActiveRecord::Base
   
   def comments_in_support
     DocumentComment.find(:all, :conditions => ["document_id = ? and bias > 0 and document_element_id is null", self.id])
+  end
+  
+  def has_change_proposal_for_sequence_number?(sequence_number)
+    DocumentElement.find(:first, :conditions => ["document_id = ? AND sequence_number = ? AND original_version = 0",self.id,sequence_number])
   end
   
   def get_all_change_proposals_for_sequence_number(sequence_number)

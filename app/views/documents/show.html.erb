@@ -26,7 +26,7 @@
 <hr>
 <center>
     <div id="comment_panel_master_for_Document_<%=@document.id%>">
-        <%= render :partial => "document_comments/comment_on", :locals => {:document=> @document, :comment_target => @document, :open_panel => false } %>
+        <%= render :partial => "document_comments/comment_on", :locals => {:document=> @document, :comment_target => @document, :open_panel => @document.has_comments? } %>
     </div>
 </center>
 <hr>
@@ -34,7 +34,7 @@
     <b><%=t :document_elements %>:</b>
     <% for element in @document_elements %>
 	    <div id="document_element_number_<%=element.sequence_number%>">
-	        <%= render :partial => "document_elements/element", :locals => {:document=> @document, :element => element, :open_panel => false } %>
+	        <%= render :partial => "document_elements/element", :locals => {:document=> @document, :element => element, :open_panel => element.has_comments? } %>
 	    </div>
     <% end %>
 </p>
