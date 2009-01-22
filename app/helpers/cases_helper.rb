@@ -16,7 +16,7 @@
 module CasesHelper
   
   def get_comment_document_case_link(comment)
-    link_to comment.document.case_document.case.external_name, :controller=>"documents", :action=>"show", :id=>comment.document.id    
+    link_to comment.document.case_document.case.external_name.capitalize, :controller=>"documents", :action=>"show", :id=>comment.document.id    
   end
   
   def get_vote_status_for_document(case_document)
