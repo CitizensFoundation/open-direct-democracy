@@ -20,44 +20,37 @@
 	        <tr>
 	            <td width="33%">
 	                <% for comment in comment_target.comments_in_support %>
-	                <%= t :author %>: <%= comment.user.full_name %>
-	                <br>
-	                <%= t :creation_date %>: <%= comment.created_at.strftime("%d. %b %Y %H:%M") %>
+	                <%= comment.user.full_name %> <%=t :says %>:
 	                <br>
 	                <br>
 	                <%= comment.comment %>
 	                <br>
 	                <br>
-	                <%=t :rate_this_comment %>:<%= render :partial => "ratings/rate", :locals => { :asset => comment } %>
+	                <small><%=t :rate_this_comment %>:<%= render :partial => "ratings/rate", :locals => { :asset => comment } %></small>
 	                <p>
 	                <% end %>
 	            </td>
 	            <td width="34%">
 	                <% for comment in comment_target.comments_not_sure %>
-	                <%= t :author %>: <%= comment.user.full_name %>
-	                <br>
-	                <%= t :creation_date %>: <%= comment.created_at.strftime("%d. %b %Y %H:%M") %>
+	                <%= comment.user.full_name %> <%=t :says %>:
 	                <br>
 	                <br>
 	                <%= comment.comment %>
 	                <br>
 	                <br>
-	                <%=t :rate_this_comment %>:<%= render :partial => "ratings/rate", :locals => { :asset => comment } %>
+	                <small><%=t :rate_this_comment %>:<%= render :partial => "ratings/rate", :locals => { :asset => comment } %></small>
 	                <p>
 	                <% end %>
 	            </td>
 	            <td width="33%">
 	                <% for comment in comment_target.comments_against %>
-	                <%= t :author %>: <%= comment.user.full_name %>
-	                <br>
-	                <%= t :creation_date %>: <%= comment.created_at.strftime("%d. %b %Y %H:%M") %>
-	                <br>
+	                <%= comment.user.full_name %> <%=t :says %>:
 	                <br>
 	                <br>
 	                <%= comment.comment %>
 	                <br>
 	                <br>
-	                <%=t :rate_this_comment %>:<%= render :partial => "ratings/rate", :locals => { :asset => comment } %>
+	                <small><%=t :rate_this_comment %>:<%= render :partial => "ratings/rate", :locals => { :asset => comment } %></small>
 	                <p>
 	                <% end %>
 	            </td>
