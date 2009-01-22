@@ -63,6 +63,12 @@
         <p style="color: green">
             <%= flash[:notice] %>
         </p>
+		<% unless session[:has_welcomed] %>
+	        <p style="color: green">
+				<b><%= t :login_welcome %></b>
+	        </p>
+			<% session[:has_welcomed] = true %>
+		<% end %>		
         <%= yield %>
 		<p><br><br>
 			<small><%= t :git_info%><br><%= link_to "http://github.com/rbjarnason/open-direct-democracy/tree/master","http://github.com/rbjarnason/open-direct-democracy/tree/master", {:target=>"_blank"} %></small><br><br>
