@@ -38,7 +38,16 @@
     <% end %>
 </table>
 <br/>
+<%end%>
+
+<% if @last_3_comments %>
+  <h1><%=t :latest_comments %></h1>
+  <% for comment in @last_3_comments %>
+    <%=comment.user.full_name%> <%=t :about_case%> <%=get_comment_document_case_link(comment) %> <%=t :says%>: <%=truncate(comment.comment, 72)%> <br>
+    <br>
+  <% end %>
 <% end %>
+
 <h1><%=t :listing_cases %></h1>
 <table width="100%">
     <tr>

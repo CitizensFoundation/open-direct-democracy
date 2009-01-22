@@ -21,7 +21,7 @@ class CasesController < ApplicationController
   def index
     @cases = Case.find(:all, :order=>"external_id DESC")
     @most_important_cases = @cases.sort_by { |x| [-x.rating, -x.ratings.size] }
-    
+    @last_3_comments = DocumentComment.find(:all, :limit=>3, :order=>"created_at DESC")
     last_weeks_discussion = CaseDiscussion.find(:all, :conditions=>["created_at >= ?",Time.now-1.weeks])
     last_weeks_documents = CaseDocument.find(:all, :conditions=>["created_at >= ?",Time.now-1.weeks])
     
