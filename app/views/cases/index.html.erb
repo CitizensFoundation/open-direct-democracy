@@ -40,13 +40,34 @@
 <br/>
 <%end%>
 
-<% if @last_comments %>
-  <h1><%=t :latest_comments %></h1>
-  <% for comment in @last_comments %>
-    <%=comment.user.full_name%> <%=t :about_case%> <%=get_comment_document_case_link(comment) %> <%=t :says%>: <%=truncate(comment.comment, :length => 72)%> <br>
-    <br>
-  <% end %>
-<% end %>
+<table width="100%">
+	<tr>
+		<td width="50%">
+			<% if @last_comments %>
+			  <h1><%=t :latest_comments %></h1>
+			  <% for comment in @last_comments %>
+			    <%=comment.user.full_name%> <%=t :about_case%> <%=get_comment_document_case_link(comment) %> <%=t :says%>: <%=truncate(comment.comment, :length => 72)%> <br>
+			    <br>
+			  <% end %>
+			<% end %>			
+		</td>
+		<td width="50%">
+		<table width="100%">
+			<tr>
+				<td width="50%">
+					<% if @latest_votes %>
+					  <h1><%=t :latest_votes %></h1>
+					  <% for vote in @latest_votes %>
+					    <%=vote.document.votes.count%> <%=t :votes_for_this_document%> <%=get_vote_document_case_link(vote) %><br>
+					    <br>
+					  <% end %>
+					<% end %>			
+				</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
 
 <h1><%=t :listing_cases %></h1>
 <table width="100%">

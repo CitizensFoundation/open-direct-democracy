@@ -151,6 +151,8 @@ is:
   login_to_vote: "Nauðsynlegt er að skrá sig inn til að kjósa"
   invalid_login: "Tölvupóstfang eða lykilorð rangt. Ertu viss um að þú sért skráður notandi?"
   invalid_registration: "Það er vandamál með skráningu, skoðið upplýsingar að neðan."
+  votes_for_this_document: "atkvæði fyrir skjal í máli"
+  latest_votes: "Nýleg atkvæði frá almenningi"
   support:
       array:
         sentence_connector: "og"
