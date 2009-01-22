@@ -2,6 +2,8 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  invalid_login: "Invalid e-mail/password combination. Please make sure you have already registered."
+  invalid_registration: "There was a problem with your registration, please review your information below."
   main_header: "Open Direct Democracy"
   cases: "Cases"
   vote_proxies: "Vote proxies"

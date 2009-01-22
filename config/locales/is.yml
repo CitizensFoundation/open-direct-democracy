@@ -149,7 +149,8 @@ is:
   login_to_submit_change_proposal: "Nauðsynlegt er að skrá sig inn til að senda inn breytingartillögu"
   login_to_submit_comment: "Nauðsynlegt er að skrá sig inn til að skrifa athugasemd"
   login_to_vote: "Nauðsynlegt er að skrá sig inn til að kjósa"
-  
+  invalid_login: "Tölvupóstfang eða lykilorð rangt. Ertu viss um að þú sért skráður notandi?"
+  invalid_registration: "Það er vandamál með skráningu, skoðið upplýsingar að neðan."
   support:
       array:
         sentence_connector: "og"

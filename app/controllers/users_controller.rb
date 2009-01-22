@@ -45,7 +45,7 @@ class UsersController < ApplicationController
         complete_login
       else
         warn("invalid e-mail/password")
-        flash[:notice] = "Invalid e-mail/password combination. Please make sure you have already registered."
+        flash[:notice] = t(:invalid_login)
         xml_error("LoginError", flash[:notice], "") if xml_request?
       end
     elsif request.post? and params[:odd_action]=="create"
@@ -58,7 +58,7 @@ class UsersController < ApplicationController
         #TODO: Validate the line below...
         @user = User.new
       else
-        flash[:notice] = "There was a problem with your registration, please review your information below."
+        flash[:notice] = t(:invalid_registration)
         error("user_id: #{@user.id} couldn't be saved")
         if xml_request?
           full_error = ""
