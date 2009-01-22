@@ -28,8 +28,7 @@ class UsersController < ApplicationController
                     :controller => session[:intended_controller],
                     :params => session[:params]
       else
-        redirect_to :action => "index",
-                    :controller => "cases"
+        redirect_to :controller => "cases"
       end
     end
   end

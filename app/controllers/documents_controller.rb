@@ -15,6 +15,9 @@
  
 class DocumentsController < ApplicationController
   layout "citizen"
+  
+  skip_before_filter :check_authentication, :only =>  [ :show ]
+  skip_before_filter :check_authorization, :only =>  [ :show ]  
 
   # GET /documents
   # GET /documents.xml

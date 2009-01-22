@@ -78,7 +78,7 @@ is:
   creation_date: "Dagsettning"
   logout: "Aftengjast"
   email_address: "Tölvupóstfang"
-  login: "Tengjast"
+  login: "Innskráning"
   confirm_email_address: "Staðfestu tölvupóstfang"
   confirm_password: "Staðfestu lykilorð"
   register_now: "Skráðu þig inn í fyrsta skipti"
@@ -145,6 +145,11 @@ is:
   latest_comments: "Nýlegar athugasemdir"
   says: "segir"
   about_case: "um mál"
+  please_login_before_rating: "Nauðsynlegt er að skrá sig inn til að kjósa, smelltu á Innskráning efst á síðunni"
+  login_to_submit_change_proposal: "Nauðsynlegt er að skrá sig inn til að senda inn breytingartillögu"
+  login_to_submit_comment: "Nauðsynlegt er að skrá sig inn til að skrifa athugasemd"
+  login_to_vote: "Nauðsynlegt er að skrá sig inn til að kjósa"
+  
   support:
       array:
         sentence_connector: "og"

@@ -16,6 +16,9 @@
 class DocumentElementsController < ApplicationController
   # GET /document_elements
   # GET /document_elements.xml
+  skip_before_filter :check_authentication, :only =>  [ :view_element ]
+  skip_before_filter :check_authorization, :only =>  [ :view_element ]  
+
   def index
     @document_elements = DocumentElement.find(:all)
 

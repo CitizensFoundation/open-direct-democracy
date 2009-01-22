@@ -15,6 +15,9 @@
 
 class CasesController < ApplicationController
   layout "citizen"
+  
+  skip_before_filter :check_authentication, :only =>  [ :index, :show ]
+  skip_before_filter :check_authorization, :only =>  [ :index, :show ]  
 
   # GET /cases
   # GET /cases.xml

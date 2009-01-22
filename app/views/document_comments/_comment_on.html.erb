@@ -68,6 +68,8 @@
 	   <%= t :no_comments_have_been_written_yet %>
 	<% end %>
     <p>
+
+  <%if session[:user_id] %>	
     <% @document_comment = DocumentComment.new %>
     <% remote_form_for(@document_comment) do |f| %>
     <h2><%= t :your_opinion %></h2>
@@ -115,6 +117,10 @@
         </tr>
     </table>
     <% end %>
+   <% else %>
+	 <%=link_to t(:login_to_submit_comment), :controller=>"users", :action=>"login" %>
+   <% end %>	
+
 </div>
 <script type="text/javascript" language="javascript">
 // <![CDATA[

@@ -54,7 +54,11 @@
 		<!-- <a href="/document_states"><%=t :document_states %></a> |  -->
 		<!-- <a href="/document_types"><%=t :document_types %></a> |  -->
 		<!-- <a href="/users"><%=t :users %></a> |  -->
-		<a href="/users/logout"><%=t :logout %></a>
+		<% if session[:user_id] %>
+  		  <a href="/users/logout"><%=t :logout %></a>
+		<% else %>
+  		  <a href="/users/login"><%=t :login %></a>		
+		<% end %>
         <hr>
         <p style="color: green">
             <%= flash[:notice] %>
