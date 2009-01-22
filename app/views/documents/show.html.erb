@@ -1,5 +1,5 @@
 <p>
-    <a href="/cases/<%=@document.case_document.case.id%>"><h2 class="participateLink"><%=h @document.case_document.case.info_1 %>- <%=h @document.case_document.case.info_2 %>- <%=h @document.case_document.case.info_3 %></h2></a>
+    <a href="/cases/<%=@document.case_document.case.id%>"><h2 class="participateLink"><%=h t(:case)%>: <%=h @document.case_document.case.info_1 %>- <%=h @document.case_document.case.info_2 %>- <%=h @document.case_document.case.info_3 %></h2></a>
 </p>
 <p>
     <b><%=t :voting_close_time %>:</b>

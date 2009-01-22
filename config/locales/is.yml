@@ -153,6 +153,7 @@ is:
   invalid_registration: "Það er vandamál með skráningu, skoðið upplýsingar að neðan."
   votes_for_this_document: "atkvæði fyrir skjal í máli"
   latest_votes: "Nýleg atkvæði frá almenningi"
+  case: "Mál"
   support:
       array:
         sentence_connector: "og"
