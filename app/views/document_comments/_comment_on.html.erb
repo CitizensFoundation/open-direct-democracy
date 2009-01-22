@@ -20,37 +20,37 @@
 	        <tr>
 	            <td width="33%">
 	                <% for comment in comment_target.comments_in_support %>
-	                <%= comment.user.full_name %> <%=t :says %>:
+	                <b><%= comment.user.full_name %> <%=t :says %>:</b>
 	                <br>
 	                <br>
 	                <%= comment.comment %>
 	                <br>
 	                <br>
-	                <small><%=t :rate_this_comment %>:<%= render :partial => "ratings/rate", :locals => { :asset => comment } %></small>
+	                <span class="ratingsTinyText"><%=t :rate_this_comment %>:<%= render :partial => "ratings/rate_smaller_comments", :locals => { :asset => comment } %></span>
 	                <p>
 	                <% end %>
 	            </td>
 	            <td width="34%">
 	                <% for comment in comment_target.comments_not_sure %>
-	                <%= comment.user.full_name %> <%=t :says %>:
+	                <b><%= comment.user.full_name %> <%=t :says %>:</b>
 	                <br>
 	                <br>
 	                <%= comment.comment %>
 	                <br>
 	                <br>
-	                <small><%=t :rate_this_comment %>:<%= render :partial => "ratings/rate", :locals => { :asset => comment } %></small>
+	                <span class="ratingsTinyText"><%=t :rate_this_comment %>:<%= render :partial => "ratings/rate_smaller_comments", :locals => { :asset => comment } %></span>
 	                <p>
 	                <% end %>
 	            </td>
 	            <td width="33%">
 	                <% for comment in comment_target.comments_against %>
-	                <%= comment.user.full_name %> <%=t :says %>:
+	                <b><%= comment.user.full_name %> <%=t :says %>:</b>
 	                <br>
 	                <br>
 	                <%= comment.comment %>
 	                <br>
 	                <br>
-	                <small><%=t :rate_this_comment %>:<%= render :partial => "ratings/rate", :locals => { :asset => comment } %></small>
+	               <span class="ratingsTinyText"><%=t :rate_this_comment %>:<%= render :partial => "ratings/rate_smaller_comments", :locals => { :asset => comment } %></span>
 	                <p>
 	                <% end %>
 	            </td>

@@ -27,16 +27,19 @@ class RatingsController < ApplicationController
            
     render :update do |page|  
       if session[:user_id]
-        if params[:smaller]==nil
-          page.replace_html "star-ratings-block-#{rateable.id}_#{rateable.class.name}", :partial => "rate", :locals => { :asset => rateable }        
+        if params[:smaller_comments]!=nil
+          page.replace_html "star-ratings-block-#{rateable.id}_#{rateable.class.name}", :partial => "rate_smaller_comments", :locals => { :asset => rateable }        
           page.visual_effect :highlight, "star-ratings-block-#{rateable.id}_#{rateable.class.name}", {:restorecolor=>"#ffffff", :startcolor=>"#bbffbc", :endcolor=>"#ffffff"}
-        else
+        elsif params[:smaller]!=nil
           page.replace_html "star-ratings-block-#{rateable.id}_#{rateable.class.name}_all", :partial => "rate_smaller", :locals => { :asset => rateable, :postfix=>"all"}
           page.visual_effect :highlight, "star-ratings-block-#{rateable.id}_#{rateable.class.name}_all", {:restorecolor=>"#ffffff", :startcolor=>"#bbffbc", :endcolor=>"#ffffff"}
           page << "if ($('star-ratings-block-#{rateable.id}_#{rateable.class.name}_7_days')) {"
           page.replace_html "star-ratings-block-#{rateable.id}_#{rateable.class.name}_7_days", :partial => "rate_smaller", :locals => { :asset => rateable, :postfix=>"7_days"}
           page.visual_effect :highlight, "star-ratings-block-#{rateable.id}_#{rateable.class.name}_7_days",  {:restorecolor=>"#ffffff", :startcolor=>"#bbffbc", :endcolor=>"#ffffff"}
-          page << "}"         
+          page << "}"
+        else
+          page.replace_html "star-ratings-block-#{rateable.id}_#{rateable.class.name}", :partial => "rate", :locals => { :asset => rateable }        
+          page.visual_effect :highlight, "star-ratings-block-#{rateable.id}_#{rateable.class.name}", {:restorecolor=>"#ffffff", :startcolor=>"#bbffbc", :endcolor=>"#ffffff"}
         end
       else
         page << "alert('#{t(:please_login_before_rating)}')"

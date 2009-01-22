@@ -1,0 +1,18 @@
+<% @convert = %w[one two three four five] %>
+<div id="star-ratings-block-<%= "#{asset.id}_#{asset.class.name}"  %>" class="star-ratings-block">  
+<ul class='star-rating_smaller'>
+    <li class='current-rating' style='width:<%= (asset.rating * 15).to_i -%>px;'>
+        <%=t(:currently) %><%= number_with_precision(asset.rating, :precision=>1) %>/5
+    </li>
+    <% 1.upto(5) do |x| -%>
+      <li>
+        <%= link_to_remote( "#{x}",
+        { :url => { :controller => "ratings", :action => "rate",
+        :id => asset.id, :smaller_comments=> true, :rating => x, :rateable_type => asset.class.to_s } },
+        { :class => "#{@convert[x-1]}-stars", :name => "#{pluralize(x,t(:star))} #{t(:out_of_5)}",
+        :title => t(:rate_this_a)+"#{x}"+t(:out_of_5) } ) %>
+      </li>
+    <% end -%>
+</ul>
+<span class="ratingsTinyText"><%= asset.ratings.size%> <%=t :votes %></span>
+</div>
