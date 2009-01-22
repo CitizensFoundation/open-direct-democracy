@@ -25,7 +25,7 @@ class CasesController < ApplicationController
     @cases = Case.find(:all, :order=>"external_id DESC")
     @most_important_cases = @cases.sort_by { |x| [-x.rating, -x.ratings.size] }
     @last_comments = DocumentComment.find(:all, :limit=>5, :order=>"created_at DESC")
-    @latest_votes = Vote.find(:all, :limit=>5, :order=>"created_at DESC", :select => 'DISTINCT(document_id)', :include=>"document" )
+    @latest_votes = Vote.find(:all, :limit=>7, :order=>"created_at DESC", :select => 'DISTINCT(document_id)', :include=>"document" )
 
     last_weeks_discussion = CaseDiscussion.find(:all, :conditions=>["created_at >= ?",Time.now-1.weeks])
     last_weeks_documents = CaseDocument.find(:all, :conditions=>["created_at >= ?",Time.now-1.weeks])

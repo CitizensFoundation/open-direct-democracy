@@ -46,7 +46,7 @@
 			<% if @last_comments %>
 			  <h1><%=t :latest_comments %></h1>
 			  <% for comment in @last_comments %>
-			    <%=comment.user.full_name%> <%=t :about_case%> <%=get_comment_document_case_link(comment) %> <%=t :says%>: <%=truncate(comment.comment, :length => 142)%> <br>
+			    <b><%=comment.user.full_name%> <%=t :about_case%> <%=get_comment_document_case_link(comment) %> <%=t :says%>:</b> <%=truncate(comment.comment, :length => 142)%> <br>
 			    <br>
 			  <% end %>
 			<% end %>			
