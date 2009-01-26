@@ -1,0 +1,43 @@
+<p>
+  <b>Case discussion:</b>
+  <%=h @case_speech_video.case_discussion_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @case_speech_video.title %>
+</p>
+
+<p>
+  <b>To time:</b>
+  <%=h @case_speech_video.to_time %>
+</p>
+
+<p>
+  <b>From time:</b>
+  <%=h @case_speech_video.from_time %>
+</p>
+
+<p>
+  <b>Parent:</b>
+  <%=h @case_speech_video.parent_id %>
+</p>
+
+<p>
+  <b>In processing:</b>
+  <%=h @case_speech_video.in_processing %>
+</p>
+
+<p>
+  <b>Published:</b>
+  <%=h @case_speech_video.published %>
+</p>
+
+<p>
+  <b>Case speech master video:</b>
+  <%=h @case_speech_video.case_speech_master_video_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_case_speech_video_path(@case_speech_video) %> |
+<%= link_to 'Back', case_speech_videos_path %>

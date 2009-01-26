@@ -1,0 +1,24 @@
+<h1>Editing case_speech_master_video</h1>
+
+<% form_for(@case_speech_master_video) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :in_processing %><br />
+    <%= f.check_box :in_processing %>
+  </p>
+  <p>
+    <%= f.label :completed %><br />
+    <%= f.check_box :completed %>
+  </p>
+  <p>
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @case_speech_master_video %> |
+<%= link_to 'Back', case_speech_master_videos_path %>

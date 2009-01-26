@@ -1,0 +1,24 @@
+<h1>Listing case_speech_master_videos</h1>
+
+<table>
+  <tr>
+    <th>In processing</th>
+    <th>Completed</th>
+    <th>Url</th>
+  </tr>
+
+<% for case_speech_master_video in @case_speech_master_videos %>
+  <tr>
+    <td><%=h case_speech_master_video.in_processing %></td>
+    <td><%=h case_speech_master_video.completed %></td>
+    <td><%=h case_speech_master_video.url %></td>
+    <td><%= link_to 'Show', case_speech_master_video %></td>
+    <td><%= link_to 'Edit', edit_case_speech_master_video_path(case_speech_master_video) %></td>
+    <td><%= link_to 'Destroy', case_speech_master_video, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New case_speech_master_video', new_case_speech_master_video_path %>

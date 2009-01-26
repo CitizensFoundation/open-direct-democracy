@@ -14,6 +14,10 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
  
 ActionController::Routing::Routes.draw do |map|
+  map.resources :case_speech_master_videos
+
+  map.resources :case_speech_videos
+
   map.resources :case_discussionss
 
   map.resources :case_documents

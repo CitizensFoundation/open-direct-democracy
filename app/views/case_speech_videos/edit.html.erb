@@ -1,0 +1,44 @@
+<h1>Editing case_speech_video</h1>
+
+<% form_for(@case_speech_video) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :case_discussion_id %><br />
+    <%= f.text_field :case_discussion_id %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :to_time %><br />
+    <%= f.datetime_select :to_time %>
+  </p>
+  <p>
+    <%= f.label :from_time %><br />
+    <%= f.datetime_select :from_time %>
+  </p>
+  <p>
+    <%= f.label :parent_id %><br />
+    <%= f.text_field :parent_id %>
+  </p>
+  <p>
+    <%= f.label :in_processing %><br />
+    <%= f.check_box :in_processing %>
+  </p>
+  <p>
+    <%= f.label :published %><br />
+    <%= f.check_box :published %>
+  </p>
+  <p>
+    <%= f.label :case_speech_master_video_id %><br />
+    <%= f.text_field :case_speech_master_video_id %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @case_speech_video %> |
+<%= link_to 'Back', case_speech_videos_path %>

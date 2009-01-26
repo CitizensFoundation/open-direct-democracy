@@ -1,0 +1,18 @@
+<p>
+  <b>In processing:</b>
+  <%=h @case_speech_master_video.in_processing %>
+</p>
+
+<p>
+  <b>Completed:</b>
+  <%=h @case_speech_master_video.completed %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%=h @case_speech_master_video.url %>
+</p>
+
+
+<%= link_to 'Edit', edit_case_speech_master_video_path(@case_speech_master_video) %> |
+<%= link_to 'Back', case_speech_master_videos_path %>
