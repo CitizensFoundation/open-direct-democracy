@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090127020716) do
+ActiveRecord::Schema.define(:version => 20090127022723) do
 
   create_table "case_discussions", :force => true do |t|
     t.datetime "meeting_date"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(:version => 20090127020716) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "case_speech_master_videos", ["url"], :name => "index_case_speech_master_videos_on_url", :unique => true
 
   create_table "case_speech_videos", :force => true do |t|
     t.integer  "case_discussion_id"
