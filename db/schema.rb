@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090127022723) do
+ActiveRecord::Schema.define(:version => 20090127034528) do
 
   create_table "case_discussions", :force => true do |t|
     t.datetime "meeting_date"
@@ -43,11 +43,11 @@ ActiveRecord::Schema.define(:version => 20090127022723) do
   end
 
   create_table "case_speech_master_videos", :force => true do |t|
-    t.boolean  "in_processing"
-    t.boolean  "completed"
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "in_processing", :default => false
+    t.boolean  "published",     :default => false
   end
 
   add_index "case_speech_master_videos", ["url"], :name => "index_case_speech_master_videos_on_url", :unique => true
@@ -59,13 +59,13 @@ ActiveRecord::Schema.define(:version => 20090127022723) do
     t.datetime "from_time"
     t.integer  "sequence_number"
     t.integer  "parent_id"
-    t.boolean  "in_processing"
-    t.boolean  "published"
     t.integer  "case_speech_master_video_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.time     "start_offset"
     t.time     "duration"
+    t.boolean  "in_processing",               :default => false
+    t.boolean  "published",                   :default => false
   end
 
   create_table "case_types", :force => true do |t|
