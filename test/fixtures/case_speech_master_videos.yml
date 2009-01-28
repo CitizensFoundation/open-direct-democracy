@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  in_processing: false
+  completed: false
+  url: MyString
+
+two:
+  in_processing: false
+  completed: false
+  url: MyString

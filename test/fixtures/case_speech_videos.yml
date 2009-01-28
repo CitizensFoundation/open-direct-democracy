@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  case_discussion_id: 1
+  title: MyString
+  to_time: 2009-01-26 21:48:28
+  from_time: 2009-01-26 21:48:28
+  parent_id: 1
+  in_processing: false
+  published: false
+  case_speech_master_video_id: 1
+
+two:
+  case_discussion_id: 1
+  title: MyString
+  to_time: 2009-01-26 21:48:28
+  from_time: 2009-01-26 21:48:28
+  parent_id: 1
+  in_processing: false
+  published: false
+  case_speech_master_video_id: 1
