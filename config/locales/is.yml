@@ -154,6 +154,7 @@ is:
   votes_for_this_document: "atkvæði fyrir skjal í máli"
   latest_votes: "Nýleg atkvæði frá almenningi"
   case: "Mál"
+  whole_discussion: "Öll umræðan"
   support:
       array:
         sentence_connector: "og"
