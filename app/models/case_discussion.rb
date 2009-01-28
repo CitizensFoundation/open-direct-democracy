@@ -15,5 +15,13 @@
 
 class CaseDiscussion < ActiveRecord::Base
   belongs_to :case
-  
+  has_many :case_speech_videos, :order => "case_speech_videos.sequence_number" do
+    def has_any?
+      find :first, :conditions => "case_speech_videos.published = 1 AND case_speech_videos.in_processing = 0"
+    end
+
+    def get_all_published
+      find :all, :conditions => "case_speech_videos.published = 1 AND case_speech_videos.in_processing = 0"
+    end
+  end
 end

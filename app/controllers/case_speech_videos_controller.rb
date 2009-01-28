@@ -1,4 +1,10 @@
 class CaseSpeechVideosController < ApplicationController
+  layout "citizen"
+
+  skip_before_filter :check_authentication, :only =>  [  :show ]
+  skip_before_filter :check_authorization, :only =>  [ :show ]  
+
+  
   # GET /case_speech_videos
   # GET /case_speech_videos.xml
   def index

@@ -1,43 +1,87 @@
+<script type="text/javascript">
+/*
+ * window.onload event occurs after all HTML elements have been loaded
+ * this is a good place to setup your Flash elements
+ */
+window.onload = function() {  
+   
+    /*
+     * flashembed places Flowplayer into HTML element 
+     * whose id="example" (see below this script tag)
+     */
+    flashembed("video_player_embed", 
+   
+      /*
+       * second argument supplies standard Flash parameters.
+       * basically these are all you want to modify
+       * but you can see full list here
+       */
+      {
+         // test that this swf- file can be accessed with your browser
+         src:'/swf/FlowPlayerLight.swf?rand=<%=rand(32423432)%>',
+         width:640,  
+         height:404,
+         bgcolor:'#ffffff'
+      },
+		
+      /*
+       * third argument is Flowplayer specific configuration
+       * full list of options is given here
+       */
+      {config: {   
+         videoFile: '<%="#{@case_speech_video.get_video_link_tag}"%>',
+         initialScale: 'original',
+		 protected: false,
+		 showOnLoadBegin: false,
+		 menuButton: false,
+		 showWatermark:false,
+         useNativeFullScreen: true,
+         
+				controlBarGloss:'high',
+				controlBarBackgroundColor:'0x00345a',				
+				bufferingAnimationColor:'0x00345a',
+				bufferBarColor1:'0x00345a',
+				bufferBarColor2:'0x00345a',
+				progressBarColor1:'0x00345a',
+				progressBarColor2:'0x00345a',
+				progressBarBorderColor1:'0x00345a',
+				progressBarBorderColor2:'0x00345a',			
+				controlsAreaBorderColor:'0x00345a'			
+         
+      }} 
+   );
+}
+</script>
 <p>
-  <b>Case discussion:</b>
-  <%=h @case_speech_video.case_discussion_id %>
+    <a href="/cases/<%=@case_speech_video.case_discussion.case.id%>"><h2 class="participateLink"><%=h t(:case)%>: <%=h @case_speech_video.case_discussion.case.info_1 %>- <%=h @case_speech_video.case_discussion.case.info_2 %>- <%=h @case_speech_video.case_discussion.case.info_3 %></h2></a>
 </p>
 
-<p>
-  <b>Title:</b>
-  <%=h @case_speech_video.title %>
-</p>
+<table width="100%" class="video_player">
+<tr>
+	    <td><h1><%=t :whole_discussion%></h1></td>
+		<td colspan=1><h1><%=@case_speech_video.title%></h1></td>
+</tr>
 
-<p>
-  <b>To time:</b>
-  <%=h @case_speech_video.to_time %>
-</p>
+<tr>
+<td width="250px">
+ <table>
+ <% @case_speech_video.case_discussion.case_speech_videos.get_all_published.each do |video| %>
+ <tr>
+ 	<% if video.id==@case_speech_video.id%>
+   	<td bgcolor="#00FF33">
+    <% else %>
+   	<td>
+	<% end %>
+	  <%=video.get_image_tag("left","smaller")%>
+    </td>
+  </tr>
+<% end %>
+</table>
 
-<p>
-  <b>From time:</b>
-  <%=h @case_speech_video.from_time %>
-</p>
+</td>
+<td class="video_player">
+<div id="video_player_embed"></div>
+</td>
+</tr>
 
-<p>
-  <b>Parent:</b>
-  <%=h @case_speech_video.parent_id %>
-</p>
-
-<p>
-  <b>In processing:</b>
-  <%=h @case_speech_video.in_processing %>
-</p>
-
-<p>
-  <b>Published:</b>
-  <%=h @case_speech_video.published %>
-</p>
-
-<p>
-  <b>Case speech master video:</b>
-  <%=h @case_speech_video.case_speech_master_video_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_case_speech_video_path(@case_speech_video) %> |
-<%= link_to 'Back', case_speech_videos_path %>
+</table>

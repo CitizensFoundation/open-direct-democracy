@@ -105,7 +105,14 @@
 	            	<%=link_to discussion.meeting_info, discussion.meeting_url,{:target => "_blank"}%>
 	            </td>
 	        </tr>
+			<% if discussion.case_speech_videos.has_any? %>
+				<tr>
+					<td colspan=2>
+						<%= render :partial => "case_discussion_videos", :locals => {:discussion=> discussion} %>
+					</td>
+				</tr>
 	        <% end %>
+           <% end %>
 		  </table>
 	    <% end %>
 	    <% stage_sequence_number+=1 %>

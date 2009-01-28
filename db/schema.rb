@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090127034528) do
+ActiveRecord::Schema.define(:version => 20090128015625) do
 
   create_table "case_discussions", :force => true do |t|
     t.datetime "meeting_date"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(:version => 20090127034528) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "case_id"
+    t.boolean  "in_video_processing",       :default => false
+    t.boolean  "video_processing_complete", :default => false
   end
 
   create_table "case_documents", :force => true do |t|
