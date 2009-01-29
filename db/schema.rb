@@ -27,8 +27,10 @@ ActiveRecord::Schema.define(:version => 20090128015625) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "case_id"
-    t.boolean  "in_video_processing",       :default => false
-    t.boolean  "video_processing_complete", :default => false
+    t.boolean  "processed_for_speech_videos"
+    t.boolean  "published"
+    t.boolean  "in_video_processing",         :default => false
+    t.boolean  "video_processing_complete",   :default => false
   end
 
   create_table "case_documents", :force => true do |t|

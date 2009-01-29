@@ -1,0 +1,7 @@
+<table>
+<tr>
+<% discussion.case_speech_videos.get_all_published.each do |video| %>
+  <td><%=video.get_image_tag%></td>
+<% end %>
+</tr>
+</table>
