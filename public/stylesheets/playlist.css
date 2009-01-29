@@ -31,7 +31,8 @@ div.clips a {
 }
 
 div.clips a img {
-	padding-right: 2px;
+	padding-right: 5px;
+	padding-left: 0px;
 }
 div.clips a.first {
 	border-top-width:1px;
