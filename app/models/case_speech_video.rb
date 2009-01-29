@@ -14,5 +14,10 @@ class CaseSpeechVideo < ActiveRecord::Base
     speech_video_path = "/"+ENV['RAILS_ENV']+"/case_speech_videos/#{self.id}/"
     "#{speech_video_path}speech.flv"
   end
+  
+  def get_playlist_image_url(image_size="tiny")
+    speech_video_path = "/"+ENV['RAILS_ENV']+"/case_speech_videos/#{self.id}/"
+    "#{speech_video_path}#{image_size}_thumb_2.png"
+  end
 
 end
