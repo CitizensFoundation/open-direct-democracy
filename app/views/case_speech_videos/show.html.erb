@@ -1,87 +1,84 @@
+<%= javascript_include_tag 'jquery-1.3.1.min' %>
+<%= javascript_include_tag 'flowplayer-3.0.3.min' %>
+<%= javascript_include_tag 'flowplayer.playlist-3.0.2.min' %>
+<%= javascript_include_tag 'jquery.mousewheel.min' %>
+<%= javascript_include_tag 'jquery.scrollable-1.0.1.min' %>
+
+<%= stylesheet_link_tag 'playlist' %>
+
+<% my_pos = -1 %>
+
 <script type="text/javascript">
-/*
- * window.onload event occurs after all HTML elements have been loaded
- * this is a good place to setup your Flash elements
- */
-window.onload = function() {  
-   
-    /*
-     * flashembed places Flowplayer into HTML element 
-     * whose id="example" (see below this script tag)
-     */
-    flashembed("video_player_embed", 
-   
-      /*
-       * second argument supplies standard Flash parameters.
-       * basically these are all you want to modify
-       * but you can see full list here
-       */
-      {
-         // test that this swf- file can be accessed with your browser
-         src:'/swf/FlowPlayerLight.swf?rand=<%=rand(32423432)%>',
-         width:640,  
-         height:404,
-         bgcolor:'#ffffff'
-      },
-		
-      /*
-       * third argument is Flowplayer specific configuration
-       * full list of options is given here
-       */
-      {config: {   
-         videoFile: '<%="#{@case_speech_video.get_video_link_tag}"%>',
-         initialScale: 'original',
-		 protected: false,
-		 showOnLoadBegin: false,
-		 menuButton: false,
-		 showWatermark:false,
-         useNativeFullScreen: true,
+$(function() { 
+    // setup scrolling for the playlist elements 
+    $("div.playlist").scrollable({ 
+        items:'div.clips', 
+        vertical:true,
+        next:'a.down',
+        prev:'a.up',
+		loop: true
+    }); 
+     
+    // setup player  
+    $f("player", "/swf/flowplayer-3.0.3.swf", { 
+     
+            playlist: [
+			<% count=0 %>
+			<% total_length = @case_speech_video.case_discussion.case_speech_videos.get_all_published.length %>
+    		<% @case_speech_video.case_discussion.case_speech_videos.get_all_published.each do |video| %>
+                { 
+                    url: '<%=video.get_video_link_tag%>', 
+                    title: '<%=video.title%>',
+    				image: '<%=video.get_playlist_image_url("smaller")%>',
+					time: '<%=video.duration.strftime("%M min %S sec")%>',
+					onFinish: function() {
+						if ($('div.playlist').scrollable().getIndex()<<%=total_length-5%>) {
+					        $('div.playlist').scrollable().next();							
+						}
+				    } 
+					<% if count==0%>
+						,onBegin: function() {
+						        $('div.playlist').scrollable().seekTo(0);
+					    } 
+					<% end %>
+                }
+				<% my_pos = count if video.id==@case_speech_video.id %>
+				<% count += 1 %>
+				<% unless count>=total_length%>
+				,
+				<% end %>
+    		<% end %>     
+            ],  
          
-				controlBarGloss:'high',
-				controlBarBackgroundColor:'0x00345a',				
-				bufferingAnimationColor:'0x00345a',
-				bufferBarColor1:'0x00345a',
-				bufferBarColor2:'0x00345a',
-				progressBarColor1:'0x00345a',
-				progressBarColor2:'0x00345a',
-				progressBarBorderColor1:'0x00345a',
-				progressBarBorderColor2:'0x00345a',			
-				controlsAreaBorderColor:'0x00345a'			
-         
-      }} 
-   );
-}
+    // use playlist plugin to enable playlist items work as movie clips 
+    }).playlist("div.clips", {loop:true});
+    
+});
+$(function() {
+$('div.playlist').scrollable().click(<%=my_pos%>);
+$('div.clips a:first')<%=Array.new(my_pos,".next()").join%>.click();
+//$("div.clips a:eq(3)").click(<%=my_pos%>);
+}); 
+
 </script>
 <p>
-    <a href="/cases/<%=@case_speech_video.case_discussion.case.id%>"><h2 class="participateLink"><%=h t(:case)%>: <%=h @case_speech_video.case_discussion.case.info_1 %>- <%=h @case_speech_video.case_discussion.case.info_2 %>- <%=h @case_speech_video.case_discussion.case.info_3 %></h2></a>
+   <a href="/cases/<%=@case_speech_video.case_discussion.case.id%>"><h2 class="participateLink"><%=h t(:case) %>: <%=h @case_speech_video.case_discussion.case.info_1 %>- <%=h @case_speech_video.case_discussion.case.info_2 %>- <%=h @case_speech_video.case_discussion.case.info_3 %></h2></a>
 </p>
 
-<table width="100%" class="video_player">
-<tr>
-	    <td><h1><%=t :whole_discussion%></h1></td>
-		<td colspan=1><h1><%=@case_speech_video.title%></h1></td>
-</tr>
-
-<tr>
-<td width="250px">
- <table>
- <% @case_speech_video.case_discussion.case_speech_videos.get_all_published.each do |video| %>
- <tr>
- 	<% if video.id==@case_speech_video.id%>
-   	<td bgcolor="#00FF33">
-    <% else %>
-   	<td>
-	<% end %>
-	  <%=video.get_image_tag("left","smaller")%>
-    </td>
-  </tr>
-<% end %>
-</table>
-
-</td>
-<td class="video_player">
-<div id="video_player_embed"></div>
-</td>
-</tr>
-
+<table>
+	<tr>
+		<td>
+		<a class="go up"></a>
+		<div class="playlist">
+			<div class="clips">
+			  <a href="${url}"><img src="${image}" align="left" border=0>${title}<br><em>${time}</em></a>
+			</div>
+		</div>
+		<a class="go down"></a>
+		</td>
+		<td width=640px height=400px>
+			<a class="player plain" id="player" style="">dfd
+			</a>
+		</td>
+	</tr>
 </table>
