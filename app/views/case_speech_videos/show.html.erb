@@ -30,7 +30,11 @@ $(function() {
                     url: '<%=video.get_video_link_tag%>', 
                     title: '<%=video.title%>',
     				image: '<%=video.get_playlist_image_url("smaller")%>',
-					time: '<%=video.duration.strftime("%M min %S sec")%>',
+					<% if video.duration.strftime("%H").to_i>0 %>
+ 					  time: '<%=video.duration.strftime("%H kl %M mín %S sek")%>',
+					<% else %>
+ 					  time: '<%=video.duration.strftime("%M mín %S sek")%>',
+					<% end %>
 					onFinish: function() {
 						if ($('div.playlist').scrollable().getIndex()<<%=total_length-5%>) {
 					        $('div.playlist').scrollable().next();							
