@@ -84,7 +84,7 @@ is:
   register_now: "Skráðu þig inn í fyrsta skipti"
   login_register: "Innskráning og Nýskráning"
   login_instructions: "Leiðbeiningar"
-  login_welcome: "Velkominn í opið beint lýðræði fyrir ____."
+  login_welcome: "Velkominn í Kosningakerfi Lýðveldisbyltingarinnar."
   returning_users_login_here: "Skráðu þig inn hér ef þú hefur skráð þig áður:"
   new_users_register_here: "Nýir notendur skrái sig hér:"
   legal_text: "Laga texti"
