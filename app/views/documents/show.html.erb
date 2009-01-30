@@ -1,6 +1,6 @@
 <p>
-    <a href="/cases/<%=@document.case_document.case.id%>"><h2 class="participateLink"><%=h t(:case)%>: <%=h @document.case_document.case.info_1 %></h2></a>
-	<%=h @document.case_document.case.info_2 %><br><%=h @document.case_document.case.info_3 %>
+    <a href="/cases/<%=@document.case_document.case.id%>"><h2 class="participateLink"><%=h t(:case)%>: <%=h @document.case_document.case.external_name %></h2></a>
+	<%=h @document.case_document.case.info_1 %><br><%=h @document.case_document.case.info_2 %>
 </p>
 <p>
     <b><%=t :voting_close_time %>:</b>
