@@ -127,7 +127,7 @@ is:
   public_versions: "Útgáfur almennings"
   rate_the_importance_of_this_law_proposal: "Hversu mikilvægt finnst þér þetta lagafrumvarp?"
   importance: "Mikilvægi"
-  alpha_version: "Prufu útgáfa - tilrauna útgafa - varúð, villur geta verið í gögnum - útlitshönnun er er ekki tilbúin"
+  alpha_version: "Útlitshönnun er er ekki tilbúin"
   choice: "Veldu"
   public_vote_status: "Staða á kosningu almennings"
   manage_your_vote_proxies_info: "Hér getur þú framselt þitt atkvæði í ákveðnum málaflokkum til einstaklinga sem þú treystir til að fara með hvern málaflokk. Ef þú nýtir þér þitt atkvæði sjálfur í ákveðnum málum þá hefur það alltaf forgang yfir atkvæðaframsal."
