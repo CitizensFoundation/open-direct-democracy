@@ -1,25 +1,25 @@
 <p>
-    <a href="/cases/<%=@document.case_document.case.id%>"><h2 class="participateLink"><%=h t(:case)%>: <%=h @document.case_document.case.info_1 %>- <%=h @document.case_document.case.info_2 %>- <%=h @document.case_document.case.info_3 %></h2></a>
+    <a href="/cases/<%=@document.case_document.case.id%>"><h2 class="participateLink"><%=h t(:case) %>: <%=h @document.case_document.case.info_1 %></h2></a>
+	<%=h @document.case_document.case.info_2 %> <%=h @document.case_document.case.info_3 %>
 </p>
 <p>
     <b><%=t :voting_close_time %>:</b>
     <%=h @document.voting_close_time.strftime("%m. %b %Y #{t(:at_time)} %H:%M") %>
 </p>
 <% if @i_am_admin %>
-	<hr>
-	<%= link_to t(:edit), edit_document_path(@document) %> |<%= link_to t(:back), documents_path %>
+<hr><%= link_to t(:edit), edit_document_path(@document) %> |<%= link_to t(:back), documents_path %>
 <% end %>
 <table valign="top" width="100%">
     <tr valign="top">
         <td valign="top" width="60%">
-        	<center>
-	            <%= render :partial => "votes/vote_status" %>
-        	</center>
+            <center>
+                <%= render :partial => "votes/vote_status" %>
+            </center>
         </td>
         <td valign="top" width="40%">
-        	<center>
-	            <%= render :partial => "votes/my_vote", :locals => { :document => @document } %>
-			</center>
+            <center>
+                <%= render :partial => "votes/my_vote", :locals => { :document => @document } %>
+            </center>
         </td>
     </tr>
 </table>
@@ -33,9 +33,9 @@
 <p>
     <b><%=t :document_elements %>:</b>
     <% for element in @document_elements %>
-	    <div id="document_element_number_<%=element.sequence_number%>">
-	        <%= render :partial => "document_elements/element", :locals => {:document=> @document, :element => element, :open_panel => element.has_comments? } %>
-	    </div>
+    <div id="document_element_number_<%=element.sequence_number%>">
+        <%= render :partial => "document_elements/element", :locals => {:document=> @document, :element => element, :open_panel => element.has_comments? } %>
+    </div>
     <% end %>
 </p>
 <p>
