@@ -24,20 +24,28 @@
     </tr>
 </table>
 <hr>
-<center>
-    <div id="comment_panel_master_for_Document_<%=@document.id%>">
-        <%= render :partial => "document_comments/comment_on", :locals => {:document=> @document, :comment_target => @document, :open_panel => @document.has_comments? } %>
-    </div>
-</center>
-<hr>
-<p>
-    <b><%=t :document_elements %>:</b>
-    <% for element in @document_elements %>
-	    <div id="document_element_number_<%=element.sequence_number%>">
-	        <%= render :partial => "document_elements/element", :locals => {:document=> @document, :element => element, :open_panel => element.has_comments? } %>
+<table width=100%>
+<tr>
+	<td>
+		<p>
+		    <b><%=t :document_elements %>:</b>
+		    <% for element in @document_elements %>
+			    <div id="document_element_number_<%=element.sequence_number%>">
+			        <%= render :partial => "document_elements/element", :locals => {:document=> @document, :element => element, :open_panel => element.has_comments? } %>
+			    </div>
+		    <% end %>
+		</p>		
+	</td>
+	<td>
+	<center>
+	    <div id="comment_panel_master_for_Document_<%=@document.id%>">
+	        <%= render :partial => "document_comments/comment_on", :locals => {:document=> @document, :comment_target => @document, :open_panel => @document.has_comments? } %>
 	    </div>
-    <% end %>
-</p>
+	</center>		
+	</td>
+</tr>
+</table>
+<hr>
 <p>
     <b><%=t :external_link %>:</b>
     <a target="_blank" href="<%=@document.external_link%>"><%=h @document.external_link %></a>
