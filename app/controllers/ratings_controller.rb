@@ -15,25 +15,34 @@
  
 class RatingsController < ApplicationController
   before_filter :get_class_by_name
-  
-  def rate  
-    rateable = @rateable_class.find(params[:id])         
 
-    # Delete the old ratings for current user  
-    Rating.delete_all(["rateable_type = ? AND rateable_id = ? AND user_id = ?", @rateable_class.base_class.to_s, params[:id], session[:user_id]])  
-    rateable.add_rating Rating.new(:rating => params[:rating], :user_id => session[:user_id])  
+  def rate 
+    if session[:user_id]
+      rateable = @rateable_class.find(params[:id])         
+      Rating.delete_all(["rateable_type = ? AND rateable_id = ? AND user_id = ?", @rateable_class.base_class.to_s, params[:id], session[:user_id]])  
+      rateable.add_rating Rating.new(:rating => params[:rating], :user_id => session[:user_id])
+    else
+      info("user is not logged in")
+    end
            
     render :update do |page|  
-      if params[:smaller]==nil
-        page.replace_html "star-ratings-block-#{rateable.id}_#{rateable.class.name}", :partial => "rate", :locals => { :asset => rateable }        
-        page.visual_effect :highlight, "star-ratings-block-#{rateable.id}_#{rateable.class.name}", {:restorecolor=>"#ffffff", :startcolor=>"#bbffbc", :endcolor=>"#ffffff"}
+      if session[:user_id]
+        if params[:smaller_comments]!=nil
+          page.replace_html "star-ratings-block-#{rateable.id}_#{rateable.class.name}", :partial => "rate_smaller_comments", :locals => { :asset => rateable }        
+          page.visual_effect :highlight, "star-ratings-block-#{rateable.id}_#{rateable.class.name}", {:restorecolor=>"#ffffff", :startcolor=>"#bbffbc", :endcolor=>"#ffffff"}
+        elsif params[:smaller]!=nil
+          page.replace_html "star-ratings-block-#{rateable.id}_#{rateable.class.name}_all", :partial => "rate_smaller", :locals => { :asset => rateable, :postfix=>"all"}
+          page.visual_effect :highlight, "star-ratings-block-#{rateable.id}_#{rateable.class.name}_all", {:restorecolor=>"#ffffff", :startcolor=>"#bbffbc", :endcolor=>"#ffffff"}
+          page << "if ($('star-ratings-block-#{rateable.id}_#{rateable.class.name}_7_days')) {"
+          page.replace_html "star-ratings-block-#{rateable.id}_#{rateable.class.name}_7_days", :partial => "rate_smaller", :locals => { :asset => rateable, :postfix=>"7_days"}
+          page.visual_effect :highlight, "star-ratings-block-#{rateable.id}_#{rateable.class.name}_7_days",  {:restorecolor=>"#ffffff", :startcolor=>"#bbffbc", :endcolor=>"#ffffff"}
+          page << "}"
+        else
+          page.replace_html "star-ratings-block-#{rateable.id}_#{rateable.class.name}", :partial => "rate", :locals => { :asset => rateable }        
+          page.visual_effect :highlight, "star-ratings-block-#{rateable.id}_#{rateable.class.name}", {:restorecolor=>"#ffffff", :startcolor=>"#bbffbc", :endcolor=>"#ffffff"}
+        end
       else
-        page.replace_html "star-ratings-block-#{rateable.id}_#{rateable.class.name}_all", :partial => "rate_smaller", :locals => { :asset => rateable, :postfix=>"all"}
-        page.visual_effect :highlight, "star-ratings-block-#{rateable.id}_#{rateable.class.name}_all", {:restorecolor=>"#ffffff", :startcolor=>"#bbffbc", :endcolor=>"#ffffff"}
-        page << "if ($('star-ratings-block-#{rateable.id}_#{rateable.class.name}_7_days')) {"
-        page.replace_html "star-ratings-block-#{rateable.id}_#{rateable.class.name}_7_days", :partial => "rate_smaller", :locals => { :asset => rateable, :postfix=>"7_days"}
-        page.visual_effect :highlight, "star-ratings-block-#{rateable.id}_#{rateable.class.name}_7_days",  {:restorecolor=>"#ffffff", :startcolor=>"#bbffbc", :endcolor=>"#ffffff"}
-        page << "}"         
+        page << "alert('#{t(:please_login_before_rating)}')"
       end
     end
   end

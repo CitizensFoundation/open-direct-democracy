@@ -20,44 +20,37 @@
 	        <tr>
 	            <td width="33%">
 	                <% for comment in comment_target.comments_in_support %>
-	                <%= t :author %>: <%= comment.user.full_name %>
-	                <br>
-	                <%= t :creation_date %>: <%= comment.created_at.strftime("%d. %b %Y %H:%M") %>
+	                <b><%= comment.user.full_name %> <%=t :says %>:</b>
 	                <br>
 	                <br>
 	                <%= comment.comment %>
 	                <br>
 	                <br>
-	                <%=t :rate_this_comment %>:<%= render :partial => "ratings/rate", :locals => { :asset => comment } %>
+	                <span class="ratingsTinyText"><%=t :rate_this_comment %>:<%= render :partial => "ratings/rate_smaller_comments", :locals => { :asset => comment } %></span>
 	                <p>
 	                <% end %>
 	            </td>
 	            <td width="34%">
 	                <% for comment in comment_target.comments_not_sure %>
-	                <%= t :author %>: <%= comment.user.full_name %>
-	                <br>
-	                <%= t :creation_date %>: <%= comment.created_at.strftime("%d. %b %Y %H:%M") %>
+	                <b><%= comment.user.full_name %> <%=t :says %>:</b>
 	                <br>
 	                <br>
 	                <%= comment.comment %>
 	                <br>
 	                <br>
-	                <%=t :rate_this_comment %>:<%= render :partial => "ratings/rate", :locals => { :asset => comment } %>
+	                <span class="ratingsTinyText"><%=t :rate_this_comment %>:<%= render :partial => "ratings/rate_smaller_comments", :locals => { :asset => comment } %></span>
 	                <p>
 	                <% end %>
 	            </td>
 	            <td width="33%">
 	                <% for comment in comment_target.comments_against %>
-	                <%= t :author %>: <%= comment.user.full_name %>
-	                <br>
-	                <%= t :creation_date %>: <%= comment.created_at.strftime("%d. %b %Y %H:%M") %>
-	                <br>
+	                <b><%= comment.user.full_name %> <%=t :says %>:</b>
 	                <br>
 	                <br>
 	                <%= comment.comment %>
 	                <br>
 	                <br>
-	                <%=t :rate_this_comment %>:<%= render :partial => "ratings/rate", :locals => { :asset => comment } %>
+	               <span class="ratingsTinyText"><%=t :rate_this_comment %>:<%= render :partial => "ratings/rate_smaller_comments", :locals => { :asset => comment } %></span>
 	                <p>
 	                <% end %>
 	            </td>
@@ -68,6 +61,8 @@
 	   <%= t :no_comments_have_been_written_yet %>
 	<% end %>
     <p>
+
+  <%if session[:user_id] %>	
     <% @document_comment = DocumentComment.new %>
     <% remote_form_for(@document_comment) do |f| %>
     <h2><%= t :your_opinion %></h2>
@@ -115,6 +110,10 @@
         </tr>
     </table>
     <% end %>
+   <% else %>
+	 <%=link_to t(:login_to_submit_comment), :controller=>"users", :action=>"login" %>
+   <% end %>	
+
 </div>
 <script type="text/javascript" language="javascript">
 // <![CDATA[

@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   layout "citizen"
   skip_before_filter :check_authentication, :only => [ :login, :logout ]
   skip_before_filter :check_authorization, :only => [ :login, :logout ]
-  filter_parameter_logging :login_password
+  filter_parameter_logging :login_password, :password, :password_confirmation
 
   def complete_login
     if xml_request?
@@ -28,8 +28,7 @@ class UsersController < ApplicationController
                     :controller => session[:intended_controller],
                     :params => session[:params]
       else
-        redirect_to :action => "index",
-                    :controller => "cases"
+        redirect_to :controller => "cases"
       end
     end
   end
@@ -46,7 +45,7 @@ class UsersController < ApplicationController
         complete_login
       else
         warn("invalid e-mail/password")
-        flash[:notice] = "Invalid e-mail/password combination. Please make sure you have already registered."
+        flash[:notice] = t(:invalid_login)
         xml_error("LoginError", flash[:notice], "") if xml_request?
       end
     elsif request.post? and params[:odd_action]=="create"
@@ -59,7 +58,7 @@ class UsersController < ApplicationController
         #TODO: Validate the line below...
         @user = User.new
       else
-        flash[:notice] = "There was a problem with your registration, please review your information below."
+        flash[:notice] = t(:invalid_registration)
         error("user_id: #{@user.id} couldn't be saved")
         if xml_request?
           full_error = ""

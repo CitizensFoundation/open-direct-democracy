@@ -17,6 +17,7 @@ class Document < ActiveRecord::Base
   belongs_to :user
   has_many :document_elements
   belongs_to :case_document
+  has_many :votes
 
   def vote_by_user(user_id)
     vote = Vote.find_by_document_id(self.id, :conditions=>["user_id = ?", user_id])
@@ -53,6 +54,10 @@ class Document < ActiveRecord::Base
       return nil
     end
   end
+  
+  def has_comments?
+    DocumentComment.find(:first, :conditions => ["document_id = ? and document_element_id is null", self.id])
+  end
 
   def comments_against
     DocumentComment.find(:all, :conditions => ["document_id = ? and bias < 0 and document_element_id is null", self.id])
@@ -64,6 +69,10 @@ class Document < ActiveRecord::Base
   
   def comments_in_support
     DocumentComment.find(:all, :conditions => ["document_id = ? and bias > 0 and document_element_id is null", self.id])
+  end
+  
+  def has_change_proposal_for_sequence_number?(sequence_number)
+    DocumentElement.find(:first, :conditions => ["document_id = ? AND sequence_number = ? AND original_version = 0",self.id,sequence_number])
   end
   
   def get_all_change_proposals_for_sequence_number(sequence_number)

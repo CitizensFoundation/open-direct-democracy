@@ -11,7 +11,7 @@
                 <tr valign="top">
                     <td valign="top">
                         <div id="change_proposals_master_panel_for_<%=element.sequence_number%>">
-                            <%= render :partial => "document_elements/change_proposals", :locals => {:document=> document, :change_target => element, :open_panel => open_panel } %>
+                            <%= render :partial => "document_elements/change_proposals", :locals => {:document=> document, :change_target => element, :open_panel => document.has_change_proposal_for_sequence_number?(element.sequence_number) } %>
                         </div>
                     </td>
                 </tr>

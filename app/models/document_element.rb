@@ -19,6 +19,10 @@ class DocumentElement < ActiveRecord::Base
   
   acts_as_rateable
 
+  def has_comments?
+    DocumentComment.find(:first, :conditions => ["document_element_id = ?", self.id])
+  end
+  
   def comments_against
     DocumentComment.find(:all, :conditions => ["document_element_id = ? and bias < 0", self.id])
   end

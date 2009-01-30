@@ -15,5 +15,6 @@
  
 class DocumentComment < ActiveRecord::Base
   belongs_to :user
+  belongs_to :document
   acts_as_rateable
 end

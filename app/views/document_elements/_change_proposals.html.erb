@@ -68,10 +68,14 @@
 	<table width="100%">
 		<tr>
 			<td align="left">
-		      <%= link_to_remote( t(:new_change_proposal),
-                        { :url => { :controller => "document_elements", :action => "new_change_proposal",
-                          :source_id => change_target.id, :sequence_number => change_target.sequence_number } },
-                        { :class => "participateLink", :name => "", :title => t(:new_change_proposal) } ) %>				
+		      <% if session[:user_id] %>
+			      <%= link_to_remote( t(:new_change_proposal),
+	                        { :url => { :controller => "document_elements", :action => "new_change_proposal",
+	                          :source_id => change_target.id, :sequence_number => change_target.sequence_number } },
+	                        { :class => "participateLink", :name => "", :title => t(:new_change_proposal) } ) %>
+			 <% else %>
+			   <%=link_to t(:login_to_submit_change_proposal), :controller=>"users", :action=>"login" %>
+			 <% end %>	
 			</td>
 		</tr>
 	</table>
