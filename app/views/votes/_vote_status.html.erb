@@ -19,13 +19,14 @@
     <tr>
         <td width="50%" align="left">
           <center>
+			<% count = 0 %>
             <% for vote in @votes_in_support %>
-	            <%= vote.user.full_name %>
-    	        <br>
+ 				<% count += 1 %>
+	            <%= vote.user.full_name.titleize %><%=count==@votes_in_support.length ? "" : ", "%>
 	            <% vote_proxy_votes = VoteProxy.find(:all, :conditions=> ["category_id = ? and to_user_id = ?", vote.document.category_id, vote.user.id]) %>
 	            <% for proxy_vote in vote_proxy_votes %>
 		            <% unless vote.document.vote_id_by_user(proxy_vote.from_user_id) %>
-						 <% found_proxy_vote = true %>
+						 <% found_proxy_vote = true %>						 
 				         <small><%= proxy_vote.full_name_of_from_user %> (*)</small>
 			            <br>
 		            <% end %>
@@ -35,9 +36,10 @@
 		</td>
         <td width="50%" align="left">
 		  <center>          
+			<% count = 0 %>
 		    <% for vote in @votes_against %>
-	            <%= vote.user.full_name %>
-	            <br>
+ 				<% count += 1 %>
+	            <%= vote.user.full_name.titleize %><%=count==@votes_against.length ? "" : ", "%>
 	            <% vote_proxy_votes = VoteProxy.find(:all, :conditions=> ["category_id = ? and to_user_id = ?", vote.document.category_id, vote.user.id]) %>
 	            <% for proxy_vote in vote_proxy_votes %>
 		            <% unless vote.document.vote_id_by_user(proxy_vote.from_user_id) %>
