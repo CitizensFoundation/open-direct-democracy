@@ -19,11 +19,15 @@ class CaseSpeechVideosController < ApplicationController
   # GET /case_speech_videos/1
   # GET /case_speech_videos/1.xml
   def show
-    @case_speech_video = CaseSpeechVideo.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @case_speech_video }
+    if params[:id]=="${image}" # Hack for flowplayer html template
+      render :nothing=>true
+    else
+      @case_speech_video = CaseSpeechVideo.find(params[:id])
+  
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @case_speech_video }
+      end
     end
   end
 
