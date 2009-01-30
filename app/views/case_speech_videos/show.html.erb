@@ -37,8 +37,12 @@ jQuery('div.clips a:first')<%=Array.new(my_pos,".next()").join%>.click();
 //jQuery("div.clips a:eq(3)").click(<%=my_pos%>);
 }); 
 </script>
-   <a href="/cases/<%=@document.case_document.case.id%>"><h2 class="participateLink"><%=h t(:case) %>: <%=h @document.case_document.case.info_1 %></h2></a>
-	<%=h @document.case_document.case.info_2 %> <%=h @document.case_document.case.info_3 %><br>
+<p>
+   <a href="/cases/<%=@case_speech_video.case_discussion.case.id%>">
+   	<h2 class="participateLink"><%=h t(:case) %>: <%=h @case_speech_video.case_discussion.case.info_1 %></h2></a>
+	<%=h @case_speech_video.case_discussion.case.info_2 %> <%=h @case_speech_video.case_discussion.case.info_3 %><br>
+</p>
+
 <table>
 	<tr>
 		<td>
