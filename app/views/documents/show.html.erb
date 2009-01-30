@@ -27,7 +27,7 @@
 <hr>
 <table width=100%>
 <tr>
-	<td>
+	<td width="50%">
 		<p>
 		    <b><%=t :document_elements %>:</b>
 		    <% for element in @document_elements %>
@@ -37,7 +37,7 @@
 		    <% end %>
 		</p>		
 	</td>
-	<td>
+	<td width="50%">
 	<center>
 	    <div id="comment_panel_master_for_Document_<%=@document.id%>">
 	        <%= render :partial => "document_comments/comment_on", :locals => {:document=> @document, :comment_target => @document, :open_panel => @document.has_comments? } %>
