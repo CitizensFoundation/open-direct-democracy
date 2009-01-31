@@ -23,7 +23,7 @@
             <% if change_proposal.id == change_target.id %>
 	            <% if change_proposal.user %>
 	            <td>
-	                <%=change_proposal.user.first_name %><%= change_proposal.user.last_name %>
+	                <%=change_proposal.user.full_name %>
 	            </td>
 	            <% else %>
 	            <td>
