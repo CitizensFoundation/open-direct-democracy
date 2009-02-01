@@ -35,6 +35,7 @@ is:
   document_state: "Staða skjals"
   document_type: "Tegund skjals"
   voting_close_time: "Kosningu almennings lýkur"
+  voting_closed_at: "Kosningu almennings lauk"
   your_vote: "Þitt atkvæði"
   external_state: "Upphafleg staða"
   you_have_voted_for_this_law: "Þú hefur greitt atkvæði " 
