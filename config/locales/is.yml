@@ -160,6 +160,7 @@ is:
   latest_votes: "Nýleg atkvæði frá almenningi"
   case: "Mál"
   whole_discussion: "Öll umræðan"
+  this_vote_is_closed: "Þessari atkvæðagreiðslu er lokið"
   support:
       array:
         sentence_connector: "og"
