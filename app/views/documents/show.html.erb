@@ -3,7 +3,7 @@
 	<%=h @document.case_document.case.info_1 %><br><%=h @document.case_document.case.info_2 %>
 </p>
 <p>
-	<% if @document.voting_close_time < Time.now %>
+	<% if @document.voting_close_time > Time.now %>
     <b><%=t :voting_close_time %>:</b>
 	<% else %>
     <b><%=t :voting_closed_at %>:</b>
