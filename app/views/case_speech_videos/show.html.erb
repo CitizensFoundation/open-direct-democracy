@@ -52,11 +52,7 @@ jQuery('div.clips a:first')<%=Array.new(my_pos,".next()").join%>.click();
 			<% total_length = @case_speech_video.case_discussion.case_speech_videos.get_all_published.length %>
     		<% @case_speech_video.case_discussion.case_speech_videos.get_all_published.each do |video| %>
 			  <a href="<%=video.get_video_link_tag%>"><img src="<%=video.get_playlist_image_url("smaller")%>" align="left" border=0><%=video.title%><br>
-			  	<% if video.duration.strftime("%H").to_i>0 %>
-				  <em><%=video.duration.strftime("%H kl %M mín %S sek")%></em></a>
-				<% else %>
-				  <em><%=video.duration.strftime("%M mín %S sek")%></em></a>
- 				<% end %>
+				  <em><%=video.modified_duration_long%></em></a>
     		<% end %>     
 			</div>
 		</div>

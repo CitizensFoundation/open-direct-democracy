@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090128015625) do
+ActiveRecord::Schema.define(:version => 20090201211421) do
 
   create_table "case_discussions", :force => true do |t|
     t.datetime "meeting_date"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20090128015625) do
     t.boolean  "published"
     t.boolean  "in_video_processing",         :default => false
     t.boolean  "video_processing_complete",   :default => false
+    t.boolean  "has_modified_durations",      :default => false
   end
 
   create_table "case_documents", :force => true do |t|
@@ -70,6 +71,8 @@ ActiveRecord::Schema.define(:version => 20090128015625) do
     t.time     "duration"
     t.boolean  "in_processing",               :default => false
     t.boolean  "published",                   :default => false
+    t.integer  "modified_duration_s"
+    t.boolean  "has_checked_duration",        :default => false
   end
 
   create_table "case_types", :force => true do |t|
