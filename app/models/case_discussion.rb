@@ -23,5 +23,9 @@ class CaseDiscussion < ActiveRecord::Base
     def get_all_published
       find :all, :conditions => "case_speech_videos.published = 1 AND case_speech_videos.in_processing = 0"
     end
+    
+    def get_all_for_modified_duration
+      find(:all, :conditions=>"case_speech_videos.published = 0 AND case_speech_videos.has_checked_duration = 0", :order=>"case_speech_videos.start_offset", :lock=>true)
+    end
   end
 end

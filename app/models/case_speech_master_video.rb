@@ -4,7 +4,7 @@ class CaseSpeechMasterVideo < ActiveRecord::Base
   has_many :case_speech_videos, 
                           :order => "case_speech_videos.created_at DESC" do
     def get_one_to_process
-      find :first, :conditions => "case_speech_videos.published = 0 AND case_speech_videos.in_processing = 0", :lock => true
+      find :first, :conditions => "case_speech_videos.published = 0 AND case_speech_videos.in_processing = 0 AND case_speech_videos.has_checked_duration = 1", :lock => true
     end
   end  
 end
