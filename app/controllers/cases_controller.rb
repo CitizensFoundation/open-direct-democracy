@@ -25,7 +25,7 @@ class CasesController < ApplicationController
     @cases = Case.find(:all, :order=>"external_id DESC")
     @most_important_cases = @cases.sort_by { |x| [-x.rating, -x.ratings.size] }
     @last_comments = []
-    DocumentComment.find(:all, :limit=>5, :select => 'DISTINCT(user_id)',:order=>"created_at ASC").each do |comment_include|
+    DocumentComment.find(:all, :limit=>5, :select => 'DISTINCT(user_id)',:order=>"created_at DESC").each do |comment_include|
       @last_comments << User.find(comment_include.user).document_comments.find(:last)
     end
     
