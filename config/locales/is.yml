@@ -3,7 +3,7 @@
 
 is:
   speech: "ræða"
-  newly_processed_speeches: "Nýjust ræður frá Alþingi í þessu kerfi"
+  newly_processed_speeches: "Nýjust umræður frá Alþingi í þessu kerfi"
   speeches: "ræður"
   click_here_to_see_this_speech_in_context: "Smelltu hér til að sjá þessa ræðu í samhengi"
   embed_code: "Notaðu þennan kóða til að setja þessa myndræðu á þitt blog eða vefsíðu:"
