@@ -28,7 +28,7 @@ jQuery(function() {
     // setup player  
     $f("player", "/swf/flowplayer-3.0.3.swf", { 
 	clip: {
-        onStart: function(clip) {
+        onBeforeBegin: function(clip) {
 			if (globalFirstClip==true) {
 				globalFirstClip=false;
 			} else {
