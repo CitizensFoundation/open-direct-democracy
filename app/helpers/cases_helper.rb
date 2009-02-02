@@ -92,6 +92,13 @@ module CasesHelper
     else
       ""
     end
+  end
+  
+  def latest_video_speech_title(video)
+    "#{t(:case)}: #{video.case_discussion.case.info_1} / #{video.case_discussion.stage_sequence_number}. #{t(:stage_sequence_discussion)}"
+  end
 
+  def latest_video_speech_description(video)
+    "#{t(:case)}: #{video.case_discussion.case.info_1} (#{video.case_discussion.case.info_2}) / #{video.case_discussion.case.info_3} - #{video.case_discussion.stage_sequence_number}. #{t(:stage_sequence_discussion)}"
   end
 end
