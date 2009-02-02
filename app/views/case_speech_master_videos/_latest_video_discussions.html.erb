@@ -18,7 +18,7 @@
 	    <div id="latest_video_discussion_thumbs"> 
 	        <!-- one item. in the example we have many of these -->  
 			<% @latest_speeches_masters.each do |master_video| %>
-		        <div onclick="window.location = 'http://<%=request.host.downcase%>:3000/case_speech_videos/<%=master_video.case_speech_videos.get_first_published.id%>'">
+		        <div onclick="window.location = 'http://<%=request.host.downcase%>/case_speech_videos/<%=master_video.case_speech_videos.get_first_published.id%>'">
 		            <img src="<%=master_video.case_speech_videos.get_random_published.get_playlist_image_url("small")%>" /> 
 		            <h3><%=latest_video_speech_title(master_video.case_speech_videos.get_random_published)%></h3> 
 		            <p>
