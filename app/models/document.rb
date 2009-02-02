@@ -18,6 +18,7 @@ class Document < ActiveRecord::Base
   has_many :document_elements
   belongs_to :case_document
   has_many :votes
+  belongs_to :case
 
   def vote_by_user(user_id)
     vote = Vote.find_by_document_id(self.id, :conditions=>["user_id = ?", user_id])

@@ -240,3 +240,9 @@ display: block;
 text-indent: -9000px;
 z-index: 1;
 }
+
+html .fb_share_link {
+    padding: 2px 0 0 20px;
+    height: 16px;
+    background: url(http://b.static.ak.fbcdn.net/images/share/facebook_share_icon.gif?8:26981) no-repeat top left;
+}

@@ -62,10 +62,13 @@ class DocumentCommentsController < ApplicationController
     @document_comment = DocumentComment.new(params[:document_comment])
     if request.xhr?
       if @document_comment.save
-        @document = Document.find(@document_comment.document_id)
+        @document = Document.find(@document_comment.document_id) if @document_comment.document
         if @document_comment.document_element_id
           replace_div = "comment_panel_master_for_DocumentElement_#{@document_comment.document_element_id}"
           comment_target = DocumentElement.find(@document_comment.document_element_id)
+        elsif @document_comment.case_speech_video_id
+          replace_div = "comment_panel_master_for_CaseSpeechVideo_#{@document_comment.case_speech_video_id}"
+          comment_target = CaseSpeechVideo.find(@document_comment.case_speech_video_id)
         else
           replace_div = "comment_panel_master_for_Document_#{@document.id}"        
           comment_target = @document
@@ -77,7 +80,7 @@ class DocumentCommentsController < ApplicationController
       else
         error("Could not save comment")
       end
-    else   
+    else
       respond_to do |format|
         if @document_comment.save
           flash[:notice] = 'DocumentComment was successfully created.'        

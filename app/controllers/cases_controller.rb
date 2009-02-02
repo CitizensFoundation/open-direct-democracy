@@ -50,7 +50,7 @@ class CasesController < ApplicationController
   # GET /cases/1
   # GET /cases/1.xml
   def show
-    @case = Case.find(params[:id])
+    @my_case = @case = Case.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
