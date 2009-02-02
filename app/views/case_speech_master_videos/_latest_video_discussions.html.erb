@@ -24,7 +24,7 @@
 		            <p>
 		            <span><em><%=case_discussion.meeting_date.strftime("%d.%m.%Y")%> -
 		            <span><%=case_discussion.case_speech_videos.count%> 
-					<% if case_discussion.case_speech_videos.count!=1%>
+					<% if case_discussion.case_speech_videos.count==1%>
   					  <%=t :speech%>
 					<% else %>
   					  <%=t :speeches%>
