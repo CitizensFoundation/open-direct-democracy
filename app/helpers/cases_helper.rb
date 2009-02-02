@@ -16,7 +16,11 @@
 module CasesHelper
   
   def get_comment_document_case_link(comment)
-    link_to comment.document.case_document.case.external_name.capitalize, :controller=>"documents", :action=>"show", :id=>comment.document.id    
+    if comment.document
+      link_to comment.document.case_document.case.external_name.capitalize, :controller=>"documents", :action=>"show", :id=>comment.document.id
+    elsif comment.case_speech_video
+      link_to comment.case_speech_video.case_discussion.case.external_name.capitalize, :controller=>"case_speech_videos", :action=>"show", :id=>comment.case_speech_video.id
+    end
   end
 
   def get_vote_document_case_link(vote)

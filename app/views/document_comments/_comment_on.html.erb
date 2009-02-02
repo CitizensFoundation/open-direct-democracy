@@ -119,6 +119,7 @@
    <% end %>	
 
 </div>
+<%if session[:user_id] %>	
 <script type="text/javascript" language="javascript">
 // <![CDATA[
 			 new Control.Slider('sentiment_handle1_<%=comment_target.class.name%>_<%=comment_target.id%>' , 'sentiment_track1_<%=comment_target.class.name%>_<%=comment_target.id%>',
@@ -139,4 +140,4 @@
 		     $('sentiment_slider_form_value_1_<%=comment_target.class.name%>_<%=comment_target.id%>').value = 3;        						 
 // ]]>
 </script>
-
+<% end %>
