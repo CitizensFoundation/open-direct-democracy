@@ -1,33 +1,53 @@
+<script type="text/javascript">
+    <!--
+    function fbs_click(){
+        u = location.href;
+        t = document.title;
+        window.open('http://www.facebook.com/sharer.php?u=' + encodeURIComponent(u) + '&t=' + encodeURIComponent(t), 'sharer', 'toolbar=0,status=0,width=626,height=436');
+        return false;
+    };
+    //-->
+</script>
 <table width="100%">
-	<td align="center">
-		<table>
-			<tr>
-				<td align="center" style="padding-right:20px;">
-		 	      <a href="http://www.facebook.com/share.php?u=http://<%=request.host.downcase%>/case_speech_videos/<%=case_speech_video.id%>" onclick="return fbs_click()" target="_blank" class="fb_share_link"><%=t :share_on_facebook %></a>
-				</td>
-				<td align="center">
-			      <i><%=t :rate_this_speech %></i><%= render :partial => "ratings/rate", :locals => { :asset => case_speech_video } %>		
-				</td>
-			</tr>
-		</table>
-    </td>
-	<tr>
-		<td>
-		<center>
-			<br>
-		    <div id="comment_panel_master_for_CaseSpeechVideo_<%=case_speech_video.id%>">
-		        <%= render :partial => "document_comments/comment_on", :locals => {:document=>nil, :comment_target => case_speech_video, :open_panel => case_speech_video.has_comments? } %>
-		    </div>
-		</center>
-		</td>
-	</tr>
-	<tr>
     <td align="center">
-    	<br>
-        <%=t :embed_code %>
-        <br>
-        <textarea id="textarea" style="height:75px;width:467px;color:#999999"><p><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="640" height="400"><param name="movie" value="http://<%=request.host.downcase%>/swf/flowplayer-3.0.3.swf" /><param name="allowfullscreen" value="true" /><param name="flashvars" value='config={"clip":{"url":"http://<%=request.host.downcase%><%=case_speech_video.video_share_url%>"},"canvas":{"backgroundColor":"#112233"}}}}' /><embed type="application/x-shockwave-flash" width="640" height="400" allowfullscreen="true" src="http://<%=request.host.downcase%>/swf/flowplayer-3.0.3.swf" flashvars='config={"clip":{"url":"http://<%=request.host.downcase%><%=case_speech_video.video_share_url%>"},"canvas":{"backgroundColor":"#112233"}}}}'/></object><br><a href="http://<%=request.host.downcase%>/case_speech_videos/<%=case_speech_video.id%>" target="_blank"><%=t :click_here_to_see_this_speech_in_context%></a></p></textarea>
+        <table>
+            <tr>
+                <td align="center" style="padding-right:20px;">
+                    <a href="http://www.facebook.com/share.php?u=http://<%=request.host.downcase%>/case_speech_videos/<%=case_speech_video.id%>" onclick="return fbs_click()" target="_blank" class="fb_share_link"><%=t :share_on_facebook %></a>
+                </td>
+                <td align="center">
+                    <i><%=t :rate_this_speech %></i>
+                    <%= render :partial => "ratings/rate", :locals => { :asset => case_speech_video } %>
+                </td>
+            </tr>
+        </table>
     </td>
-	<td></td>
-	</tr>
+    <tr>
+        <td>
+            <center>
+                <br>
+                <div id="comment_panel_master_for_CaseSpeechVideo_<%=case_speech_video.id%>">
+                    <%= render :partial => "document_comments/comment_on", :locals => {:document=>nil, :comment_target => case_speech_video, :open_panel => case_speech_video.has_comments? } %>
+                </div>
+            </center>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <br>
+            <%=t :embed_code %>
+            <br>
+            <textarea id="textarea" style="height:75px;width:467px;color:#999999">
+                <p>
+                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="640" height="400">
+                        <param name="movie" value="http://<%=request.host.downcase%>/swf/flowplayer-3.0.3.swf" /><param name="allowfullscreen" value="true" /><param name="flashvars" value='config={"clip":{"url":"http://<%=request.host.downcase%><%=case_speech_video.video_share_url%>"},"canvas":{"backgroundColor":"#112233"}}}}' /><embed type="application/x-shockwave-flash" width="640" height="400" allowfullscreen="true" src="http://<%=request.host.downcase%>/swf/flowplayer-3.0.3.swf" flashvars='config={"clip":{"url":"http://<%=request.host.downcase%><%=case_speech_video.video_share_url%>"},"canvas":{"backgroundColor":"#112233"}}}}'/>
+                    </object>
+                    <br>
+                    <a href="http://<%=request.host.downcase%>/case_speech_videos/<%=case_speech_video.id%>" target="_blank"><%=t :click_here_to_see_this_speech_in_context %></a>
+                </p>
+            </textarea>
+        </td>
+        <td>
+        </td>
+    </tr>
 </table>
