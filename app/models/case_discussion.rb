@@ -27,5 +27,19 @@ class CaseDiscussion < ActiveRecord::Base
     def get_all_for_modified_duration
       find(:all, :conditions=>"case_speech_videos.published = 0 AND case_speech_videos.has_checked_duration = 0", :order=>"case_speech_videos.start_offset", :lock=>true)
     end
+
+    def all_done?
+      a = count :all
+      b = count :all, :conditions => "case_speech_videos.published = 1"
+      a == b and b!=0
+    end
+
+    def get_random_published
+      find :first, :conditions => "case_speech_videos.published = 1 AND case_speech_videos.in_processing = 0", :order=>"rand()"
+    end
+    
+    def get_first_published
+      find :first, :conditions => "case_speech_videos.published = 1 AND case_speech_videos.in_processing = 0", :order=>"case_speech_videos.start_offset"
+    end    
   end
 end
