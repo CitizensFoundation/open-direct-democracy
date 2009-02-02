@@ -11,7 +11,7 @@
 <br><br>
 <p>
     <b><%=t :voting_close_time %>:</b>
-    <%=h @document.voting_close_time.strftime("%m. %b %Y #{t(:at_time)} %H:%M") %>
+    <%=h @document.voting_close_time.strftime("%d. %b %Y #{t(:at_time)} %H:%M") %>
 </p>
 <% if @i_am_admin %>
 <hr><%= link_to t(:edit), edit_document_path(@document) %> |<%= link_to t(:back), documents_path %>
