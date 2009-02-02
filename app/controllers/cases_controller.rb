@@ -24,7 +24,11 @@ class CasesController < ApplicationController
   def index
     @cases = Case.find(:all, :order=>"external_id DESC")
     @most_important_cases = @cases.sort_by { |x| [-x.rating, -x.ratings.size] }
-    @last_comments = DocumentComment.find(:all, :limit=>5, :order=>"created_at DESC")
+    @last_comments = []
+    DocumentComment.find(:all, :limit=>5, :select => 'DISTINCT(user_id)',:order=>"created_at ASC").each do |comment_include|
+      @last_comments << User.find(comment_include.user).document_comments.find(:last)
+    end
+    
     @latest_votes = Vote.find(:all, :limit=>7, :order=>"votes.created_at DESC", :select => 'DISTINCT(document_id)', :include=>"document" )
     @latest_speech_discussions = []
     CaseSpeechVideo.find(:all, :conditions=>"published = 1", :limit=>10, :select => 'DISTINCT(case_discussion_id)', 
