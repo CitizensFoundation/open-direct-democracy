@@ -26,11 +26,11 @@ class CasesController < ApplicationController
     @most_important_cases = @cases.sort_by { |x| [-x.rating, -x.ratings.size] }
     @last_comments = DocumentComment.find(:all, :limit=>5, :order=>"created_at DESC")
     @latest_votes = Vote.find(:all, :limit=>7, :order=>"votes.created_at DESC", :select => 'DISTINCT(document_id)', :include=>"document" )
-    @latest_speeches_masters = []
-    CaseSpeechVideo.find(:all, :conditions=>"published = 1", :limit=>7, :select => 'DISTINCT(case_speech_master_video_id)', 
-                         :include=>"case_speech_master_video", :order=>"updated_at DESC").each do |master_video_include|
-      master_video = master_video_include.case_speech_master_video
-      @latest_speeches_masters << master_video if master_video.case_speech_videos.all_done?
+    @latest_speech_discussions = []
+    CaseSpeechVideo.find(:all, :conditions=>"published = 1", :limit=>7, :select => 'DISTINCT(case_discussion_id)', 
+                         :include=>"case_discussion", :order=>"updated_at DESC").each do |case_discussion_include|
+      case_discussion = case_discussion_include.case_discussion
+      @latest_speech_discussions << case_discussion if case_discussion.case_speech_videos.all_done?
     end
 
     last_weeks_discussion = CaseDiscussion.find(:all, :conditions=>["created_at >= ?",Time.now-1.weeks])

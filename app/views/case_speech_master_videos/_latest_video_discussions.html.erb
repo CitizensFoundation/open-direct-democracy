@@ -1,4 +1,4 @@
-<% if @latest_speeches_masters.length > 0 %>
+<% if @latest_speech_discussions.length > 0 %>
 	<%= javascript_include_tag 'jquery-1.3.1.min' %>
 	<%= javascript_include_tag 'jquery.mousewheel' %>
 	<%= javascript_include_tag 'jquery.scrollable-1.0.1.min' %>
@@ -17,13 +17,13 @@
 	    <!-- for a change we have different kind of container for items --> 
 	    <div id="latest_video_discussion_thumbs"> 
 	        <!-- one item. in the example we have many of these -->  
-			<% @latest_speeches_masters.each do |master_video| %>
-		        <div onclick="window.location = 'http://<%=request.host.downcase%>/case_speech_videos/<%=master_video.case_speech_videos.get_first_published.id%>'">
-		            <img src="<%=master_video.case_speech_videos.get_random_published.get_playlist_image_url("small")%>" /> 
-		            <h3><%=latest_video_speech_title(master_video.case_speech_videos.get_random_published)%></h3> 
+			<% @latest_speech_discussions.each do |case_discussion| %>
+		        <div onclick="window.location = 'http://<%=request.host.downcase%>/case_speech_videos/<%=case_discussion.case_speech_videos.get_first_published.id%>'">
+		            <img src="<%=case_discussion.case_speech_videos.get_random_published.get_playlist_image_url("small")%>" /> 
+		            <h3><%=latest_video_speech_title(case_discussion.case_speech_videos.get_random_published)%></h3> 
 		            <p>
-		            <span><em><%=master_video.case_speech_videos.get_random_published.case_discussion.meeting_date.strftime("%d.%m.%Y")%> -
-		            <span><%=master_video.case_speech_videos.count%> <%=t :speeches%></em></span></p>
+		            <span><em><%=case_discussion.meeting_date.strftime("%d.%m.%Y")%> -
+		            <span><%=case_discussion.case_speech_videos.count%> <%=t :speeches%></em></span></p>
 		        </div>
 			<% end %> 
 	    </div> 
@@ -33,14 +33,12 @@
 		jQuery.noConflict();
 		// execute your scripts when DOM is ready. this is a good habit 
 		jQuery(function() {         
-		         
 		    // initialize scrollable  
 		    jQuery("div.scrollable").scrollable({ 
 		        size: 3,
 		        items: '#latest_video_discussion_thumbs',   
 		        hoverClass: 'hover' 
-		    });     
-		     
+		    });
 		}); 
 	</script>
 
