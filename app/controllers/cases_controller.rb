@@ -30,9 +30,7 @@ class CasesController < ApplicationController
     CaseSpeechVideo.find(:all, :conditions=>"published = 1", :limit=>7, :select => 'DISTINCT(case_speech_master_video_id)', 
                          :include=>"case_speech_master_video", :order=>"updated_at DESC").each do |master_video_include|
       master_video = master_video_include.case_speech_master_video
-      7.times do
-        @latest_speeches_masters << master_video if master_video.case_speech_videos.all_done?
-      end
+      @latest_speeches_masters << master_video if master_video.case_speech_videos.all_done?
     end
 
     last_weeks_discussion = CaseDiscussion.find(:all, :conditions=>["created_at >= ?",Time.now-1.weeks])
