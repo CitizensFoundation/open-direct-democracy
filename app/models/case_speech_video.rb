@@ -34,8 +34,9 @@ class CaseSpeechVideo < ActiveRecord::Base
   end
   
   def get_playlist_image_url(image_size="tiny")
+    image_size+="_" unless image_size==""
     speech_video_path = "/"+ENV['RAILS_ENV']+"/case_speech_videos/#{self.id}/"
-    "#{speech_video_path}#{image_size}_thumb_#{rand(5-2)+2}.png"
+    "#{speech_video_path}#{image_size}thumb_#{rand(5-2)+2}.png"
   end
 
   def inpoint_s
