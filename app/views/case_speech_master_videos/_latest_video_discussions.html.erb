@@ -23,7 +23,13 @@
 		            <h3><%=latest_video_speech_title(case_discussion.case_speech_videos.get_random_published)%></h3> 
 		            <p>
 		            <span><em><%=case_discussion.meeting_date.strftime("%d.%m.%Y")%> -
-		            <span><%=case_discussion.case_speech_videos.count%> <%=t :speeches%></em></span></p>
+		            <span><%=case_discussion.case_speech_videos.count%> 
+					<% if case_discussion.case_speech_videos.count!=1%>
+  					  <%=t :speech%>
+					<% else %>
+  					  <%=t :speeches%>
+					<% end %>  
+					</em></span></p>
 		        </div>
 			<% end %> 
 	    </div> 
