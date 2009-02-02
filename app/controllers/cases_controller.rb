@@ -25,13 +25,13 @@ class CasesController < ApplicationController
     @cases = Case.find(:all, :order=>"external_id DESC")
     @most_important_cases = @cases.sort_by { |x| [-x.rating, -x.ratings.size] }
     @last_comments = []
-    DocumentComment.find(:all, :limit=>5, :select => 'DISTINCT(user_id)',:order=>"created_at DESC").each do |comment_include|
+    DocumentComment.find(:all, :limit=>5, :select => 'DISTINCT(user_id)',:order=>"document_comments.created_at DESC").each do |comment_include|
       @last_comments << User.find(comment_include.user).document_comments.find(:last)
     end
     
     @latest_votes = Vote.find(:all, :limit=>7, :order=>"votes.created_at DESC", :select => 'DISTINCT(document_id)', :include=>"document" )
     @latest_speech_discussions = []
-    CaseSpeechVideo.find(:all, :conditions=>"published = 1", :limit=>10, :select => 'DISTINCT(case_discussion_id)', 
+    CaseSpeechVideo.find(:all, :conditions=>"published = 1", :limit=>15, :select => 'DISTINCT(case_discussion_id)', 
                          :include=>"case_discussion", :order=>"updated_at DESC").each do |case_discussion_include|
       case_discussion = case_discussion_include.case_discussion
       @latest_speech_discussions << case_discussion if case_discussion.case_speech_videos.all_done?

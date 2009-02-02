@@ -81,7 +81,7 @@ class CaseSpeechVideo < ActiveRecord::Base
   
   def video_share_screenshot_image
     speech_video_path = "/"+ENV['RAILS_ENV']+"/case_speech_videos/#{self.id}/"
-    "#{speech_video_path}thumb_#{rand(5-2)+2}.png"
+    "#{speech_video_path}small_thumb_#{rand(5-2)+2}.png"
   end
 
   def video_share_url
