@@ -1,3 +1,6 @@
+<table>
+<tr>
+<td align="left">
 <% @convert = %w[one two three four five] %>
 <div id="star-ratings-block-<%= "#{asset.id}_#{asset.class.name}"  %>" class="star-ratings-block">  
 <%= number_with_precision(asset.rating, :precision=>1) %>/5.0 (<%= asset.ratings.size %> <%=t :votes %>)
@@ -17,3 +20,6 @@
     <% end -%>
 </ul>
 </div>
+</td>
+</tr>
+</table>
