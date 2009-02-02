@@ -1,0 +1,8 @@
+<% if document.case_document.stage_sequence_number > 0 %>
+  <meta name="title" content="<%=t :document_in_case%>: <%=document.case.info_1%> - <%=document.case_document.stage_sequence_number%>. <%=t(:stage_sequence_discussion)%>" />
+  <meta name="description" content="<%=t :document_in_case%>: <%=document.case.info_1%> <%=document.case.info_2%> / <%=document.case.info_3%> - <%=document.case_document.stage_sequence_number%>. <%=t(:stage_sequence_discussion)%>" />
+<% else %>
+  <meta name="title" content="<%=t :document_in_case%>: <%=document.case.info_1%>" />
+  <meta name="description" content="<%=t :document_in_case%>: <%=document.case.info_1%> <%=document.case.info_2%> / <%=document.case.info_3%>" />
+<% end %>
+<link rel="image_src" href="http://www.althingi.is/img/logo_sm.gif" />
