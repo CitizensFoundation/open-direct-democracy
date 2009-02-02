@@ -16,5 +16,6 @@
 class DocumentComment < ActiveRecord::Base
   belongs_to :user
   belongs_to :document
+  belongs_to :case_speech_video
   acts_as_rateable
 end
