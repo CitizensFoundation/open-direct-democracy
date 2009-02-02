@@ -1,3 +1,6 @@
+<table>
+<tr>
+<td align="left" valign="top">
 <% @convert = %w[one two three four five] %>
 <div id="star-ratings-block-<%= "#{asset.id}_#{asset.class.name}"  %>" class="star-ratings-block">  
 <ul class='star-rating_smaller'>
@@ -16,3 +19,6 @@
 </ul>
 <span class="ratingsTinyText"><%= asset.ratings.size%> <%=t :votes %></span>
 </div>
+</td>
+</tr>
+</table>
