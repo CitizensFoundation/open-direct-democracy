@@ -34,5 +34,4 @@ class DocumentElement < ActiveRecord::Base
   def comments_in_support
     DocumentComment.find(:all, :conditions => ["document_element_id = ? and bias > 0", self.id])
   end
-
 end

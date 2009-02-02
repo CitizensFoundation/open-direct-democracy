@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090201211421) do
+ActiveRecord::Schema.define(:version => 20090202052954) do
 
   create_table "case_discussions", :force => true do |t|
     t.datetime "meeting_date"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(:version => 20090201211421) do
     t.float    "bias"
     t.integer  "user_id"
     t.integer  "document_element_id"
+    t.integer  "case_speech_video_id"
   end
 
   create_table "document_elements", :force => true do |t|

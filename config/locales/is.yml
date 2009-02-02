@@ -2,6 +2,11 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 is:
+  click_here_to_see_this_speech_in_context: "Smelltu hér til að sjá þessa ræðu í samhengi"
+  embed_code: "Notaðu þennan kóða til að setja þessa myndræðu á þitt blog eða vefsíðu:"
+  rate_this_speech: "Hversu góð er þessi ræða?"
+  document_in_case: "Skjal í máli"
+  share_on_facebook: "Senda á Facebook"
   main_header: "Opið beint lýðræði "
   for_user: "fyrir "
   user: "Notandi"
@@ -94,7 +99,7 @@ is:
   out_of_5: " af 5 mögulegum"
   votes: "atkvæði"
   document_elements: "Skjal í hlutum"
-  toggle_comments: "Athugsemdir opna/loka"
+  toggle_comments: "Athugasemdir opna/loka"
   toggle_change_proposals: "Breytingatillögur opna/loka"
   system_import: "Búið til af kerfi"
   original_version: "Upphafleg útgáfa"

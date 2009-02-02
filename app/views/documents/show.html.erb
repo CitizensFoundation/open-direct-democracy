@@ -1,7 +1,14 @@
 <p>
     <a href="/cases/<%=@document.case_document.case.id%>"><h2 class="participateLink"><%=h t(:case) %>: <%=h @document.case_document.case.info_1 %></h2></a>
 	<%=h @document.case_document.case.info_2 %> <%=h @document.case_document.case.info_3 %>
+<% if @document.case_document.stage_sequence_number > 0 %>
+   - <%=@document.case_document.stage_sequence_number%>. <%=t(:stage_sequence_discussion)%>
+<% end %>
+
 </p>
+<br>
+<a href="http://www.facebook.com/share.php?u=http:\\<%=request.host.downcase != 'localhost' ? request.host.downcase : 'beint.lydraedi.is'%>\documents\<%=@document.id%>" onclick="return fbs_click()" target="_blank" class="fb_share_link"><%=t :share_on_facebook%></a>
+<br><br>
 <p>
     <b><%=t :voting_close_time %>:</b>
     <%=h @document.voting_close_time.strftime("%m. %b %Y #{t(:at_time)} %H:%M") %>
@@ -38,6 +45,7 @@
     </div>
     <% end %>
 </p>
+<br>
 <p>
     <b><%=t :external_link %>:</b>
     <a target="_blank" href="<%=@document.external_link%>"><%=h @document.external_link %></a>

@@ -19,11 +19,16 @@ class CaseSpeechVideosController < ApplicationController
   # GET /case_speech_videos/1
   # GET /case_speech_videos/1.xml
   def show
-    if params[:id]=="${image}" # Hack for flowplayer html template
-      render :nothing=>true
+    if params[:only_update_details]
+      a = params[:clip_info][0..params[:clip_info].index("speech.flv")-2]
+      id_s = a[a.rindex("/")+1..a.length]
+      @case_speech_video = CaseSpeechVideo.find(id_s.to_i)
+      render :update do |page|  
+        page.replace_html "case_speech_detail", :partial => "video_detail", :locals => {:case_speech_video=> @case_speech_video }  
+        page.visual_effect :highlight, "case_speech_detail",  {:restorecolor=>"#ffffff", :startcolor=>"#cccccc", :endcolor=>"#ffffff"}  
+      end
     else
       @case_speech_video = CaseSpeechVideo.find(params[:id])
-  
       respond_to do |format|
         format.html # show.html.erb
         format.xml  { render :xml => @case_speech_video }

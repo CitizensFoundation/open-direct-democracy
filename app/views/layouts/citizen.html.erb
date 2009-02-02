@@ -2,13 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
         <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-        <title><%=t :main_header %></title>
         <%= stylesheet_link_tag 'scaffold' %>
         <%= javascript_include_tag :defaults %>
-        <%= javascript_include_tag "slider.js" %>		
+        <%= javascript_include_tag "slider.js" %>
         <%= javascript_include_tag :fckeditor %>
+        <% if controller_name == "case_speech_videos" and action_name == "show" %>
+          <%= render :partial => "case_speech_videos/share_metadata", :locals => {:case_speech_video=> @case_speech_video } %>
+        <% elsif controller_name == "cases" and action_name == "show" %>
+          <%= render :partial => "cases/share_metadata", :locals => {:my_case=> @my_case } %>
+        <% elsif controller_name == "documents" and action_name == "show" %>
+          <%= render :partial => "documents/share_metadata", :locals => {:document=> @document } %>
+        <% else %>
+          <title><%=t :main_header %></title>
+        <% end %>
 
-        <script type="text/javascript">
+  <script type="text/javascript">
             <!--
             function toggleDiv(obj){
                 var el = document.getElementById(obj);
@@ -19,22 +27,29 @@
                     el.style.display = '';
                 }
             }
-			
-		    function getSentimentWord(sentiment) {
-				if (sentiment==1) {
-					return "<%=t :very_in_support%>";						
-				} else if (sentiment==2) {
-					return "<%=t :in_support%>";						
-				} else if (sentiment==3) {
-					return "<%=t :not_sure%>";						
-				} else if (sentiment==4) {
-					return "<%=t :against%>";				
-				} else if (sentiment==5) {
-					return "<%=t :very_against%>";
-				}					
-			};      
+      
+     function getSentimentWord(sentiment) {
+        if (sentiment==1) {
+          return "<%=t :very_in_support%>";            
+        } else if (sentiment==2) {
+          return "<%=t :in_support%>";            
+        } else if (sentiment==3) {
+          return "<%=t :not_sure%>";            
+        } else if (sentiment==4) {
+          return "<%=t :against%>";        
+        } else if (sentiment==5) {
+          return "<%=t :very_against%>";
+        }          
+      };
+		function fbs_click(){
+		    u = location.href;
+		    t = document.title;
+		    window.open('http://www.facebook.com/sharer.php?u=' + encodeURIComponent(u) + '&t=' + encodeURIComponent(t), 'sharer', 'toolbar=0,status=0,width=626,height=436');
+		    return false;
+		};
             //-->
-        </script>
+  </script>
+
     </head>
     <body>
         <small>
@@ -42,47 +57,53 @@
         </small>
         <br>
         <% if session[:user_id] %>
-	        <h1><%=t :main_header %><%=t :for_user %><%=User.find(session[:user_id]).full_name %></h1>
+        <h1><%=t :main_header %><%=t :for_user %><%=User.find(session[:user_id]).full_name %></h1>
         <%else %>
-	        <h1><%=t :main_header %></h1>
+        <h1><%=t :main_header %></h1>
         <%end %>
-        <hr>
-		<%=t :choice %>: <%= link_to "#{t :cases}", :controller=>"cases"%> | 
-		<!-- <a href="/documents"><%=t :documents %></a> |  -->
-		<!-- <%= link_to "#{t :vote_proxies}", :controller=>"vote_proxies", :action=>"manage"%> | -->
-		<!-- <a href="/categories"><%=t :categories %></a> |  -->
-		<!-- <a href="/issues"><%=t :issues %></a> -->
-		<!-- <a href="/document_states"><%=t :document_states %></a> |  -->
-		<!-- <a href="/document_types"><%=t :document_types %></a> |  -->
-		<!-- <a href="/users"><%=t :users %></a> |  -->
-		<% if session[:user_id] %>
-  		  <a href="/users/logout"><%=t :logout %></a>
-		<% else %>
-  		  <a href="/users/login"><%=t :login %></a>		
-		<% end %>
+        <hr><%=t :choice %>: <%= link_to "#{t :cases}", :controller=>"cases" %>| <% if session[:user_id] %>
+        <a href="/users/logout"><%=t :logout %></a>
+        <% else %>
+        <a href="/users/login"><%=t :login %></a>
+        <% end %>
         <hr>
         <p style="color: green">
             <%= flash[:notice] %>
         </p>
-		<% unless session[:has_welcomed] %>
-	        <p style="color: green">
-				<b><%= t :login_welcome %></b>
-	        </p>
-			<% session[:has_welcomed] = true %>
-		<% end %>		
+        <% unless session[:has_welcomed] %>
+        <p style="color: green">
+            <b><%= t :login_welcome %></b>
+        </p>
+        <% session[:has_welcomed] = true %>
+        <% end %>
         <%= yield %>
-		<p><br><br>
-			<small><%= t :git_info%><br><%= link_to "http://github.com/rbjarnason/open-direct-democracy/tree/master","http://github.com/rbjarnason/open-direct-democracy/tree/master", {:target=>"_blank"} %></small><br><br>
-			<small><%= t :bugs_info%><br><%= link_to "http://rbjarnason.lighthouseapp.com/projects/23240-open-direct-democracy/overview","http://rbjarnason.lighthouseapp.com/projects/23240-open-direct-democracy/overview", {:target=>"_blank"} %></small>
-		</p>
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-7086040-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
+        <p>
+            <br>
+            <br>
+            <small>
+                <%= t :git_info %>
+                <br>
+                <%= link_to "http://github.com/rbjarnason/open-direct-democracy/tree/master","http://github.com/rbjarnason/open-direct-democracy/tree/master", {:target=>"_blank"} %>
+            </small>
+            <br>
+            <br>
+            <small>
+                <%= t :bugs_info %>
+                <br>
+                <%= link_to "http://rbjarnason.lighthouseapp.com/projects/23240-open-direct-democracy/overview","http://rbjarnason.lighthouseapp.com/projects/23240-open-direct-democracy/overview", {:target=>"_blank"} %>
+            </small>
+        </p>
+        <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+            try {
+                var pageTracker = _gat._getTracker("UA-7086040-1");
+                pageTracker._trackPageview();
+            } 
+            catch (err) {
+            }
+        </script>
     </body>
 </html>
