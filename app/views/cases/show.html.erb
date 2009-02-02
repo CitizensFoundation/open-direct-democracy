@@ -121,7 +121,7 @@
 	    <br>
 	    <br>
     <% end %>
-	<a href="http://www.facebook.com/share.php?u=http:\\<%=request.host.downcase != 'localhost' ? request.host.downcase : 'beint.lydraedi.is'%>\cases\<%=@case.id%>" onclick="return fbs_click()" target="_blank" class="fb_share_link"><%=t :share_on_facebook%></a>
+	<a href="http://www.facebook.com/share.php?u=http://<%=request.host.downcase != 'localhost' ? request.host.downcase : 'beint.lydraedi.is'%>/cases/<%=@case.id%>" onclick="return fbs_click('http://<%=request.host.downcase != 'localhost' ? request.host.downcase : 'beint.lydraedi.is'%>/cases/<%=@case.id%>')" target="_blank" class="fb_share_link"><%=t :share_on_facebook%></a>
 	<br><br>
     <b><%=t :external_link %></b>
     <%=link_to h(@case.external_link), @case.external_link, {:target => "_blank"}%>
