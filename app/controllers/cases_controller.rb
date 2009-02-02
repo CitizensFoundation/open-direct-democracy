@@ -31,7 +31,7 @@ class CasesController < ApplicationController
     
     @latest_votes = Vote.find(:all, :limit=>7, :order=>"votes.created_at DESC", :select => 'DISTINCT(document_id)', :include=>"document" )
     @latest_speech_discussions = []
-    CaseSpeechVideo.find(:all, :conditions=>"published = 1", :limit=>15, :select => 'DISTINCT(case_discussion_id)', 
+    CaseSpeechVideo.find(:all, :conditions=>"published = 1", :limit=>20, :select => 'DISTINCT(case_discussion_id)', 
                          :include=>"case_discussion", :order=>"updated_at DESC").each do |case_discussion_include|
       case_discussion = case_discussion_include.case_discussion
       @latest_speech_discussions << case_discussion if case_discussion.case_speech_videos.all_done?
