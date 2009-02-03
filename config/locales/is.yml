@@ -2,6 +2,10 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 is:
+  no_search_results: "Engar ræður fundust"
+  search_results_for: "Niðurstöður ræðu leitar fyrir"
+  search: "Leita"
+  search_by_person: "Leita að ræðu eftir þingmanni" 
   speech: "ræða"
   newly_processed_speeches: "Nýjust umræður frá Alþingi í þessu kerfi"
   speeches: "ræður"
@@ -9,7 +13,7 @@ is:
   embed_code: "Notaðu þennan kóða til að setja þessa myndræðu á þitt blog eða vefsíðu:"
   rate_this_speech: "Hversu góð er þessi ræða?"
   document_in_case: "Skjal í máli"
-  share_on_facebook: "Senda á Facebook"
+  share_on_facebook: "Birta á Facebook"
   main_header: "Opið beint lýðræði "
   for_user: "fyrir "
   user: "Notandi"
