@@ -1,9 +1,18 @@
 class CaseSpeechVideosController < ApplicationController
   layout "citizen"
 
-  skip_before_filter :check_authentication, :only =>  [  :show ]
-  skip_before_filter :check_authorization, :only =>  [ :show ]  
+  skip_before_filter :check_authentication, :only =>  [  :show, :search ]
+  skip_before_filter :check_authorization, :only =>  [ :show, :search ]  
 
+  
+  def search
+    @case_speech_videos = CaseSpeechVideo.find(:all, :conditions=>['LOWER(title) LIKE ?','%'+params[:search_query].downcase+'%'])
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @case_speech_videos }
+    end
+  end
   
   # GET /case_speech_videos
   # GET /case_speech_videos.xml

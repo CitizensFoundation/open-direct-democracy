@@ -100,6 +100,10 @@ class CaseSpeechVideo < ActiveRecord::Base
     "application/x-shockwave-flash"
   end
 
+  def get_case
+    self.case_discussion.case
+  end
+  
   private
 
   def time_to_seconds(time)
