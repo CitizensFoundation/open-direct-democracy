@@ -6,7 +6,7 @@ class CaseSpeechVideosController < ApplicationController
 
   
   def search
-    @case_speech_videos = CaseSpeechVideo.find(:all, :conditions=>['LOWER(title) LIKE ?','%'+params[:search_query].downcase+'%'])
+    @case_speech_videos = CaseSpeechVideo.find(:all, :conditions=>['published = 1 AND LOWER(title) LIKE ?','%'+params[:search_query].downcase+'%'])
 
     respond_to do |format|
       format.html # index.html.erb

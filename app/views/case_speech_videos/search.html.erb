@@ -1,0 +1,18 @@
+<h1><%=t :search_results_for%>: <%=params[:search_query] %></h1>
+<br>
+<% if  @case_speech_videos.length > 0%>
+	<% @case_speech_videos.group_by(&:get_case).sort {|a,b| a[0].case_discussions.find(:last).meeting_date <=> b[0].case_discussions.find(:last).meeting_date}.each do |my_case,videos| %>
+		<h2><%=my_case.info_1 %></h2>
+		<table>
+		    <tr>
+		        <% videos.each do |video| %>
+		          <td>
+		            <%=video.get_image_tag %>
+		          </td>
+		        <% end %>
+		    </tr>
+		</table>
+	<% end %>
+<% else %>
+<%=t :no_search_results%>
+<% end %>
