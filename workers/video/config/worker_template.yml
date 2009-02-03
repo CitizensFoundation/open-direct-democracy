@@ -3,3 +3,4 @@ video_server_id: 1
 max_load_average: 3.0
 load_factor: 1
 master_path: /home/robert/master
+only_get_masters: true
