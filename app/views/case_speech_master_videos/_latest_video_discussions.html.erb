@@ -5,9 +5,8 @@
 <%= stylesheet_link_tag 'vertical_video_speeches_scroller' %>
 <h1><%=t :newly_processed_speeches %></h1>
 <!-- navigator -->
+<div class="navi"></div>
 <!-- root element -->
-<div class="navi">
-</div>
 <a class="prev"></a>
 <div class="scrollable">
     <!-- for a change we have different kind of container for items -->
@@ -38,7 +37,7 @@
     jQuery(function(){
         // initialize scrollable  
         jQuery("div.scrollable").scrollable({
-            size: 3,
+            size: 4,
             items: '#latest_video_discussion_thumbs',
             hoverClass: 'hover'
         });
