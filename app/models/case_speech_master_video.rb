@@ -12,5 +12,10 @@ class CaseSpeechMasterVideo < ActiveRecord::Base
       b = count :all, :conditions => "case_speech_videos.published = 1"
       a == b and b!=0
     end
+    
+    def any_in_processing?
+      a = count :all, :conditions => "case_speech_videos.in_processing = 1"
+      a != 0
+    end
   end  
 end
