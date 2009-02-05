@@ -2,6 +2,12 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  speeches: "Speeches"
+  embed_code: "Embed code"
+  rate_this_speech: "Rate this speech"
+  search_by_person: "Search by member of Althingi"
+  newly_processed_speeches: "Newly processed speeches"
+  search: "Search"
   document_in_case: "Document in case"
   share_on_facebook: "Share on Facebook"
   invalid_login: "Invalid e-mail/password combination. Please make sure you have already registered."
