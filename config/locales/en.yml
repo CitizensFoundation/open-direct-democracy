@@ -2,6 +2,8 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  search_results_for: "Search results for"
+  votes_for_this_document: "Votes for this document"
   speeches: "Speeches"
   embed_code: "Embed code"
   rate_this_speech: "Rate this speech"
