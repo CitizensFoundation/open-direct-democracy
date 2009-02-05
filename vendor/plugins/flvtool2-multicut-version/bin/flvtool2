@@ -1,0 +1,3 @@
+#! /usr/bin/ruby1.8
+require 'flvtool2'
+
