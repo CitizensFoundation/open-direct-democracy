@@ -10,13 +10,15 @@ namespace :utils do
 
   desc "Delete Fully Processed Masters"
   task(:delete_fullly_processed_masters => :environment) do
-      masters = CaseSpeechMasterVideo.find(:all, :conditions=>["updated_at < ?",Time.now-12.hours])
+      masters = CaseSpeechMasterVideo.find(:all, :conditions=>["updated_at < ?",Time.now-2.hours])
       masters.each do |master_video|
-        if master_video.case_speech_videos.all_done?
+        if master_video.case_speech_videos.all_done? and not master_video.case_speech_videos.any_in_processing?
           master_video_flv_filename = "#{RAILS_ROOT}/private/"+ENV['RAILS_ENV']+"/case_speech_master_videos/#{master_video.id}/master.flv"
-          rm_string = "rm #{master_video_flv_filename}"
-          puts rm_string
-          system(rm_string)
+          if File.exist?(master_video_flv_filename)
+            rm_string = "rm #{master_video_flv_filename}"
+            puts rm_string
+            system(rm_string)
+          end
         end
       end
   end
