@@ -12,6 +12,7 @@ namespace :utils do
   task(:delete_fullly_processed_masters => :environment) do
       masters = CaseSpeechMasterVideo.find(:all, :conditions=>["updated_at < ?",Time.now-2.hours])
       masters.each do |master_video|
+        puts "master_video id: #{master_video.id} all_done: #{master_video.case_speech_videos.all_done?} has_any_in_processing: #{master_video.case_speech_videos.any_in_processing?}"
         if master_video.case_speech_videos.all_done? and not master_video.case_speech_videos.any_in_processing?
           master_video_flv_filename = "#{RAILS_ROOT}/private/"+ENV['RAILS_ENV']+"/case_speech_master_videos/#{master_video.id}/master.flv"
           if File.exist?(master_video_flv_filename)
