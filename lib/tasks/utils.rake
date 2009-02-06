@@ -33,7 +33,7 @@ namespace :utils do
           if File.exist?(master_video_flv_filename)
             puts "master_video id: #{master_video.id} all_done: #{master_video.case_speech_videos.all_done?} has_any_in_processing: #{master_video.case_speech_videos.any_in_processing?}"
             master_video.case_speech_videos.each do |video|
-              puts "video id #{video.id} published #{video.published} #{video.title} in_processing #{video.in_processing} duration: #{video.duration_s}"            
+              puts "video id #{video.id} published #{video.published} #{video.title} in_processing #{video.in_processing} duration: #{video.duration_s} in: #{video.inpoint_s}"            
             end
             puts " "
           end
