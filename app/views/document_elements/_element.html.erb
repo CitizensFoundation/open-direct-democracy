@@ -1,5 +1,6 @@
-<%="#{element.content}" %>
+<%="#{element.content}" %><br>
 <% if [1].include?(element.content_type) %>
+<br>
 <i><%=t :rate_this_article %>:</i>
 <table width="100%">
     <tr valign="top">
@@ -26,4 +27,6 @@
         </td>
     </tr>
 </table>
+<br><br>
 <% end %>
+

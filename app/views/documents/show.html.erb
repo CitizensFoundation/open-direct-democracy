@@ -1,6 +1,8 @@
 <p>
-    <a href="/cases/<%=@document.case_document.case.id%>"><h2 class="participateLink"><%=h t(:case)%>: <%=h @document.case_document.case.external_name %></h2></a>
-	<%=h @document.case_document.case.info_1 %><br><%=h @document.case_document.case.info_2 %>
+    <a href="/cases/<%=@document.case_document.case.id%>"><h2 class="participateLink"><%=h t(:case)%>: <%=h @document.case_document.case.external_name %></a></h2>
+	<%=h @document.case_document.case.info_1 %>
+	<h3><%=[@document.case_document.stage_sequence_number,1].max%>. <%= t :stage_sequence_discussion%></h3>
+	<b><%=t :document%>: <%=h @document.case_document.external_id%></b>
 </p>
 <p>
 	<% if @document.voting_close_time > Time.now %>
@@ -44,6 +46,7 @@
 	</tr>
 	<tr>		
 	<td width="100%">
+    <hr>
 	<center>
 	    <div id="comment_panel_master_for_Document_<%=@document.id%>">
 	        <%= render :partial => "document_comments/comment_on", :locals => {:document=> @document, :comment_target => @document, :open_panel => @document.has_comments? } %>
@@ -52,8 +55,3 @@
 	</td>
 </tr>
 </table>
-<hr>
-<p>
-    <b><%=t :external_link %>:</b>
-    <a target="_blank" href="<%=@document.external_link%>"><%=h @document.external_link %></a>
-</p>

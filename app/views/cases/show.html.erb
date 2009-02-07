@@ -45,7 +45,7 @@
 	                <%=document.external_date.strftime("%d.%m.%Y") %>
 	            </td>
 	            <td>
-            		<%= link_to document.external_id, document.external_link,{:target=>"_blank"}%>
+            		<%=document.external_id %>
 	            </td>
 	            <td>
 	                <%=document.external_author %>
@@ -106,9 +106,6 @@
 	    <br>
 	    <br>
     <% end %>
-    <b><%=t :external_link %></b>
-    <%=link_to h(@case.external_link), @case.external_link, {:target => "_blank"}%>
-    <br>
     <br>
     <% if @i_am_admin %>
 	    <%= link_to t(:edit), edit_case_path(@case) %> |<%= link_to t(:back), cases_path %>
