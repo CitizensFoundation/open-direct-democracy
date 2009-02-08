@@ -88,6 +88,10 @@ class CaseSpeechVideo < ActiveRecord::Base
     "/"+ENV['RAILS_ENV']+"/case_speech_videos/#{self.id}/speech.flv"
   end
 
+  def video_share_swf_player_url(host)
+    "http://#{host}/swf/flowplayer.swf?config={%22clip%22:{%22url%22:%22http://#{host}/production/case_speech_videos/#{self.id}/speech.flv%22,%22embedded%22:true}}"
+  end
+
   def video_share_width
     "640"
   end
