@@ -1,7 +1,7 @@
 <meta name="title" content="<%=video_share_title(case_speech_video)%>" />
 <meta name="description" content="<%=video_share_description(case_speech_video)%>" />
 <link rel="image_src" href="http://<%=request.host.downcase%><%=case_speech_video.video_share_screenshot_image%>" />
-<link rel="video_src" href="http://<%=request.host.downcase%><%=case_speech_video.video_share_url%>"/>
+<link rel="video_src" href="<%=case_speech_video.video_share_swf_player_url(request.host.downcase)%>"/>
 <meta name="video_height" content="<%=case_speech_video.video_share_height%>" />
 <meta name="video_width" content="<%=case_speech_video.video_share_width%>" />
 <meta name="video_type" content="<%=case_speech_video.video_content_type%>" />
