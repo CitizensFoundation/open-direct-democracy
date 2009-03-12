@@ -18,7 +18,7 @@
         	<%= render :partial => "ratings/rate_smaller", :locals => { :asset => current_case, :postfix=>"7_days" } %>
         </td>
         <td>
-            <%= link_to "#{current_case.info_1} / #{current_case.info_2}", current_case %>
+            <%= link_to "#{current_case.info_1.capitalize} / #{current_case.info_2}", current_case %>
         </td>
         <td>
             <%= current_case.presenter %>.
