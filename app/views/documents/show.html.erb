@@ -1,5 +1,5 @@
 <p>
-    <a href="/cases/<%=@document.case_document.case.id%>"><h2 class="participateLink"><%=h t(:case) %>: <%=h @document.case_document.case.info_1 %></h2></a>
+    <a href="/cases/<%=@document.case_document.case.id%>"><h2 class="participateLink"><%=h t(:case) %>: <%=h @document.case_document.case.info_1.capitalize %></h2></a>
 	<%=h @document.case_document.case.info_2 %> <%=h @document.case_document.case.info_3 %>
 <% if @document.case_document.stage_sequence_number > 0 %>
    - <%=@document.case_document.stage_sequence_number%>. <%=t(:stage_sequence_discussion)%>
