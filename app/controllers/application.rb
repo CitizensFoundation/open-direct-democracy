@@ -13,6 +13,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+SSL_PROTOCOL = "https"
+
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   before_filter :check_authentication,
