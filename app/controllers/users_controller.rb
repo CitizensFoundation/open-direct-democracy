@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   skip_before_filter :check_authentication, :only => [ :login, :logout, :eid_login ]
   skip_before_filter :check_authorization, :only => [ :login, :logout, :eid_login ]
   filter_parameter_logging :login_password, :password, :password_confirmation
+  before_filter :redirect_to_ssl, :only => [:eid_login]
 
   def complete_login
     if xml_request?
