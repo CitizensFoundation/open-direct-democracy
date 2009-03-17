@@ -40,7 +40,11 @@ class ApplicationController < ActionController::Base
   def log_user_email
      if session[:user_id]
        user = User.find(session[:user_id])
-       info("user => #{user.email}") if user
+       if user and user.email
+         info("user => #{user.email}")
+       elsif user and user.citizen_id
+         info("user => #{user.full_name} (eid user)")
+       end
      else
        info("user => anonymous")
      end
