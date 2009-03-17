@@ -91,6 +91,7 @@ is:
   logout: "Aftengjast"
   email_address: "Tölvupóstfang"
   login: "Innskráning"
+  eid_login: "Innskráning með rafrænu skilríki"  
   confirm_email_address: "Staðfestu tölvupóstfang"
   confirm_password: "Staðfestu lykilorð"
   register_now: "Skráðu þig inn í fyrsta skipti"
