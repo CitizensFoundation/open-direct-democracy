@@ -91,7 +91,6 @@ class UsersController < ApplicationController
         namep = name.split
         first_name = namep[0..namep.length-2].join(" ")
         last_name = namep[namep.length-1]
-        end
       end
     end
     
