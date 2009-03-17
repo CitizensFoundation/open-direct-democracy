@@ -74,6 +74,7 @@ class UsersController < ApplicationController
   end
  
   def eid_login
+    @all_env_vars = request.env
   end
 
   def logout
