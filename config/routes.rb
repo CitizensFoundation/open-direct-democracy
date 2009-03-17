@@ -47,6 +47,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :categories
 
   map.connect 'users/login', :controller => 'users', :action => 'login'
+  map.connect 'users/eid_login', :controller => 'users', :action => 'eid_login'
   map.connect 'users/logout', :controller => 'users', :action => 'logout'
   map.resources :users
 
