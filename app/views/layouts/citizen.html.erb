@@ -63,7 +63,8 @@
         <hr><%=t :choice %>: <%= link_to "#{t :cases}", :controller=>"cases" %>| <% if session[:user_id] %>
         <a href="/users/logout"><%=t :logout %></a>
         <% else %>
-        <a href="/users/login"><%=t :login %></a>
+        <a href="/users/login"><%=t :login %></a> 
+        <a href="/users/eid_login"><%=t :eid_login %></a>
         <% end %>
         <hr>
         <p style="color: green">
