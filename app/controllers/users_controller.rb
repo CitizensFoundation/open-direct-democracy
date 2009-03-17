@@ -15,8 +15,8 @@
  
 class UsersController < ApplicationController
   layout "citizen"
-  skip_before_filter :check_authentication, :only => [ :login, :logout ]
-  skip_before_filter :check_authorization, :only => [ :login, :logout ]
+  skip_before_filter :check_authentication, :only => [ :login, :logout, :eid_login ]
+  skip_before_filter :check_authorization, :only => [ :login, :logout, :eid_login ]
   filter_parameter_logging :login_password, :password, :password_confirmation
 
   def complete_login
@@ -71,6 +71,9 @@ class UsersController < ApplicationController
     elsif not request.post? and xml_request?
       xml_error("RedirectLogin", "You need to login")
     end
+  end
+ 
+  def eid_login
   end
 
   def logout
