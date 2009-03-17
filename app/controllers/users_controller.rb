@@ -74,7 +74,47 @@ class UsersController < ApplicationController
   end
  
   def eid_login
-    @all_env_vars = request.env
+    subject = request.env["SSL_CLIENT_S_DN"]
+    citizen_id = name = first_name = last_name = nil
+    if subject
+      subject.split("/").each do |entry|
+        params = entry.split("=")
+        if params.length==2 and (params[0]=="serialNumber" or params[0]=="oid.2.5.4.5")
+          citizen_id = params[1]
+        end
+        if params.length==2 and params[0]=="CN"
+          name = params[1]
+        end
+      end
+      if citizen_id and name
+        namep = name.split
+        first_name = namep[0..namep.length-2].join(" ")
+        last_name = namep[namep.length-1]
+        end
+      end
+    end
+    
+    if citizen_id and first_name and last_name
+      user = User.find_by_citizen_id(citizen_id)
+      if user
+        info("user_id: #{user.id} authenticated with electronic id")
+        session[:user_id] = user.id
+        session[:user_email] = user.email
+        redirect_to :controller => "cases"
+      else
+        user = User.new
+        user.citizen_id = citizen_id
+        user.first_name = first_name
+        user.last_name = last_name
+        user.save(false)
+        session[:user_id] = user.id
+        session[:user_email] = user.email
+        info("Created user #{user.full_name}")
+        redirect_to :controller => "cases"
+      end
+    else
+      error("Couldn't find or create user")
+    end
   end
 
   def logout
