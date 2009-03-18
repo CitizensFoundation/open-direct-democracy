@@ -139,8 +139,8 @@ class ApplicationController < ActionController::Base
   def configure_charsets
     if request.xhr?
       response.headers["Content-Type"] ||= "text/javascript; charset=iso-8859-1"
-    else
-      response.headers["Content-Type"] ||= "text/html; charset=iso-8859-1"
+#    else
+#      response.headers["Content-Type"] ||= "text/html; charset=iso-8859-1"
     end
   end
   
