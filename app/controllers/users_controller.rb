@@ -84,7 +84,7 @@ class UsersController < ApplicationController
           citizen_id = params[1]
         end
         if params.length==2 and params[0]=="CN"
-          name = params[1]
+          name = from_double_backslash_utf_8_source(params[1])
         end
       end
       if citizen_id and name
@@ -207,4 +207,26 @@ class UsersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+  
+  def from_double_backslash_utf_8_source(source)
+    out_a = []
+    source_a = source.unpack("C*")
+    index = 0
+    begin
+      if source_a[index]==92 and source_a[index+1]==120
+        tmp_a = []
+        tmp_a << source_a[index+2]
+        tmp_a << source_a[index+3]
+        out_a << tmp_a.pack("C*").hex
+        index+=4
+      else
+        out_a << source_a[index]
+        index+=1
+      end
+    end while index<source_a.length
+    out_a.pack("C*")
+  end 
 end
+
