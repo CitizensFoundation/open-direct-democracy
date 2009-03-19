@@ -169,6 +169,10 @@ is:
   case: "Mál"
   whole_discussion: "Öll umræðan"
   this_vote_is_closed: "Þessari atkvæðagreiðslu er lokið"
+  secret_vote: "Kosningaleynd"
+  secret_vote_only_avilable_using_eid: "Kosningaleynd er aðeins hægt að nota ef þú skráir þig inn með rafrænu skilríki"
+  secret_votes_against_count: "Atkvæði með kosningaleynd"
+  secret_votes_in_support_count: "Atkvæði með kosningaleynd"
   support:
       array:
         sentence_connector: "og"
