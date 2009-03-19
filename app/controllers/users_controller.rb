@@ -100,6 +100,7 @@ class UsersController < ApplicationController
         info("user_id: #{user.id} authenticated with electronic id")
         session[:user_id] = user.id
         session[:user_email] = user.email
+        session[:using_eid] = true
         redirect_to :controller => "cases"
       else
         user = User.new
@@ -109,6 +110,7 @@ class UsersController < ApplicationController
         user.save(false)
         session[:user_id] = user.id
         session[:user_email] = user.email
+        session[:using_eid] = true
         info("Created user #{user.full_name}")
         redirect_to :controller => "cases"
       end
@@ -229,4 +231,3 @@ class UsersController < ApplicationController
     out_a.pack("C*")
   end 
 end
-

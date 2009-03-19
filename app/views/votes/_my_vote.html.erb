@@ -31,23 +31,50 @@
 		        </td>
 		    </tr>
 		    <tr>
-		        <td align="center" class="participateLinkLarger">
+		        <td align="left" class="participateLinkLarger">
 		            <b><%=t :in_support %></b>
 		        </td>
-		        <td align="center" class="participateLinkLarger">
+		        <td align="right" class="participateLinkLarger">
 		            <b><%=t :against %></b>
 		        </td>
 		    </tr>
 		    <tr>
-		        <td align="center">
+		        <td align="left">
 		            <%= f.radio_button :agreed, 1 %>
 		        </td>
-		        <td align="center">
+		        <td align="right">
 		            <%= f.radio_button :agreed, 0 %>
 		        </td>
 		    </tr>
 		    <tr>
-		        <td colspan=2>
+		     <td colspan="2"><br></td>
+		    </tr>
+		    <% if session[:using_eid] %>
+			    <tr>
+			        <td align="left" class="participateLinkLarger">
+			            <%=t :secret_vote %>
+			        </td>
+			        <td align="right" class="participateLinkLarger">
+			            <%= f.check_box :secret %>
+			        </td>
+			    </tr>
+			<% else %>
+			    <tr>
+			        <td align="center" class="disabled_secret_vote">
+			            <%=t :secret_vote %>
+			        </td>
+			        <td align="center" class="disabled_secret_vote">
+			            <%= f.check_box :secret, { :disabled => true } %>
+			        </td>
+			    <tr>
+			      <td align="center" colspan="2" width="30px" class="about_secret_vote_text">
+			        <%=t :secret_vote_only_avilable_using_eid %>
+			      </td>
+			    </tr>
+			    </tr>
+			<% end %>
+		    <tr>
+		        <td colspan=2 align="center">
 		            <%= f.hidden_field :document_id, {:value=>document.id} %>
 		            <p>
 		                <%= f.submit t(:post_vote) %>

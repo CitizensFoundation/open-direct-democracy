@@ -26,6 +26,14 @@ a.participateLink:hover { color: #348017; }
 	cursor: pointer; cursor: hand;
 }
 
+.about_secret_vote_text {
+  font-size: 9px;  
+  color: #999999;
+}
+
+.disabled_secret_vote {
+  color: #999999;
+}
 
 .participateLink {
 	text-decoration: underline;

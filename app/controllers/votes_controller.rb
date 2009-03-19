@@ -58,6 +58,10 @@ class VotesController < ApplicationController
     Vote.delete_all(["document_id = ? AND user_id = ?", params[:vote][:document_id], session[:user_id]])
     params[:vote][:user_id]=session[:user_id]
     @vote = Vote.new(params[:vote])
+    
+    unless session[:using_eid]
+      @vote.secret = false
+    end
 
     respond_to do |format|
       if params[:vote][:agreed]==nil

@@ -19,9 +19,14 @@
     <tr>
         <td width="50%" align="left">
           <center>
+            <% secret_votes_in_support = 0 %>
             <% for vote in @votes_in_support %>
-	            <%= vote.user.full_name %>
-    	        <br>
+		        <% unless vote.secret %>
+  	              <%= vote.user.full_name %>
+      	          <br>
+  	            <% else %>
+  	              <% secret_votes_in_support += 1 %>
+  	            <% end %>
 	            <% vote_proxy_votes = VoteProxy.find(:all, :conditions=> ["category_id = ? and to_user_id = ?", vote.document.category_id, vote.user.id]) %>
 	            <% for proxy_vote in vote_proxy_votes %>
 		            <% unless vote.document.vote_id_by_user(proxy_vote.from_user_id) %>
@@ -30,14 +35,22 @@
 			            <br>
 		            <% end %>
 	            <% end %>
-             <% end %>
+            <% end %>
+            <% unless secret_votes_in_support == 0 %>
+              <%=t :secret_votes_in_support_count %>: <%=secret_votes_in_support%>
+            <% end %>
           </center>
 		</td>
         <td width="50%" align="left">
 		  <center>          
+            <% secret_votes_against = 0 %>
 		    <% for vote in @votes_against %>
-	            <%= vote.user.full_name %>
-	            <br>
+		        <% unless vote.secret %>
+  	              <%= vote.user.full_name %>
+  	              <br>
+  	            <% else %>
+  	              <% secret_votes_against += 1 %>
+  	            <% end %>
 	            <% vote_proxy_votes = VoteProxy.find(:all, :conditions=> ["category_id = ? and to_user_id = ?", vote.document.category_id, vote.user.id]) %>
 	            <% for proxy_vote in vote_proxy_votes %>
 		            <% unless vote.document.vote_id_by_user(proxy_vote.from_user_id) %>
@@ -46,6 +59,9 @@
 			            <br>
 		            <% end %>
 	            <% end %>
+            <% end %>
+            <% unless secret_votes_against == 0 %>
+              <%=t :secret_votes_against_count %>: <%=secret_votes_against%>
             <% end %>
 		    </center>
         </td>
