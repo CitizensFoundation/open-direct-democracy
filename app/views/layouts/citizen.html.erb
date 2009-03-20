@@ -61,11 +61,12 @@
         <h1><%=t :main_header %></h1>
         <%end %>
         <hr><%=t :choice %>: <%= link_to "#{t :cases}", :controller=>"cases" %> | <% if session[:user_id] %>
-        <a href="/users/logout"><%=t :logout %></a>
+        <a href="/users/logout"><%=t :logout %></a> | 
         <% else %>
         <a href="/users/login"><%=t :login %></a> | 
-        <a href="/users/eid_login"><%=t :eid_login %></a>
+        <a href="/users/eid_login"><%=t :eid_login %></a> | 
         <% end %>
+        <a href="/users/about_us"><%=t :about_us %></a>        
         <hr>
         <p style="color: green">
             <%= flash[:notice] %>
