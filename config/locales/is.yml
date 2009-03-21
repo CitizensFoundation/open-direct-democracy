@@ -2,7 +2,7 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 is:
-  about_us: "Um höfunda kerfis"
+  about_us: "Um þessa vefsíðu"
   no_search_results: "Engar ræður fundust"
   search_results_for: "Niðurstöður ræðu leitar fyrir"
   search: "Leita"
@@ -15,7 +15,7 @@ is:
   rate_this_speech: "Hversu góð er þessi ræða?"
   document_in_case: "Skjal í máli"
   share_on_facebook: "Birta á Facebook"
-  main_header: "Almannaþing "
+  main_header: "Almannaþing / Opið Beint Lýðræði "
   for_user: "fyrir "
   user: "Notandi"
   users: "Notendur"
