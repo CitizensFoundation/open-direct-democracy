@@ -139,10 +139,10 @@ class ApplicationController < ActionController::Base
   end
 
   def check_frames
-#    if request.referer=="http://almannathing.is/" or request.referer=="http://www.almannathing.is/"
-#      info("Removing outer frame so SSL and electronic ids can work")
+    if request.referer=="http://almannathing.is/" or request.referer=="http://www.almannathing.is/"
+      info("Removing outer frame so SSL and electronic ids can work")
       redirect_to :controller=>"users", :action=>"get_out_of_frames"
-#    end
+    end
   end
   
   def configure_charsets
