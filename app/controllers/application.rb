@@ -21,12 +21,12 @@ class ApplicationController < ActionController::Base
                 :check_authorization,
                 :set_locale,
                 :log_user_email,
-                :log_referer
-#                :get_out_of_frames
+                :log_referer,
+                :check_frames
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
-  #protect_from_forgery # :secret => '216851400334e64c3cf4dcd55b6527cf'
+  protect_from_forgery # :secret => '216851400334e64c3cf4dcd55b6527cf'
   
   # See ActionController::Base for details 
   # Uncomment this to filter the contents of submitted sensitive data parameters
@@ -138,11 +138,11 @@ class ApplicationController < ActionController::Base
     render :file => 'shared/error.rxml', :layout => false, :use_full_path => true
   end
 
-  def get_out_of_frames
-    if request.referer=="http://almannathing.is/" or request.referer=="http://www.almannathing.is/"
-      info("Removing outer frame so SSL and electronic ids can work")
+  def check_frames
+#    if request.referer=="http://almannathing.is/" or request.referer=="http://www.almannathing.is/"
+#      info("Removing outer frame so SSL and electronic ids can work")
       redirect_to :controller=>"users", :action=>"get_out_of_frames"
-    end
+#    end
   end
   
   def configure_charsets
