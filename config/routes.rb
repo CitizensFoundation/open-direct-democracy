@@ -48,6 +48,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect 'users/login', :controller => 'users', :action => 'login'
   map.connect 'users/eid_login', :controller => 'users', :action => 'eid_login'
+  map.connect 'users/get_out_of_frames', :controller => 'users', :action => 'get_out_of_frames'
   map.connect 'users/about_us', :controller => 'users', :action => 'about_us'
   map.connect 'users/logout', :controller => 'users', :action => 'logout'
   map.resources :users
