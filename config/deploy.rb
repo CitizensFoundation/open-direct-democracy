@@ -18,6 +18,7 @@ task :after_update_code do
   run "ln -s #{deploy_to}/#{shared_dir}/production #{current_release}/public/production"
   run "ln -s #{deploy_to}/#{shared_dir}/private #{current_release}/private"
   run "ln -s #{deploy_to}/#{shared_dir}/config/worker.yml #{current_release}/workers/video/config/worker.yml"
+  run "ln -s #{deploy_to}/#{shared_dir}/workers #{current_release}/workers"
   run "rm -f #{current_path}"
 end
 
