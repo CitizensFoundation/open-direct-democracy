@@ -21,8 +21,8 @@ class ApplicationController < ActionController::Base
                 :check_authorization,
                 :set_locale,
                 :log_user_email,
-                :log_referer,
-                :get_out_of_frames
+                :log_referer
+#                :get_out_of_frames
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
