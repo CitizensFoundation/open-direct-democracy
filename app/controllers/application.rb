@@ -21,8 +21,8 @@ class ApplicationController < ActionController::Base
                 :check_authorization,
                 :set_locale,
                 :log_user_email,
-                :log_referer
-#                :get_out_of_frames
+                :log_referer,
+                :get_out_of_frames
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
@@ -139,10 +139,9 @@ class ApplicationController < ActionController::Base
   end
 
   def get_out_of_frames
-    if request.referer=="http://almannathing.is/" or
-       request.referer=="http://www.almannathing.is/"
-       info("Removing outer frame so SSL and electronic ids can work")
-       redirect_to :controller=>"users", :action=>"get_out_of_frames"
+    if request.referer=="http://almannathing.is/" or request.referer=="http://www.almannathing.is/"
+      info("Removing outer frame so SSL and electronic ids can work")
+      redirect_to :controller=>"users", :action=>"get_out_of_frames"
     end
   end
   
