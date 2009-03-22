@@ -17,6 +17,8 @@ class UsersController < ApplicationController
   layout "citizen"
   skip_before_filter :check_authentication, :only => [ :login, :logout, :eid_login, :about_us, :get_out_of_frames ]
   skip_before_filter :check_authorization, :only => [ :login, :logout, :eid_login, :about_us, :get_out_of_frames ]
+  skip_before_filter :check_frames, :only => [:get_out_of_frames]
+
   filter_parameter_logging :login_password, :password, :password_confirmation
   before_filter :redirect_to_ssl, :only => [:eid_login]
 
