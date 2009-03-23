@@ -139,7 +139,8 @@ class ApplicationController < ActionController::Base
   end
 
   def check_frames
-    if request.referer=="http://almannathing.is/" or request.referer=="http://www.almannathing.is/"
+    if request.referer=="http://almannathing.is/" or request.referer=="http://www.almannathing.is/" or
+       request.referer=="http://xn--almannaing-2eb.is/" or request.referer=="http://www.xn--almannaing-2eb.is/"
       info("Removing outer frame so SSL and electronic ids can work")
       redirect_to :controller=>"users", :action=>"get_out_of_frames"
     end
