@@ -1,7 +1,13 @@
 <table>
 <tr>
+<% counter = 0%>
 <% discussion.case_speech_videos.get_all_published.each do |video| %>
   <td><%=video.get_image_tag%></td>
+  <% counter+=1 %>
+  <% if counter>10 %>
+    </tr><tr>
+    <% counter = 0%>
+  <% end %>
 <% end %>
 </tr>
 </table>
