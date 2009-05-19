@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090202052954) do
+ActiveRecord::Schema.define(:version => 20090519134046) do
 
   create_table "case_discussions", :force => true do |t|
     t.datetime "meeting_date"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20090202052954) do
     t.text     "info_3"
     t.string   "presenter"
     t.integer  "external_id"
+    t.boolean  "archived",      :default => false
   end
 
   create_table "categories", :force => true do |t|
@@ -263,6 +264,7 @@ ActiveRecord::Schema.define(:version => 20090202052954) do
     t.datetime "updated_at"
     t.integer  "proxy_vote_count"
     t.boolean  "vote_frozen"
+    t.boolean  "secret",           :default => false
   end
 
 end

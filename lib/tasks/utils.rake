@@ -1,4 +1,20 @@
 namespace :utils do
+  desc "Archive cases"
+  task(:archive_cases => :environment) do
+      if ENV['current_thing_id']
+        logg = "#{ENV['current_thing_id']}. lög"
+        puts "Archiving all cases except for thing: #{logg}"
+        Case.find(:all).each do |c|
+          puts c.info_3
+          unless c.info_3.index(logg)
+            puts "ARCHIVING"
+            c.archived = true
+            c.save
+          end
+        end
+      end
+  end
+
   desc "Backup"
   task(:backup => :environment) do
       filename = "beint.lydraedi.is_#{Time.new.strftime("%d%m%y_%H%M%S")}.sql"

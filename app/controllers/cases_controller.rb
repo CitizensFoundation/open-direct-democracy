@@ -22,7 +22,12 @@ class CasesController < ApplicationController
   # GET /cases
   # GET /cases.xml
   def index
-    @cases = Case.find(:all, :order=>"external_id DESC")
+    unless params["all_archived"]
+      @cases = Case.find(:all, :order=>"external_id DESC", :conditions=>"archived = 0")
+    else
+      @cases = Case.find(:all, :order=>"external_id DESC")
+      @all_archived = true
+    end
     @most_important_cases = @cases.sort_by { |x| [-x.rating, -x.ratings.size] }
     @last_comments = []
     DocumentComment.find(:all, :limit=>5, :select => 'DISTINCT(user_id)',:order=>"document_comments.created_at DESC").each do |comment_include|
@@ -59,12 +64,14 @@ class CasesController < ApplicationController
 
   # GET /cases/1
   # GET /cases/1.xml
+  # GET /cases/1.json
   def show
     @my_case = @case = Case.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @case }
+      format.json  { render :xml => @case }
     end
   end
 

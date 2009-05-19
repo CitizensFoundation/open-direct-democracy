@@ -16,6 +16,7 @@
 class Case < ActiveRecord::Base
   has_many :case_documents
   has_many :case_discussions
+  belongs_to :case_type
   
   acts_as_rateable
     

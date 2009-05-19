@@ -108,6 +108,15 @@
         <% end %>
     </tr>
     <% end %>
+	<tr>
+		<td colspan=3>
+			<% if @all_archived %>
+  			  <a href="/cases"><%=t :show_only_current_cases %></a>
+			<% else %>
+  			  <a href="/cases?all_archived=1"><%=t :show_all_archived_cases %></a>
+			<% end %>  
+		</td>
+	</tr>
 </table>
 <br/>
 <% if @i_am_admin %>
