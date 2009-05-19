@@ -135,7 +135,7 @@ is:
   althingi_type_of_discussion: "Tegund umræðu"
   althingi_meeting: "Þingfundur"
   listen: "Hlusta"
-  show_all_archived_cases: "Sýna öll mál frá öllum þingum"
+  show_all_archived_cases: "Sýna öll mál frá öllum þingum í þessu kerfi"
   show_only_current_cases: "Sýna bara mál frá þessu þingi"
   althingi_case_id: "Málsnr."
   althingi_case_name: "Heiti máls"
