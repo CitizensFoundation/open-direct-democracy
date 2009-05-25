@@ -18,10 +18,10 @@ namespace :utils do
   desc "Backup"
   task(:backup => :environment) do
       filename = "beint.lydraedi.is_#{Time.new.strftime("%d%m%y_%H%M%S")}.sql"
-      system("mysqldump -u robert --force --password=zaijei7E odd_master > /tmp/#{filename}")
-      system("gzip /tmp/#{filename}")
-      system("scp /tmp/#{filename}.gz robert@where.is:backups/#{filename}.gz")
-      system("rm /tmp/#{filename}.gz")
+      system("mysqldump -u robert --force --password=zaijei7E odd_master > /home/robert/#{filename}")
+      system("gzip /home/robert/#{filename}")
+      system("scp /home/robert/#{filename}.gz robert@where.is:backups/#{filename}.gz")
+      system("rm /home/robert/#{filename}.gz")
   end
 
   desc "Delete Fully Processed Masters"
